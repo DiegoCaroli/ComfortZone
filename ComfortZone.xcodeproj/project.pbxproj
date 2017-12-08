@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E0A751FD9F416001B0740 /* AppDelegate.swift */; };
-		F18E0A781FD9F416001B0740 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E0A771FD9F416001B0740 /* ViewController.swift */; };
 		F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A791FD9F416001B0740 /* Main.storyboard */; };
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
 		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		F18E0A721FD9F416001B0740 /* ComfortZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComfortZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18E0A751FD9F416001B0740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F18E0A771FD9F416001B0740 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F18E0A7A1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F18E0A7C1FD9F416001B0740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,13 +53,52 @@
 			isa = PBXGroup;
 			children = (
 				F18E0A751FD9F416001B0740 /* AppDelegate.swift */,
-				F18E0A771FD9F416001B0740 /* ViewController.swift */,
-				F18E0A791FD9F416001B0740 /* Main.storyboard */,
-				F18E0A7C1FD9F416001B0740 /* Assets.xcassets */,
-				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
-				F18E0A811FD9F416001B0740 /* Info.plist */,
+				F18E0A871FD9FAB7001B0740 /* Controllers */,
+				F18E0A8A1FDA8EB0001B0740 /* Data Layer */,
+				F18E0A891FDA85D3001B0740 /* Storyboards */,
+				F18E0A8B1FDA8EE2001B0740 /* Supporting Files */,
+				F18E0A881FD9FAF0001B0740 /* Views */,
 			);
 			path = ComfortZone;
+			sourceTree = "<group>";
+		};
+		F18E0A871FD9FAB7001B0740 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F18E0A881FD9FAF0001B0740 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F18E0A891FDA85D3001B0740 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
+				F18E0A791FD9F416001B0740 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F18E0A8A1FDA8EB0001B0740 /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		F18E0A8B1FDA8EE2001B0740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F18E0A7C1FD9F416001B0740 /* Assets.xcassets */,
+				F18E0A811FD9F416001B0740 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +173,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18E0A781FD9F416001B0740 /* ViewController.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,12 +312,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8TLTA9GAD;
-				INFOPLIST_FILE = ComfortZone/Info.plist;
+				INFOPLIST_FILE = "ComfortZone/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegocaroli.ComfortZone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -291,12 +327,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8TLTA9GAD;
-				INFOPLIST_FILE = ComfortZone/Info.plist;
+				INFOPLIST_FILE = "ComfortZone/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegocaroli.ComfortZone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
