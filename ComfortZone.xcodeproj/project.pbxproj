@@ -12,6 +12,7 @@
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
 		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
 		F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */; };
+		FAC97F301FDEDA950012F2B2 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC97F2F1FDEDA950012F2B2 /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Survey.storyboard; sourceTree = "<group>"; };
+		FAC97F2F1FDEDA950012F2B2 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,20 +57,13 @@
 			isa = PBXGroup;
 			children = (
 				F18E0A751FD9F416001B0740 /* AppDelegate.swift */,
-				F18E0A871FD9FAB7001B0740 /* Controllers */,
-				F18E0A8A1FDA8EB0001B0740 /* Data Layer */,
+				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
+				FAC97F2E1FDED8B70012F2B2 /* Controllers */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
 				F18E0A8B1FDA8EE2001B0740 /* Supporting Files */,
 				F18E0A881FD9FAF0001B0740 /* Views */,
 			);
 			path = ComfortZone;
-			sourceTree = "<group>";
-		};
-		F18E0A871FD9FAB7001B0740 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F18E0A881FD9FAF0001B0740 /* Views */ = {
@@ -88,13 +83,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		F18E0A8A1FDA8EB0001B0740 /* Data Layer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Data Layer";
-			sourceTree = "<group>";
-		};
 		F18E0A8B1FDA8EE2001B0740 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +90,21 @@
 				F18E0A811FD9F416001B0740 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAC97F2D1FDED8A00012F2B2 /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		FAC97F2E1FDED8B70012F2B2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAC97F2F1FDEDA950012F2B2 /* SurveyViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC97F301FDEDA950012F2B2 /* SurveyViewController.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
