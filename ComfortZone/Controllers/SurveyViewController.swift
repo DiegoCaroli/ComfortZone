@@ -9,11 +9,14 @@
 import UIKit
 
 class SurveyViewController: UIViewController {
-
+    
+    @IBOutlet weak var haveDone: UIButton!
+    @IBOutlet weak var wantToDo: UIButton!
+    @IBOutlet weak var wouldNotDo: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        customizeButton(haveDone)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +24,6 @@ class SurveyViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -31,5 +33,13 @@ class SurveyViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    private func customizeButton(_ button: UIButton) {
+        button.layer.cornerRadius = 10
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 2
+    }
+    
 }
+
+
