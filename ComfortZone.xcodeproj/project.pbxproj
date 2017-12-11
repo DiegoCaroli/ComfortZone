@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE6C87C11FDEE13500A37147 /* StoryboardFeaturesTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE6C87C01FDEE13500A37147 /* StoryboardFeaturesTask.storyboard */; };
+		DE6C87C31FDEEBC300A37147 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */; };
 		F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E0A751FD9F416001B0740 /* AppDelegate.swift */; };
 		F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A791FD9F416001B0740 /* Main.storyboard */; };
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE6C87C01FDEE13500A37147 /* StoryboardFeaturesTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardFeaturesTask.storyboard; sourceTree = "<group>"; };
+		DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		F18E0A721FD9F416001B0740 /* ComfortZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComfortZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18E0A751FD9F416001B0740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F18E0A7A1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 			children = (
 				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
 				F18E0A791FD9F416001B0740 /* Main.storyboard */,
+				DE6C87C01FDEE13500A37147 /* StoryboardFeaturesTask.storyboard */,
+				DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -161,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */,
+				DE6C87C11FDEE13500A37147 /* StoryboardFeaturesTask.storyboard in Resources */,
 				F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */,
 				F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */,
 			);
@@ -174,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
+				DE6C87C31FDEEBC300A37147 /* TaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8TLTA9GAD;
 				INFOPLIST_FILE = "ComfortZone/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegocaroli.ComfortZone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -328,6 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8TLTA9GAD;
 				INFOPLIST_FILE = "ComfortZone/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegocaroli.ComfortZone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
