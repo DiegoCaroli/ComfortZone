@@ -11,6 +11,7 @@
 		F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A791FD9F416001B0740 /* Main.storyboard */; };
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
 		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
+		F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		F18E0A7C1FD9F416001B0740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Survey.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
 				F18E0A791FD9F416001B0740 /* Main.storyboard */,
+				F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			files = (
 				F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */,
 				F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */,
+				F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */,
 				F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +198,14 @@
 				F18E0A7F1FD9F416001B0740 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1C5079B1FDED5EE00D0F48A /* Base */,
+			);
+			name = Survey.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
