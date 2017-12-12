@@ -12,7 +12,11 @@
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
 		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
 		F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */; };
+<<<<<<< HEAD
+		F1C5079E1FDED93D00D0F48A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C5079D1FDED93D00D0F48A /* Question.swift */; };
+=======
 		FAC97F301FDEDA950012F2B2 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC97F2F1FDEDA950012F2B2 /* SurveyViewController.swift */; };
+>>>>>>> a0a96681df9a7bc243de7e305540c2217edfde20
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +27,11 @@
 		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Survey.storyboard; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		F1C5079D1FDED93D00D0F48A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+=======
 		FAC97F2F1FDEDA950012F2B2 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+>>>>>>> a0a96681df9a7bc243de7e305540c2217edfde20
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,7 @@
 		FAC97F2D1FDED8A00012F2B2 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				F1C5079D1FDED93D00D0F48A /* Question.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			files = (
 				FAC97F301FDEDA950012F2B2 /* SurveyViewController.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
+				F1C5079E1FDED93D00D0F48A /* Question.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
