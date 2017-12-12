@@ -12,7 +12,7 @@
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
 		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
 		F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */; };
-		FA11E63C1FDFF0D6008FE164 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11E63B1FDFF0D6008FE164 /* SurveyViewController.swift */; };
+		FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Survey.storyboard; sourceTree = "<group>"; };
-		FA11E63B1FDFF0D6008FE164 /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 		FAC97F2E1FDED8B70012F2B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA11E63B1FDFF0D6008FE164 /* SurveyViewController.swift */,
+				FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA11E63C1FDFF0D6008FE164 /* SurveyViewController.swift in Sources */,
+				FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

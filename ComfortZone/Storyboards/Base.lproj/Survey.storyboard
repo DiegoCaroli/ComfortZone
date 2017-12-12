@@ -80,7 +80,6 @@
                         <viewLayoutGuide key="safeArea" id="Sog-hy-WDH"/>
                     </view>
                     <connections>
-                        <outlet property="HaveDone" destination="xaB-wx-CYh" id="WjS-Lu-4EV"/>
                         <outlet property="haveDone" destination="xaB-wx-CYh" id="Hn2-Ik-Egf"/>
                         <outlet property="titleSurveyLabel" destination="EeG-dU-cd4" id="8Om-Ks-D14"/>
                         <outlet property="wantToDo" destination="Bvr-D9-013" id="G4k-US-fAb"/>
