@@ -92,8 +92,48 @@
             </objects>
             <point key="canvasLocation" x="-375.19999999999999" y="74.212893553223395"/>
         </scene>
+        <!--Result Survey View Controller-->
+        <scene sceneID="gFE-SF-BrP">
+            <objects>
+                <viewController storyboardIdentifier="ResultSurveyViewController" id="ixP-4x-keZ" customClass="ResultSurveyViewController" customModule="ComfortZone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Twr-y9-Hrt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ThirdStep" translatesAutoresizingMaskIntoConstraints="NO" id="lhc-h3-MQg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgN-HL-asQ">
+                                <rect key="frame" x="302" y="626" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="ixP-4x-keZ" eventType="touchUpInside" id="AqD-XR-Bp4"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LnE-gd-0t3">
+                                <rect key="frame" x="32" y="238" width="310" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="n3d-0h-bCH"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionResultImageView" destination="LnE-gd-0t3" id="Ma0-la-giE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5w-AO-A4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="332" y="73.313343328335833"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BungeeJumping" width="375" height="667"/>
+        <image name="ThirdStep" width="375" height="667"/>
     </resources>
 </document>

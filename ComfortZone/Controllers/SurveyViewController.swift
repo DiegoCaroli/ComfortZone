@@ -18,6 +18,7 @@ class SurveyViewController: UIViewController {
   
   var counter = 0
   var index = 0
+  var score = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,15 +41,17 @@ class SurveyViewController: UIViewController {
   
   @IBAction func haveDoneButtonPressed(_ sender: Any) {
     nextQuestion(index: index)
-
+    score += 3
   }
   
   @IBAction func wantToDoButtonPressed(_ sender: Any) {
     nextQuestion(index: index)
+    score += 2
   }
   
   @IBAction func wouldNotDoButtonPressed(_ sender: Any) {
     nextQuestion(index: index)
+    score += 1
   }
   
   private func customizeButton(_ button: UIButton) {
@@ -66,6 +69,10 @@ class SurveyViewController: UIViewController {
       let question = DataQuestion.shared.questions[index]
       titleSurveyLabel.text = question.text
       backgroundSurveyImageView.image = question.backgroundImage
+    } else {
+      let resultSurveyViewController = UIStoryboard(name: "Survey", bundle: nil).instantiateViewController(withIdentifier: "ResultSurveyViewController") as! ResultSurveyViewController
+      present(resultSurveyViewController, animated: true, completion: nil)
+      
     }
     self.index += 1
   }
