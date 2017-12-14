@@ -16,9 +16,8 @@ class SurveyViewController: UIViewController {
   @IBOutlet weak var titleSurveyLabel: UILabel!
   @IBOutlet weak var backgroundSurveyImageView: UIImageView!
   
-  var counter = 0
+  var profile: Profile!
   var index = 0
-  var score = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,35 +28,32 @@ class SurveyViewController: UIViewController {
     nextQuestion(index: index)
   }
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowResult" {
+      let resultSurveyViewController = segue.destination as! ResultSurveyViewController
+      resultSurveyViewController.profile = sender as! Profile
+    }
+  }
   
   @IBAction func haveDoneButtonPressed(_ sender: Any) {
     nextQuestion(index: index)
-    score += 3
+    profile.totalScore += 3
   }
   
   @IBAction func wantToDoButtonPressed(_ sender: Any) {
     nextQuestion(index: index)
-    score += 2
+    profile.totalScore += 2
   }
   
   @IBAction func wouldNotDoButtonPressed(_ sender: Any) {
     nextQuestion(index: index)
-    score += 1
+    profile.totalScore += 1
   }
   
   private func customizeButton(_ button: UIButton) {
     button.layer.cornerRadius = 10
-//    button.layer.borderColor = UIColor.black.cgColor
-//    button.layer.borderWidth = 1.3
     button.backgroundColor = UIColor.white
     button.layer.shadowColor = UIColor.gray.cgColor
     button.layer.shadowOffset = CGSize(width: 2, height: 4)
@@ -70,8 +66,7 @@ class SurveyViewController: UIViewController {
       titleSurveyLabel.text = question.text
       backgroundSurveyImageView.image = question.backgroundImage
     } else {
-      let resultSurveyViewController = UIStoryboard(name: "Survey", bundle: nil).instantiateViewController(withIdentifier: "ResultSurveyViewController") as! ResultSurveyViewController
-      present(resultSurveyViewController, animated: true, completion: nil)
+      performSegue(withIdentifier: "ShowResult", sender: profile)
       
     }
     self.index += 1

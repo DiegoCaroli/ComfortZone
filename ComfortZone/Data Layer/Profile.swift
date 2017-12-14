@@ -9,29 +9,31 @@
 import Foundation
 import UIKit
 
-class Profile {
+class Profile: Codable {
   
-  let name: String
-  let surname: String
+  var firstName = ""
+  var lastName = ""
   
   var fullName: String {
-    return "\(name) \(surname)"
+    return "\(firstName) \(lastName)"
   }
   
-  var photoProfile: UIImage?
-  var totalScore: Int
-  var adrenalineScore: Int
-  var businessScore: Int
-  var lifestyleScore: Int
+  var email = ""
   
-  init(name: String, surname: String) {
-    self.name = name
-    self.surname = surname
-    totalScore = 0
-    adrenalineScore = 0
-    businessScore = 0
-    lifestyleScore = 0
-  }
+//  var photoProfile: UIImage?
+  var totalScore = 0
+  var adrenalineScore = 0
+  var businessScore = 0
+  var lifestyleScore = 0
+  
+//  init(name: String, surname: String) {
+//    self.name = name
+//    self.surname = surname
+//    totalScore = 0
+//    adrenalineScore = 0
+//    businessScore = 0
+//    lifestyleScore = 0
+//  }
   
   func getComics() -> UIImage? {
     switch totalScore {

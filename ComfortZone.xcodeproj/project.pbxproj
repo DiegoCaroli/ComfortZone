@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */; };
+		F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */; };
 		F13C43651FE1349F0021225B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C43641FE1349F0021225B /* Profile.swift */; };
 		F141029E1FE003FC00CF4840 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141029D1FE003FC00CF4840 /* Question.swift */; };
+		F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC35C1FE26F4B00828735 /* DataModel.swift */; };
+		F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC3651FE28A1C00828735 /* BorderedButton.swift */; };
 		F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */; };
 		F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E0A751FD9F416001B0740 /* AppDelegate.swift */; };
 		F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A791FD9F416001B0740 /* Main.storyboard */; };
 		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
 		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
 		F1B6D84F1FE01F3600AC0659 /* DataQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6D84E1FE01F3600AC0659 /* DataQuestion.swift */; };
-		F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */; };
+		F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */; };
 		FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
+		F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F13C43641FE1349F0021225B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F141029D1FE003FC00CF4840 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F16EC35C1FE26F4B00828735 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		F16EC3651FE28A1C00828735 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSurveyViewController.swift; sourceTree = "<group>"; };
 		F18E0A721FD9F416001B0740 /* ComfortZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComfortZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18E0A751FD9F416001B0740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +38,7 @@
 		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B6D84E1FE01F3600AC0659 /* DataQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataQuestion.swift; sourceTree = "<group>"; };
-		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Survey.storyboard; sourceTree = "<group>"; };
+		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstTime.storyboard; sourceTree = "<group>"; };
 		FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F16EC3641FE289F200828735 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F16EC3651FE28A1C00828735 /* BorderedButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F18E0A691FD9F416001B0740 = {
 			isa = PBXGroup;
 			children = (
@@ -65,20 +81,13 @@
 			isa = PBXGroup;
 			children = (
 				F18E0A751FD9F416001B0740 /* AppDelegate.swift */,
-				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
 				FAC97F2E1FDED8B70012F2B2 /* Controllers */,
+				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
 				F18E0A8B1FDA8EE2001B0740 /* Supporting Files */,
-				F18E0A881FD9FAF0001B0740 /* Views */,
+				F16EC3641FE289F200828735 /* Views */,
 			);
 			path = ComfortZone;
-			sourceTree = "<group>";
-		};
-		F18E0A881FD9FAF0001B0740 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F18E0A891FDA85D3001B0740 /* Storyboards */ = {
@@ -86,7 +95,7 @@
 			children = (
 				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
 				F18E0A791FD9F416001B0740 /* Main.storyboard */,
-				F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */,
+				F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -106,6 +115,7 @@
 				F141029D1FE003FC00CF4840 /* Question.swift */,
 				F1B6D84E1FE01F3600AC0659 /* DataQuestion.swift */,
 				F13C43641FE1349F0021225B /* Profile.swift */,
+				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -115,6 +125,8 @@
 			children = (
 				FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */,
 				F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */,
+				F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */,
+				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,7 +192,7 @@
 			files = (
 				F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */,
 				F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */,
-				F1C5079C1FDED5EE00D0F48A /* Survey.storyboard in Resources */,
+				F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */,
 				F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,9 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */,
+				F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */,
+				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
 				F141029E1FE003FC00CF4840 /* Question.swift in Sources */,
 				F13C43651FE1349F0021225B /* Profile.swift in Sources */,
 				FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */,
+				F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */,
+				F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 				F1B6D84F1FE01F3600AC0659 /* DataQuestion.swift in Sources */,
 			);
@@ -220,12 +236,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		F1C5079A1FDED5EE00D0F48A /* Survey.storyboard */ = {
+		F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F1C5079B1FDED5EE00D0F48A /* Base */,
 			);
-			name = Survey.storyboard;
+			name = FirstTime.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
