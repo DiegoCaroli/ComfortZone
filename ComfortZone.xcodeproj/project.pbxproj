@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9CD4DA1FE2AA6D008AA9B6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CD4D91FE2AA6D008AA9B6 /* CustomTableViewCell.swift */; };
 		5BE8C1141FE17BD700779245 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE8C1131FE17BD700779245 /* Task.storyboard */; };
 		DE6C87C31FDEEBC300A37147 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */; };
 		F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E0A751FD9F416001B0740 /* AppDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B9CD4D91FE2AA6D008AA9B6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5BE8C1131FE17BD700779245 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		F18E0A721FD9F416001B0740 /* ComfortZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComfortZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,7 @@
 			children = (
 				F18E0A751FD9F416001B0740 /* AppDelegate.swift */,
 				DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */,
+				5B9CD4D91FE2AA6D008AA9B6 /* CustomTableViewCell.swift */,
 				F18E0A871FD9FAB7001B0740 /* Controllers */,
 				F18E0A8A1FDA8EB0001B0740 /* Data Layer */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
@@ -140,6 +143,11 @@
 					F18E0A711FD9F416001B0740 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -180,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9CD4DA1FE2AA6D008AA9B6 /* CustomTableViewCell.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 				DE6C87C31FDEEBC300A37147 /* TaskViewController.swift in Sources */,
 			);
