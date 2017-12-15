@@ -16,13 +16,12 @@ class ResultSurveyViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if let image = profile.getComics() {
-      descriptionResultImageView.image = image
-    }
+    
+    descriptionResultImageView.image = profile.getComics()
   }
   
   @IBAction func nextButtonPressed(_ sender: UIButton) {
-    
+
   }
 
 }

@@ -20,7 +20,7 @@ class Profile: Codable {
   
   var email = ""
   
-//  var photoProfile: UIImage?
+//  var photoProfile: URL?
   var totalScore = 0
   var adrenalineScore = 0
   var businessScore = 0
@@ -35,16 +35,14 @@ class Profile: Codable {
 //    lifestyleScore = 0
 //  }
   
-  func getComics() -> UIImage? {
+  func getComics() -> UIImage {
     switch totalScore {
     case 1...13:
       return #imageLiteral(resourceName: "haveDoneAnswer")
     case 14...22:
       return #imageLiteral(resourceName: "wantToDoAnswer")
-    case 23...27:
+   default:
       return #imageLiteral(resourceName: "wouldNotDoAnswer")
-    default:
-      return nil
     }
   }
   

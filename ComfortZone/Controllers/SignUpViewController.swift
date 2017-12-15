@@ -132,7 +132,7 @@ extension SignUpViewController: UITextFieldDelegate {
   
   func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField == emailTextField {
-      scrollView.setContentOffset(CGPoint(x: 0, y: 150), animated: true)
+      scrollView.setContentOffset(CGPoint(x: 0, y: 205), animated: true)
     }
   }
   
