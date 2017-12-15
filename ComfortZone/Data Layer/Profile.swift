@@ -20,20 +20,12 @@ class Profile: Codable {
   
   var email = ""
   
-//  var photoProfile: URL?
+  var photoProfileURL = ""
+  
   var totalScore = 0
   var adrenalineScore = 0
   var businessScore = 0
   var lifestyleScore = 0
-  
-//  init(name: String, surname: String) {
-//    self.name = name
-//    self.surname = surname
-//    totalScore = 0
-//    adrenalineScore = 0
-//    businessScore = 0
-//    lifestyleScore = 0
-//  }
   
   func getComics() -> UIImage {
     switch totalScore {
