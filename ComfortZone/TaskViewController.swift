@@ -17,7 +17,7 @@ extension UIScrollView {
     }
 }
 
-    //  TASK VIEW CONTROLLER MAIN SECTION
+//  TASK VIEW CONTROLLER MAIN SECTION
 
 class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -45,16 +45,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         sadCloudButton.isHidden = true
         angryCloudButton.isHidden = true
         neutralCloudButton.isHidden = true
-    
+        
     }
     
-    
-    
-   
-    
     override func viewDidLoad() {
-        
-        
         
         cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -300)
         cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 9 , amount: 150)
@@ -62,18 +56,43 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         taskTableView.delegate = self
         taskTableView.dataSource = self
-       
+        
         super.viewDidLoad()
+        
     }
     
     
+    func getElements() -> [String] {
+        
+        var array: [String] = []
+        
+        if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
+            if let dict = NSDictionary(contentsOfFile: path) as? [String:Any] {
+                
+                var adrenalineDict = dict["Adrenaline"] as! [String]
+                var businessDict = dict["Business"] as! [String]
+                var lifestyleDict = dict["Lifestyle"] as! [String]
+                
+                let adrenalineRandomElement = adrenalineDict[Int(arc4random_uniform(UInt32(adrenalineDict.count)))]
+                let businessRandomElement = businessDict[Int(arc4random_uniform(UInt32(businessDict.count)))]
+                let lifestyleRandomElement = lifestyleDict[Int(arc4random_uniform(UInt32(lifestyleDict.count)))]
+                
+                array = [adrenalineRandomElement, businessRandomElement, lifestyleRandomElement]
+                
+                
+            }
+        }
+        return array
+    }
     
     func cloudAnimation(viewOfTheCloud: UIView , duration: Double , amount: CGFloat){
         UIView.animate(withDuration: duration, delay: 0.25, options: [.autoreverse, .repeat], animations: {
             viewOfTheCloud.frame.origin.x -= amount
         })
-    
+        
     }
+    
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return imageTask.count
     }
@@ -81,15 +100,23 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = taskTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
-//        let cell = taskTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        cell.typeTaskLabel.text = imageTask[indexPath.row]
-        cell.taskLabel.text = labelTask[indexPath.row]
+        
+        let arrayElements = getElements()
+        
+        cell.taskLabel.text = arrayElements[indexPath.row]
+        cell.typeTaskLabel.text = labelTask[indexPath.row]
         cell.taskImageView.image = UIImage(named: imageTask[indexPath.row])
         
         return cell
         
     }
+    
+    
+    
+    
+    
+    
     
     
     //  BUTTON SECTION - SCROLL DOWN AND HIDE THE BUTTON
