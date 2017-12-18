@@ -44,7 +44,7 @@ class AddPhotoViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "TakeSurvey" {
       let surveyViewController = segue.destination as! SurveyViewController
-      surveyViewController.profile = sender as! Profile
+      surveyViewController.profile = profile
     }
   }
   

@@ -28,12 +28,11 @@ class SurveyViewController: UIViewController {
     nextQuestion(index: index)
   }
   
-  
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowResult" {
       let resultSurveyViewController = segue.destination as! ResultSurveyViewController
-      resultSurveyViewController.profile = sender as! Profile
+      resultSurveyViewController.profile = profile
     }
   }
   

@@ -80,7 +80,6 @@ class SignUpViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "AddPhoto" {
       let addPhotoViewController = segue.destination as! AddPhotoViewController
-      print(sender.debugDescription)
       addPhotoViewController.profile = profile
     }
   }

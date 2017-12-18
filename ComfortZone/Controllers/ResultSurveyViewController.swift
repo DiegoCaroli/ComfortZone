@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultSurveyViewController: UIViewController {
-
+  
   var profile: Profile!
   
   @IBOutlet weak var descriptionResultImageView: UIImageView!
@@ -23,5 +23,5 @@ class ResultSurveyViewController: UIViewController {
   @IBAction func nextButtonPressed(_ sender: UIButton) {
 
   }
-
+  
 }
