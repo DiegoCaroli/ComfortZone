@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1721F01FE7D5E10030F256 /* CustomPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1721EF1FE7D5E10030F256 /* CustomPopUpViewController.swift */; };
 		5B2E78561FE41DCD0030784F /* Tasks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E78551FE41DCD0030784F /* Tasks.plist */; };
 		5B9CD4DA1FE2AA6D008AA9B6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CD4D91FE2AA6D008AA9B6 /* CustomTableViewCell.swift */; };
 		5BE8C1141FE17BD700779245 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE8C1131FE17BD700779245 /* Task.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B1721EF1FE7D5E10030F256 /* CustomPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUpViewController.swift; sourceTree = "<group>"; };
 		5B2E78551FE41DCD0030784F /* Tasks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tasks.plist; sourceTree = "<group>"; };
 		5B9CD4D91FE2AA6D008AA9B6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5BE8C1131FE17BD700779245 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				F18E0A751FD9F416001B0740 /* AppDelegate.swift */,
 				DE6C87C21FDEEBC300A37147 /* TaskViewController.swift */,
 				5B9CD4D91FE2AA6D008AA9B6 /* CustomTableViewCell.swift */,
+				5B1721EF1FE7D5E10030F256 /* CustomPopUpViewController.swift */,
 				F18E0A871FD9FAB7001B0740 /* Controllers */,
 				F18E0A8A1FDA8EB0001B0740 /* Data Layer */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B1721F01FE7D5E10030F256 /* CustomPopUpViewController.swift in Sources */,
 				5B9CD4DA1FE2AA6D008AA9B6 /* CustomTableViewCell.swift in Sources */,
 				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 				DE6C87C31FDEEBC300A37147 /* TaskViewController.swift in Sources */,

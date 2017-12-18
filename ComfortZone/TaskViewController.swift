@@ -34,9 +34,14 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var secondStaticCloudView: UIImageView!
     @IBOutlet weak var firstStaticCloudView: UIImageView!
     
+    
+    var arrayElements: [String] = []
+    
     let imageTask = ["imageTaskAdrenaline","imageTaskBusiness","imageTaskLifestyle"]
     
     let labelTask = ["Adrenaline Task", "Business Task", "Lifestyle task"]
+    
+    let check = ["checkFalse"]
     
     func generalButtonFunction(){
         
@@ -59,6 +64,22 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         super.viewDidLoad()
         
+        arrayElements = getElements()
+        
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCustomPopUpViewController" {
+            let customPopUpView = segue.destination as! CustomPopUpViewController
+        
+            if let indexPath = taskTableView.indexPath(for: sender as! UITableViewCell){
+            
+            customPopUpView.todayTask = arrayElements[indexPath.row]
+                customPopUpView.typeTask = labelTask[indexPath.row]
+            }
+        }
     }
     
     
@@ -102,8 +123,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = taskTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
         
-        let arrayElements = getElements()
-        
+        cell.checkButton.layer.cornerRadius = 50
+        cell.checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
         cell.taskLabel.text = arrayElements[indexPath.row]
         cell.typeTaskLabel.text = labelTask[indexPath.row]
         cell.taskImageView.image = UIImage(named: imageTask[indexPath.row])

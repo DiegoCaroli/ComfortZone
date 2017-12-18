@@ -15,12 +15,26 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var typeTaskLabel: UILabel!
     @IBOutlet weak var taskLabel: UILabel!
     
+    @IBOutlet weak var checkButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
         // Initialization code
     }
-
+ 
+    @IBAction func checkButtonPressed(_ sender: Any) {
+        
+        if checkButton.currentBackgroundImage == #imageLiteral(resourceName: "checkFalse") {
+            checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkTrue"), for: .normal)
+        } else {
+            checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
+        }
+        
+    }
+    
     
 
 }
