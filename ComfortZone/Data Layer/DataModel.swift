@@ -8,7 +8,8 @@
 
 import Foundation
 
-class DataModel {
+final class DataModel {
+  static let shared = DataModel()
   
   var profile = Profile()
   

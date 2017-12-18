@@ -12,19 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-  let dataModel = DataModel()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    let navigationController = window!.rootViewController as! UINavigationController
-  
-    
+//    let navigationController = window!.rootViewController as! UINavigationController
+//
+//      let currentViewController = navigationController.viewControllers[0] as! SignUpViewController
+//
+//      currentViewController.profile = dataModel.profile
 
-      let currentViewController = navigationController.viewControllers[0] as! SignUpViewController
-      
-      currentViewController.profile = dataModel.profile
-
-    
     return true
   }
 
@@ -34,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
-    dataModel.saveProfile()
+    DataModel.shared.saveProfile()
   }
 
   func applicationWillEnterForeground(_ application: UIApplication) {
@@ -46,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    dataModel.saveProfile()
+    DataModel.shared.saveProfile()
   }
 
 

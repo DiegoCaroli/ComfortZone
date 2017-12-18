@@ -42,6 +42,8 @@ class SignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    profile = DataModel.shared.profile
+    
     firstNameTextField.becomeFirstResponder()
     
     scrollView.isScrollEnabled = false
