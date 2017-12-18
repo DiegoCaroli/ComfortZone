@@ -19,16 +19,16 @@ class DataModel {
   init() {
     UserDefaults.standard.register(defaults: ["FirstTime": true])
     loadProfile()
-    print(documentsDirectory())
+    print(documentsDirectory)
   }
   
-  func documentsDirectory() -> URL {
+  var documentsDirectory: URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
   }
   
   func dataFilePath() -> URL {
-    return documentsDirectory().appendingPathComponent("Profile.plist")
+    return documentsDirectory.appendingPathComponent("Profile.plist")
   }
   
   func saveProfile() {

@@ -61,8 +61,8 @@ class SurveyViewController: UIViewController {
   }
   
   private func nextQuestion(index: Int) {
-    if index < DataQuestion.shared.questions.count {
-      let question = DataQuestion.shared.questions[index]
+    if index < QuestionStore.shared.questions.count {
+      let question = QuestionStore.shared.questions[index]
       titleSurveyLabel.text = question.text
       backgroundSurveyImageView.image = question.backgroundImage
     } else {

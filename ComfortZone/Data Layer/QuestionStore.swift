@@ -1,5 +1,5 @@
 //
-//  DataQuestion.swift
+//  QuestionStore.swift
 //  ComfortZone
 //
 //  Created by Diego Caroli on 12/12/2017.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class DataQuestion {
+final class QuestionStore {
   
-  static let shared = DataQuestion()
+  static let shared = QuestionStore()
   var questions: [Question]
   
   private init() {
