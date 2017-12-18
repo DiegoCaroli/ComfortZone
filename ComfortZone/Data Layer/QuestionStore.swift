@@ -9,21 +9,15 @@
 import Foundation
 
 final class QuestionStore {
-  
-  static let shared = QuestionStore()
-  var questions: [Question]
-  
-  private init() {
-    questions = [Question(text: "done bungee jumping", backgroundImage: #imageLiteral(resourceName: "BungeeJumping")),
-                     Question(text: "done climbing mountain", backgroundImage: #imageLiteral(resourceName: "ClimbingMountain")),
-                     Question(text: "done paintballing", backgroundImage: #imageLiteral(resourceName: "Paintballing")),
-                     Question(text: "done public speaking", backgroundImage: #imageLiteral(resourceName: "PublicSpeakingView")),
-                     Question(text: "stared your own business", backgroundImage: #imageLiteral(resourceName: "OwnBusinesView")),
-                     Question(text: "worked in a different Country", backgroundImage: #imageLiteral(resourceName: "JobContryView")),
-                     Question(text: "travelled alone", backgroundImage: #imageLiteral(resourceName: "FirstStep")),
-                     Question(text: "quitted a job", backgroundImage: #imageLiteral(resourceName: "SecondStep")),
-                     Question(text: "became comfortable with dating", backgroundImage: #imageLiteral(resourceName: "ThirdStep")),
-    ]
-  }
-  
+  static var questions: [Question] = [
+    Question(text: "done bungee jumping", backgroundImage: #imageLiteral(resourceName: "BungeeJumping")),
+    Question(text: "done climbing mountain", backgroundImage: #imageLiteral(resourceName: "ClimbingMountain")),
+    Question(text: "done paintballing", backgroundImage: #imageLiteral(resourceName: "Paintballing")),
+    Question(text: "done public speaking", backgroundImage: #imageLiteral(resourceName: "PublicSpeakingView")),
+    Question(text: "started your own business", backgroundImage: #imageLiteral(resourceName: "OwnBusinesView")),
+    Question(text: "worked in a different Country", backgroundImage: #imageLiteral(resourceName: "JobContryView")),
+    Question(text: "travelled alone", backgroundImage: #imageLiteral(resourceName: "FirstStep")),
+    Question(text: "quitted a job", backgroundImage: #imageLiteral(resourceName: "SecondStep")),
+    Question(text: "became comfortable with dating", backgroundImage: #imageLiteral(resourceName: "ThirdStep"))
+  ]
 }
