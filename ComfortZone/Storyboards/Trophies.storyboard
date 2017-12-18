@@ -37,13 +37,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B51-Rb-5WW">
-                                <rect key="frame" x="16" y="80" width="343" height="506"/>
+                                <rect key="frame" x="16" y="80" width="343" height="540"/>
                                 <color key="backgroundColor" red="0.91784292459487915" green="0.96043485403060913" blue="0.98039704561233521" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="JNV-qY-yYE"/>
                                     <constraint firstAttribute="width" constant="343" id="o23-OA-Wnz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="smJ-Vr-xea"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="11" id="6js-6b-ebJ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="6js-6b-ebJ">
                                     <size key="itemSize" width="90" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -81,14 +81,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="B51-Rb-5WW" firstAttribute="leading" secondItem="sxY-RX-RVd" secondAttribute="leading" constant="16" id="6Me-wz-bnk"/>
                             <constraint firstItem="OQR-0J-Ko3" firstAttribute="top" secondItem="sxY-RX-RVd" secondAttribute="top" id="7rZ-db-Xp4"/>
                             <constraint firstItem="OQR-0J-Ko3" firstAttribute="trailing" secondItem="B51-Rb-5WW" secondAttribute="trailing" id="Oep-mg-xtp"/>
-                            <constraint firstItem="B51-Rb-5WW" firstAttribute="top" secondItem="OQR-0J-Ko3" secondAttribute="bottom" constant="9" id="ZU9-Cm-WUb"/>
-                            <constraint firstItem="B51-Rb-5WW" firstAttribute="leading" secondItem="sxY-RX-RVd" secondAttribute="leading" constant="16" id="cFr-ee-whL"/>
-                            <constraint firstItem="B51-Rb-5WW" firstAttribute="centerY" secondItem="eRU-L2-Jtw" secondAttribute="centerY" id="fd7-9U-5Ao"/>
-                            <constraint firstItem="sxY-RX-RVd" firstAttribute="trailing" secondItem="B51-Rb-5WW" secondAttribute="trailing" constant="16" id="jWW-78-On0"/>
+                            <constraint firstItem="B51-Rb-5WW" firstAttribute="top" secondItem="OQR-0J-Ko3" secondAttribute="bottom" constant="9" id="dp6-F3-STK"/>
+                            <constraint firstItem="B51-Rb-5WW" firstAttribute="centerY" secondItem="eRU-L2-Jtw" secondAttribute="centerY" constant="16.5" id="fd7-9U-5Ao"/>
                             <constraint firstItem="sxY-RX-RVd" firstAttribute="trailing" secondItem="B51-Rb-5WW" secondAttribute="trailing" constant="16" id="lcI-oZ-Ck6"/>
-                            <constraint firstItem="B51-Rb-5WW" firstAttribute="leading" secondItem="sxY-RX-RVd" secondAttribute="leading" constant="16" id="mHo-bJ-lhy"/>
                             <constraint firstItem="OQR-0J-Ko3" firstAttribute="leading" secondItem="B51-Rb-5WW" secondAttribute="leading" id="oQI-XA-DCL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sxY-RX-RVd"/>
