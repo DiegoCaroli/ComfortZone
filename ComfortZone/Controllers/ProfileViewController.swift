@@ -16,8 +16,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.isNavigationBarHidden = true
+    
     }
 
    override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +29,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -38,14 +36,19 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memoryCell", for: indexPath)
-//        let photo = photoArray[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+        cell.memoryIcon.image = photoArray[indexPath.row]
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let photo = photoArray[indexPath.row]
+        
+        let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+        photoVC.showPhoto = photoArray[indexPath.row]!
+        self.navigationController?.pushViewController(photoVC, animated: true)
+        
     }
 
-    
 }
