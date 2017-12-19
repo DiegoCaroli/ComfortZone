@@ -9,16 +9,16 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-
-    @IBOutlet weak var photo: UIImageView!
-    var showPhoto = UIImage()
+  
+  @IBOutlet weak var photo: UIImageView!
+  var showPhoto = UIImage()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
-        navigationController?.isNavigationBarHidden = false
-        self.photo.image = self.showPhoto
-        photo.image = showPhoto
-    }
-
+    navigationController?.isNavigationBarHidden = false
+    self.photo.image = self.showPhoto
+    photo.image = showPhoto
+  }
+  
 }

@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 struct Question {
-  
   let text: String
   let backgroundImage: UIImage
-
 }

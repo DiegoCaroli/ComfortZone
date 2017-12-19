@@ -23,6 +23,8 @@
 		F14A4E211FE924F500890819 /* Trophies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A4E1F1FE924F500890819 /* Trophies.storyboard */; };
 		F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC35C1FE26F4B00828735 /* DataModel.swift */; };
 		F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC3651FE28A1C00828735 /* BorderedButton.swift */; };
+		F1709CDA1FE997AA007F366F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CD91FE997AA007F366F /* Task.swift */; };
+		F1709CDC1FE9B50C007F366F /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */; };
 		F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */; };
 		F18673261FE96DE80089D400 /* CustomPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */; };
 		F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673241FE96DE70089D400 /* TaskViewController.swift */; };
@@ -52,6 +54,8 @@
 		F14A4E201FE924F500890819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trophies.storyboard; sourceTree = "<group>"; };
 		F16EC35C1FE26F4B00828735 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F16EC3651FE28A1C00828735 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		F1709CD91FE997AA007F366F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSurveyViewController.swift; sourceTree = "<group>"; };
 		F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPopUpViewController.swift; sourceTree = "<group>"; };
 		F18673241FE96DE70089D400 /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -80,9 +84,10 @@
 		F16EC3641FE289F200828735 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F16EC3651FE28A1C00828735 /* BorderedButton.swift */,
+				F18673251FE96DE80089D400 /* CustomTableViewCell.swift */,
 				F11172DF1FE945CC005E47AC /* ImageCollectionViewCell.swift */,
 				0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */,
-				F16EC3651FE28A1C00828735 /* BorderedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,9 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				F18B36441FE922D800A1E437 /* AppDelegate.swift */,
-				F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */,
-				F18673251FE96DE80089D400 /* CustomTableViewCell.swift */,
-				F18673241FE96DE70089D400 /* TaskViewController.swift */,
 				FAC97F2E1FDED8B70012F2B2 /* Controllers */,
 				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
@@ -122,11 +124,11 @@
 		F18E0A891FDA85D3001B0740 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F11172DA1FE94596005E47AC /* Profile.storyboard */,
 				F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */,
 				F14A4E141FE9236800890819 /* LaunchScreen.storyboard */,
-				F18673291FE96DF80089D400 /* Task.storyboard */,
 				F14A4E171FE9238200890819 /* Main.storyboard */,
+				F11172DA1FE94596005E47AC /* Profile.storyboard */,
+				F18673291FE96DF80089D400 /* Task.storyboard */,
 				F14A4E1F1FE924F500890819 /* Trophies.storyboard */,
 			);
 			path = Storyboards;
@@ -136,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				F14A4E1D1FE923BB00890819 /* Assets.xcassets */,
-				F186732C1FE96E9F0089D400 /* Tasks.plist */,
 				F18E0A811FD9F416001B0740 /* Info.plist */,
+				F186732C1FE96E9F0089D400 /* Tasks.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,10 +147,11 @@
 		FAC97F2D1FDED8A00012F2B2 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
+				F13C43641FE1349F0021225B /* Profile.swift */,
 				F141029D1FE003FC00CF4840 /* Question.swift */,
 				F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */,
-				F13C43641FE1349F0021225B /* Profile.swift */,
-				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
+				F1709CD91FE997AA007F366F /* Task.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -156,13 +159,16 @@
 		FAC97F2E1FDED8B70012F2B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */,
+				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
+				F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */,
+				F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */,
+				F11172E11FE945D8005E47AC /* PhotoViewController.swift */,
+				F11172DD1FE945AE005E47AC /* ProfileViewController.swift */,
 				F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */,
 				F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */,
-				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
+				FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */,
+				F18673241FE96DE70089D400 /* TaskViewController.swift */,
 				0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */,
-				F11172DD1FE945AE005E47AC /* ProfileViewController.swift */,
-				F11172E11FE945D8005E47AC /* PhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,7 +257,9 @@
 				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
 				F141029E1FE003FC00CF4840 /* Question.swift in Sources */,
 				F13C43651FE1349F0021225B /* Profile.swift in Sources */,
+				F1709CDA1FE997AA007F366F /* Task.swift in Sources */,
 				FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */,
+				F1709CDC1FE9B50C007F366F /* MyTabBarController.swift in Sources */,
 				F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */,
 				F18673261FE96DE80089D400 /* CustomPopUpViewController.swift in Sources */,
 				F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */,

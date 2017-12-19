@@ -13,19 +13,41 @@ final class DataModel {
   
   var profile = Profile()
   
+  var documentsDirectory: URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+  
   var isFirstTime: Bool {
     return UserDefaults.standard.bool(forKey: "FirstTime")
   }
   
-  private init() {
-    UserDefaults.standard.register(defaults: ["FirstTime": true])
-    loadProfile()
-    print(documentsDirectory)
+  var todayDate: Date {
+    get {
+      return UserDefaults.standard.object(forKey: "TodayDate") as! Date
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: "TodayDate")
+      UserDefaults.standard.synchronize()
+    }
   }
   
-  var documentsDirectory: URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    return paths[0]
+  var todayTasks: [Task] {
+    get {
+      return UserDefaults.standard.object(forKey: "TodayTasks") as! [Task]
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: "TodayTasks")
+      UserDefaults.standard.synchronize()
+    }
+  }
+  
+  private init() {
+    UserDefaults.standard.register(defaults: ["FirstTime": true,
+                                              "TodayDate": Date(),
+                                              "TodayTasks": []])
+    loadProfile()
+    print(documentsDirectory)
   }
   
   func dataFilePath() -> URL {

@@ -17,12 +17,10 @@ class CustomPopUpViewController: UIViewController {
     @IBOutlet weak var exitButtonPopUp: UIButton!
     @IBOutlet weak var typeTaskLabel: UILabel!
     @IBOutlet weak var imgView: UIImageView!
-    
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var taskLabelPopUp: UILabel!
+  
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
         
 //      Pop Up Style
@@ -34,15 +32,10 @@ class CustomPopUpViewController: UIViewController {
         imgView.image = UIImage(named: imgTask)
         taskLabelPopUp.text = todayTask
         typeTaskLabel.text = typeTask
-        
-        
-        
     }
 
     @IBAction func exitButtonPopUpPressed(_ sender: Any) {
-
         dismiss(animated: true)
-        
     }
     
 }
