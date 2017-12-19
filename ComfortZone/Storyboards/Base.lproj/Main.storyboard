@@ -18,10 +18,23 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="BNs-h2-MDf" kind="relationship" relationship="viewControllers" id="dQb-7j-EFg"/>
+                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7m-m0-uZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1151" y="-459"/>
+        </scene>
+        <!--Trophies-->
+        <scene sceneID="3Vl-90-CdN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Trophies" id="BNs-h2-MDf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Smv-0P-fOd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkt-6s-Sk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-472" y="-733"/>
         </scene>
     </scenes>
 </document>

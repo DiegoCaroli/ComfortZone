@@ -7,47 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
+		0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */; };
+		0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */; };
 		F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */; };
 		F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */; };
 		F13C43651FE1349F0021225B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C43641FE1349F0021225B /* Profile.swift */; };
 		F141029E1FE003FC00CF4840 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141029D1FE003FC00CF4840 /* Question.swift */; };
+		F14A4E161FE9236800890819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A4E141FE9236800890819 /* LaunchScreen.storyboard */; };
+		F14A4E191FE9238200890819 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A4E171FE9238200890819 /* Main.storyboard */; };
+		F14A4E1E1FE923BB00890819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14A4E1D1FE923BB00890819 /* Assets.xcassets */; };
+		F14A4E211FE924F500890819 /* Trophies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A4E1F1FE924F500890819 /* Trophies.storyboard */; };
 		F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC35C1FE26F4B00828735 /* DataModel.swift */; };
 		F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC3651FE28A1C00828735 /* BorderedButton.swift */; };
 		F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */; };
-=======
-		0F1A47571FE18D7B0069EB8D /* Trophies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1A47561FE18D7B0069EB8D /* Trophies.storyboard */; };
-		0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */; };
-		0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */; };
->>>>>>> origin/feature/trophies
-		F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18E0A751FD9F416001B0740 /* AppDelegate.swift */; };
-		F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A791FD9F416001B0740 /* Main.storyboard */; };
-		F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7C1FD9F416001B0740 /* Assets.xcassets */; };
-		F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */; };
+		F18B36451FE922D800A1E437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B36441FE922D800A1E437 /* AppDelegate.swift */; };
 		F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */; };
 		F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */; };
 		FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
+		0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesViewController.swift; sourceTree = "<group>"; };
 		F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F13C43641FE1349F0021225B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F141029D1FE003FC00CF4840 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F14A4E151FE9236800890819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F14A4E181FE9238200890819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F14A4E1D1FE923BB00890819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F14A4E201FE924F500890819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trophies.storyboard; sourceTree = "<group>"; };
 		F16EC35C1FE26F4B00828735 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F16EC3651FE28A1C00828735 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSurveyViewController.swift; sourceTree = "<group>"; };
-=======
-		0F1A47561FE18D7B0069EB8D /* Trophies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trophies.storyboard; sourceTree = "<group>"; };
-		0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
-		0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesViewController.swift; sourceTree = "<group>"; };
->>>>>>> origin/feature/trophies
+		F18B36441FE922D800A1E437 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F18E0A721FD9F416001B0740 /* ComfortZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComfortZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F18E0A751FD9F416001B0740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F18E0A7A1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F18E0A7C1FD9F416001B0740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F18E0A7F1FD9F416001B0740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStore.swift; sourceTree = "<group>"; };
 		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstTime.storyboard; sourceTree = "<group>"; };
@@ -68,6 +62,7 @@
 		F16EC3641FE289F200828735 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */,
 				F16EC3651FE28A1C00828735 /* BorderedButton.swift */,
 			);
 			path = Views;
@@ -92,16 +87,9 @@
 		F18E0A741FD9F416001B0740 /* ComfortZone */ = {
 			isa = PBXGroup;
 			children = (
-				F18E0A751FD9F416001B0740 /* AppDelegate.swift */,
-<<<<<<< HEAD
+				F18B36441FE922D800A1E437 /* AppDelegate.swift */,
 				FAC97F2E1FDED8B70012F2B2 /* Controllers */,
 				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
-=======
-				0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */,
-				0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */,
-				F18E0A871FD9FAB7001B0740 /* Controllers */,
-				F18E0A8A1FDA8EB0001B0740 /* Data Layer */,
->>>>>>> origin/feature/trophies
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
 				F18E0A8B1FDA8EE2001B0740 /* Supporting Files */,
 				F16EC3641FE289F200828735 /* Views */,
@@ -112,9 +100,10 @@
 		F18E0A891FDA85D3001B0740 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
-				F18E0A791FD9F416001B0740 /* Main.storyboard */,
 				F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */,
+				F14A4E141FE9236800890819 /* LaunchScreen.storyboard */,
+				F14A4E171FE9238200890819 /* Main.storyboard */,
+				F14A4E1F1FE924F500890819 /* Trophies.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -122,14 +111,8 @@
 		F18E0A8B1FDA8EE2001B0740 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				F18E0A7C1FD9F416001B0740 /* Assets.xcassets */,
+				F14A4E1D1FE923BB00890819 /* Assets.xcassets */,
 				F18E0A811FD9F416001B0740 /* Info.plist */,
-=======
-				F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */,
-				F18E0A791FD9F416001B0740 /* Main.storyboard */,
-				0F1A47561FE18D7B0069EB8D /* Trophies.storyboard */,
->>>>>>> origin/feature/trophies
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -152,6 +135,7 @@
 				F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */,
 				F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */,
 				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
+				0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,11 +199,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1A47571FE18D7B0069EB8D /* Trophies.storyboard in Resources */,
-				F18E0A801FD9F416001B0740 /* LaunchScreen.storyboard in Resources */,
-				F18E0A7D1FD9F416001B0740 /* Assets.xcassets in Resources */,
+				F14A4E161FE9236800890819 /* LaunchScreen.storyboard in Resources */,
+				F14A4E211FE924F500890819 /* Trophies.storyboard in Resources */,
 				F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */,
-				F18E0A7B1FD9F416001B0740 /* Main.storyboard in Resources */,
+				F14A4E191FE9238200890819 /* Main.storyboard in Resources */,
+				F14A4E1E1FE923BB00890819 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
+				F18B36451FE922D800A1E437 /* AppDelegate.swift in Sources */,
 				F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */,
 				F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */,
 				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
@@ -239,33 +223,37 @@
 				FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */,
 				F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */,
 				F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */,
-				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 				F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */,
-=======
 				0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */,
-				F18E0A761FD9F416001B0740 /* AppDelegate.swift in Sources */,
 				0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */,
->>>>>>> origin/feature/trophies
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F18E0A791FD9F416001B0740 /* Main.storyboard */ = {
+		F14A4E141FE9236800890819 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F18E0A7A1FD9F416001B0740 /* Base */,
+				F14A4E151FE9236800890819 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F14A4E171FE9238200890819 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F14A4E181FE9238200890819 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F18E0A7E1FD9F416001B0740 /* LaunchScreen.storyboard */ = {
+		F14A4E1F1FE924F500890819 /* Trophies.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F18E0A7F1FD9F416001B0740 /* Base */,
+				F14A4E201FE924F500890819 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Trophies.storyboard;
 			sourceTree = "<group>";
 		};
 		F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */ = {
@@ -391,7 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6QBEM9PKBB;
+				DEVELOPMENT_TEAM = G8TLTA9GAD;
 				INFOPLIST_FILE = "ComfortZone/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegocaroli.ComfortZone;
@@ -406,7 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6QBEM9PKBB;
+				DEVELOPMENT_TEAM = G8TLTA9GAD;
 				INFOPLIST_FILE = "ComfortZone/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.diegocaroli.ComfortZone;
