@@ -12,9 +12,11 @@ class CustomPopUpViewController: UIViewController {
 
     var todayTask: String = ""
     var typeTask: String = ""
+    var imgTask: String = ""
     
     @IBOutlet weak var exitButtonPopUp: UIButton!
     @IBOutlet weak var typeTaskLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
     
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var taskLabelPopUp: UILabel!
@@ -29,7 +31,7 @@ class CustomPopUpViewController: UIViewController {
         popUpView.layer.shadowRadius = 5.0
         popUpView.layer.shadowOpacity = 0.3
         
-        
+        imgView.image = UIImage(named: imgTask)
         taskLabelPopUp.text = todayTask
         typeTaskLabel.text = typeTask
         

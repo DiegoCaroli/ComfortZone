@@ -21,6 +21,7 @@ extension UIScrollView {
 
 class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var adventureLabel: UILabel!
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var angryCloudButton: UIButton!
@@ -46,18 +47,21 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     func generalButtonFunction(){
         
         scrollView.scrollToTop()
-        sunButton.isHidden = true
-        sadCloudButton.isHidden = true
-        angryCloudButton.isHidden = true
-        neutralCloudButton.isHidden = true
+        labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
+//        sunButton.isHidden = true
+//        sadCloudButton.isHidden = true
+//        angryCloudButton.isHidden = true
+//        neutralCloudButton.isHidden = true
+        
         
     }
     
     override func viewDidLoad() {
+
+        cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -100)
+        cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 15 , amount: 60)
+        cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
         
-        cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -300)
-        cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 9 , amount: 150)
-        cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 7 , amount: -100)
         
         taskTableView.delegate = self
         taskTableView.dataSource = self
@@ -67,9 +71,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         arrayElements = getElements()
         
     }
-    
-    
-    
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCustomPopUpViewController" {
             let customPopUpView = segue.destination as! CustomPopUpViewController
@@ -77,12 +80,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let indexPath = taskTableView.indexPath(for: sender as! UITableViewCell){
             
             customPopUpView.todayTask = arrayElements[indexPath.row]
-                customPopUpView.typeTask = labelTask[indexPath.row]
+            customPopUpView.typeTask = labelTask[indexPath.row]
+            customPopUpView.imgTask = imageTask[indexPath.row]
+                
             }
         }
     }
-    
-    
+
     func getElements() -> [String] {
         
         var array: [String] = []
@@ -109,8 +113,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     func cloudAnimation(viewOfTheCloud: UIView , duration: Double , amount: CGFloat){
         UIView.animate(withDuration: duration, delay: 0.25, options: [.autoreverse, .repeat], animations: {
             viewOfTheCloud.frame.origin.x -= amount
+        },completion: nil)
+    }
+    
+    func labelAnimation(label: UILabel , duration: Double , amount: CGFloat){
+        UIView.animate(withDuration: duration, delay: 0.0, options: [], animations: {
+            label.frame.origin.y -= amount
         })
-        
     }
     
     
@@ -132,14 +141,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     //  BUTTON SECTION - SCROLL DOWN AND HIDE THE BUTTON
     
     @IBAction func angryCloudButtonPressed(_ sender: Any) {
