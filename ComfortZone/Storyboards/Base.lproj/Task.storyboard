@@ -282,8 +282,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sza-N0-tGD">
-                                        <rect key="frame" x="0.0" y="103" width="280" height="23.5"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="103" width="280" height="26"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -298,9 +298,16 @@
                                             <action selector="exitButtonPopUpPressed:" destination="I5Q-B6-0YU" eventType="touchUpInside" id="7Dk-UB-FaE"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guk-If-ckg">
+                                        <rect key="frame" x="24" y="141" width="232" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="guk-If-ckg" firstAttribute="top" secondItem="sza-N0-tGD" secondAttribute="bottom" constant="12" id="CV6-ot-fRa"/>
                                     <constraint firstItem="m4i-pv-HcJ" firstAttribute="top" secondItem="cZQ-bf-1Fg" secondAttribute="bottom" constant="11" id="Kgm-p1-Fa1"/>
                                     <constraint firstAttribute="width" constant="280" id="KrT-lb-RmZ"/>
                                     <constraint firstItem="cZQ-bf-1Fg" firstAttribute="top" secondItem="nx6-l4-IFk" secondAttribute="top" constant="10" id="afs-gG-tON"/>
@@ -308,18 +315,14 @@
                                     <constraint firstAttribute="height" constant="280" id="bO7-np-o8h"/>
                                     <constraint firstItem="cZQ-bf-1Fg" firstAttribute="centerX" secondItem="nx6-l4-IFk" secondAttribute="centerX" constant="117" id="bhS-nq-KtV"/>
                                     <constraint firstAttribute="trailing" secondItem="sza-N0-tGD" secondAttribute="trailing" id="g5F-I9-5el"/>
+                                    <constraint firstItem="guk-If-ckg" firstAttribute="leading" secondItem="nx6-l4-IFk" secondAttribute="leading" constant="24" id="l16-RN-tjO"/>
                                     <constraint firstItem="sza-N0-tGD" firstAttribute="leading" secondItem="nx6-l4-IFk" secondAttribute="leading" id="scZ-hp-UUG"/>
+                                    <constraint firstAttribute="trailing" secondItem="guk-If-ckg" secondAttribute="trailing" constant="24" id="sfC-Rd-R39"/>
                                     <constraint firstItem="sza-N0-tGD" firstAttribute="top" secondItem="m4i-pv-HcJ" secondAttribute="bottom" constant="12" id="uFD-5h-WYQ"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="guk-If-ckg" secondAttribute="bottom" constant="24" id="wuB-q5-o52"/>
                                     <constraint firstAttribute="trailing" secondItem="cZQ-bf-1Fg" secondAttribute="trailing" constant="10" id="z9v-eu-JlE"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exe-H6-ehP">
-                                <rect key="frame" x="59" y="329" width="261" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.50371896404109584" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -332,6 +335,7 @@
                         <outlet property="exitButtonPopUp" destination="cZQ-bf-1Fg" id="Mxq-zr-o2B"/>
                         <outlet property="imgView" destination="m4i-pv-HcJ" id="Nu3-NM-Axr"/>
                         <outlet property="popUpView" destination="nx6-l4-IFk" id="fPS-QY-2Iu"/>
+                        <outlet property="taskLabelPopUp" destination="guk-If-ckg" id="jsI-O0-7Ki"/>
                         <outlet property="typeTaskLabel" destination="sza-N0-tGD" id="Ud3-XQ-jve"/>
                     </connections>
                 </viewController>
