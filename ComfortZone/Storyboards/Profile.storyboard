@@ -200,6 +200,7 @@
                         <viewLayoutGuide key="safeArea" id="i4F-n8-8Vy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="vhE-mc-BOo"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="375" height="1234"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="OM2-0s-bn3" id="YAe-cp-OCn"/>
