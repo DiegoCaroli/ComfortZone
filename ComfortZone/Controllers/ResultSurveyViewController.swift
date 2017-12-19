@@ -22,6 +22,10 @@ class ResultSurveyViewController: UIViewController {
   
   @IBAction func nextButtonPressed(_ sender: UIButton) {
     UserDefaults.standard.set(false, forKey: "FirstTime")
+    
+    let tabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabBar") as! UITabBarController
+    present(tabBarController, animated: true, completion: nil)
   }
   
 }
+
