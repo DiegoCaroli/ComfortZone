@@ -205,7 +205,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="375" height="1234"/>
                     <connections>
+                        <outlet property="adrenalineProgressImageView" destination="70l-19-QJL" id="2T2-NB-CmW"/>
+                        <outlet property="businessProgressImageView" destination="DIh-mq-iL9" id="Vh0-hi-rLx"/>
                         <outlet property="fullNameLabel" destination="8xZ-mL-EMF" id="joH-gK-t1Y"/>
+                        <outlet property="humorProgressImageView" destination="ODG-MC-5GV" id="Cep-6Z-HKC"/>
+                        <outlet property="lifestyleProgressImageView" destination="56l-PF-tyv" id="WfD-4T-rg4"/>
                         <outlet property="photoCollectionView" destination="OM2-0s-bn3" id="YAe-cp-OCn"/>
                         <outlet property="profileImageView" destination="0J4-lR-NTb" id="86Y-qH-mdc"/>
                         <outlet property="scrollView" destination="2wu-T9-tN2" id="sh0-yn-b4F"/>

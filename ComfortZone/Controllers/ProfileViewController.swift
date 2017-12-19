@@ -13,8 +13,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var profileImageView: UIImageView!
   @IBOutlet weak var fullNameLabel: UILabel!
   @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var businessProgressImageView: UIImageView!
+  @IBOutlet weak var adrenalineProgressImageView: UIImageView!
+  @IBOutlet weak var lifestyleProgressImageView: UIImageView!
+  @IBOutlet weak var humorProgressImageView: UIImageView!
   @IBOutlet weak var photoCollectionView: UICollectionView!
-  
+
   var profile: Profile!
   
     var photoArray = [UIImage(named: "memoryIcon")]
@@ -31,6 +35,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       
       profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
       profileImageView.clipsToBounds = true
+      
+      configureProgressBar()
     }
 
    override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +45,43 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
     
     }
+  
+  func configureProgressBar() {
+    print(profile.adrenalineScore)
+    
+    switch profile.adrenalineScore {
+    case 0...3:
+      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelZeroAdrenaline")
+    case 4...6:
+      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelOneAdrenaline")
+    case 7...8:
+      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelTwoAdrenaline")
+    default:
+      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelThreeAdrenaline")
+    }
+    
+    switch profile.businessScore {
+    case 0...3:
+      businessProgressImageView.image = #imageLiteral(resourceName: "levelZeroBusiness")
+    case 4...6:
+      businessProgressImageView.image = #imageLiteral(resourceName: "levelOneBusiness")
+    case 7...8:
+      businessProgressImageView.image = #imageLiteral(resourceName: "levelTwoBusiness")
+    default:
+      businessProgressImageView.image = #imageLiteral(resourceName: "levelThreeBusiness")
+    }
+    
+    switch profile.lifestyleScore {
+    case 0...3:
+      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelZeroLifestyle")
+    case 4...6:
+      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelOneLifestyle")
+    case 7...8:
+      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelTwoLifestyle")
+    default:
+      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelThreeLifestyle")
+    }
+  }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoArray.count

@@ -63,11 +63,11 @@ class Profile: Codable {
   func getComics() -> UIImage {
     switch totalScore {
     case 1...13:
-      return #imageLiteral(resourceName: "haveDoneAnswer")
+      return #imageLiteral(resourceName: "wouldNotDoAnswer")
     case 14...22:
       return #imageLiteral(resourceName: "wantToDoAnswer")
    default:
-      return #imageLiteral(resourceName: "wouldNotDoAnswer")
+      return #imageLiteral(resourceName: "haveDoneAnswer")
     }
   }
   

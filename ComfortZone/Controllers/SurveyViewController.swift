@@ -25,7 +25,8 @@ class SurveyViewController: UIViewController {
     customizeButton(wantToDo)
     customizeButton(wouldNotDo)
     
-    nextQuestion(index: index)
+    titleSurveyLabel.text = QuestionStore.questions[0].text
+    backgroundSurveyImageView.image = QuestionStore.questions[0].backgroundImage
   }
   
   // MARK: - Navigation
@@ -37,16 +38,20 @@ class SurveyViewController: UIViewController {
   }
   
   @IBAction func haveDoneButtonPressed(_ sender: Any) {
+    calculateInitialProgress(points: 3)
     nextQuestion(index: index)
     profile.totalScore += 3
+
   }
   
   @IBAction func wantToDoButtonPressed(_ sender: Any) {
+    calculateInitialProgress(points: 2)
     nextQuestion(index: index)
     profile.totalScore += 2
   }
   
   @IBAction func wouldNotDoButtonPressed(_ sender: Any) {
+    calculateInitialProgress(points: 1)
     nextQuestion(index: index)
     profile.totalScore += 1
   }
@@ -69,6 +74,19 @@ class SurveyViewController: UIViewController {
       
     }
     self.index += 1
+  }
+  
+  private func calculateInitialProgress(points: Int) {
+    switch index {
+    case 0...2:
+      DataModel.shared.profile.adrenalineScore += points
+    case 3...5:
+      DataModel.shared.profile.businessScore += points
+    case 6...8:
+      DataModel.shared.profile.lifestyleScore += points
+    default:
+      break
+    }
   }
   
 }
