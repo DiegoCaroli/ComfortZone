@@ -21,7 +21,7 @@
         <scene sceneID="6rc-if-3zf">
             <objects>
                 <navigationController id="pzx-EG-fmI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="kQb-MU-Fwg"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="assistant" id="kQb-MU-Fwg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nKw-TS-iuD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -255,6 +255,7 @@
     </scenes>
     <resources>
         <image name="ProfileViewBackground" width="375" height="667"/>
+        <image name="assistant" width="34" height="34"/>
         <image name="cloudsEmotionNeutral" width="251" height="50"/>
         <image name="levelZeroAdrenaline" width="62" height="279"/>
         <image name="levelZeroBusiness" width="61" height="279"/>
