@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Task {
+struct Task: Codable {
   var name: String
   var type: String
   var isChecked: Bool

@@ -25,6 +25,7 @@
 		F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC3651FE28A1C00828735 /* BorderedButton.swift */; };
 		F1709CDA1FE997AA007F366F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CD91FE997AA007F366F /* Task.swift */; };
 		F1709CDC1FE9B50C007F366F /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */; };
+		F1709CDE1FE9B723007F366F /* Date+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDD1FE9B723007F366F /* Date+Component.swift */; };
 		F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */; };
 		F18673261FE96DE80089D400 /* CustomPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */; };
 		F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673241FE96DE70089D400 /* TaskViewController.swift */; };
@@ -56,6 +57,7 @@
 		F16EC3651FE28A1C00828735 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		F1709CD91FE997AA007F366F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		F1709CDD1FE9B723007F366F /* Date+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Component.swift"; path = "ComfortZone/Date+Component.swift"; sourceTree = SOURCE_ROOT; };
 		F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSurveyViewController.swift; sourceTree = "<group>"; };
 		F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPopUpViewController.swift; sourceTree = "<group>"; };
 		F18673241FE96DE70089D400 /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				F18B36441FE922D800A1E437 /* AppDelegate.swift */,
+				F1709CDD1FE9B723007F366F /* Date+Component.swift */,
 				FAC97F2E1FDED8B70012F2B2 /* Controllers */,
 				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
@@ -266,6 +269,7 @@
 				F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */,
 				F11172E01FE945CC005E47AC /* ImageCollectionViewCell.swift in Sources */,
 				F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */,
+				F1709CDE1FE9B723007F366F /* Date+Component.swift in Sources */,
 				0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */,
 				F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */,
 				0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */,

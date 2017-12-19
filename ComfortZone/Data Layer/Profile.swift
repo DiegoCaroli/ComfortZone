@@ -32,6 +32,7 @@ class Profile: Codable {
   var lifestyleScore: Int
   var happiness: Int
   
+//  var tasks: [Task]
   var trophies: [Trophy]
   
   init() {
@@ -61,6 +62,24 @@ class Profile: Codable {
       Trophy(iconName: "Trophie", name: "Learn from your mistakes", description: "Ask for constructive criticism at work.", isLocked: true)
     ]
   }
+  
+//  func loadTasks() -> [Task] {
+//    if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
+//      if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+//        for typeDict in
+//        var adrenalineDict = dict["Adrenaline"] as! [String]
+//
+//        var businessDict = dict["Business"] as! [String]
+//        var lifestyleDict = dict["Lifestyle"] as! [String]
+//
+//        let adrenalineRandomElement = adrenalineDict[Int(arc4random_uniform(UInt32(adrenalineDict.count)))]
+//        let businessRandomElement = businessDict[Int(arc4random_uniform(UInt32(businessDict.count)))]
+//        let lifestyleRandomElement = lifestyleDict[Int(arc4random_uniform(UInt32(lifestyleDict.count)))]
+//
+//        //          In order to have an array with the random tasks choosen for each session
+//
+//        array = [adrenalineRandomElement, businessRandomElement, lifestyleRandomElement]
+//  }
   
   func getComics() -> UIImage {
     switch totalScore {
