@@ -17,7 +17,7 @@ final class DataModel {
     return UserDefaults.standard.bool(forKey: "FirstTime")
   }
   
-  init() {
+  private init() {
     UserDefaults.standard.register(defaults: ["FirstTime": true])
     loadProfile()
     print(documentsDirectory)

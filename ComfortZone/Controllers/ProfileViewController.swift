@@ -10,17 +10,34 @@ import UIKit
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
-    @IBOutlet weak var photoCollectionView: UICollectionView!
+  @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var fullNameLabel: UILabel!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var photoCollectionView: UICollectionView!
+  
+  var profile: Profile!
+  
     var photoArray = [UIImage(named: "memoryIcon")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+      profile = DataModel.shared.profile
+      
+      fullNameLabel.text = profile.fullName
+      if let photoProfile = profile.photoProfile {
+        profileImageView.image = UIImage(contentsOfFile: photoProfile.photoURL.path)
+      }
+      
+      profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
+      profileImageView.clipsToBounds = true
     }
 
    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+    super.viewWillAppear(animated)
+    navigationController?.isNavigationBarHidden = true
+    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
