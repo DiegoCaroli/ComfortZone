@@ -84,7 +84,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sxY-RX-RVd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trophies" id="dn5-h2-d0f"/>
+                    <tabBarItem key="tabBarItem" title="Trophies" image="TrophiesTabBar" id="dn5-h2-d0f"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="trophyCollectionView" destination="B51-Rb-5WW" id="Ydg-bp-ePf"/>
@@ -97,5 +97,6 @@
     </scenes>
     <resources>
         <image name="Backgound_Trophies" width="375" height="667"/>
+        <image name="TrophiesTabBar" width="32" height="32"/>
     </resources>
 </document>
