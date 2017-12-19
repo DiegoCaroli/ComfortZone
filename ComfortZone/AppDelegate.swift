@@ -20,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //      let currentViewController = navigationController.viewControllers[0] as! SignUpViewController
 //
 //      currentViewController.profile = dataModel.profile
+    
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    var viewController: UIViewController!
+    
+    if DataModel.shared.isFirstTime {
+      viewController = UIStoryboard(name: "FirstTime", bundle: nil).instantiateInitialViewController()
+    } else {
+      viewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+    }
+    
+    self.window?.rootViewController = viewController
+    self.window?.makeKeyAndVisible()
 
     return true
   }
