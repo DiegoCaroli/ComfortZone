@@ -62,10 +62,10 @@ struct Photo: Codable {
   }
 }
 
-struct Trophy {
-  let iconTrophy: UIImage
-  var nameTrophy: String
-  let descriptionTrophy: String
+struct Trophy: Codable {
+  let iconName: String
+  var name: String
+  let description: String
   var isLocked: Bool
 }
 

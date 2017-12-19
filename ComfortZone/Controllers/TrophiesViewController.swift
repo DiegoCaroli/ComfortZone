@@ -12,23 +12,23 @@ class TrophiesViewController: UIViewController,UICollectionViewDelegate, UIColle
   
   @IBOutlet weak var trophyCollectionView: UICollectionView!
   
-  var trophyArray: [Trophy] = [Trophy(iconTrophy: #imageLiteral(resourceName: "Bug"), nameTrophy: "Bug eater", descriptionTrophy: "Eat a bug", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Lock Trophy", descriptionTrophy: "Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "ZipLine") , nameTrophy: "Human zipper", descriptionTrophy: "Go to zip lining", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Dirty dancer", descriptionTrophy: "Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Ready for the future", descriptionTrophy: "Create your cv", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Give me my dessert", descriptionTrophy: "Go to a restaurant, order and eat dessert first.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Adventure", descriptionTrophy: "Go somewhere you shouldn’t be.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Midnight picnic", descriptionTrophy: "Have a midnight picnic.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Give some post-it", descriptionTrophy: "Go to your favorite book store, and leave notes in your favorites books for future readers.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Hug"), nameTrophy: "Free Hugs", descriptionTrophy: "Give to a stranger an hug", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Business man", descriptionTrophy: "Invest 10€ and to gain 11€.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Into the wild", descriptionTrophy: "Travel alone.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Fancy lunch", descriptionTrophy: "Go to lunch by yourself.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Karaoke"), nameTrophy: "True singer", descriptionTrophy: "Sing karoke in a bar", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Wild swimmer", descriptionTrophy: "Jump into a lake or something with water with your clothes on.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Explorer", descriptionTrophy: "Take a new way home from work.", isLocked: true),
-                               Trophy(iconTrophy: #imageLiteral(resourceName: "Trophie"), nameTrophy: "Learn from your mistakes", descriptionTrophy: "Ask for constructive criticism at work.", isLocked: true)]
+  var trophyArray: [Trophy] = [Trophy(iconName: "Bug", name: "Bug eater", description: "Eat a bug", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Lock Trophy", description: "Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because.", isLocked: true),
+                               Trophy(iconName: "ZipLine" , name: "Human zipper", description: "Go to zip lining", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Dirty dancer", description: "Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Ready for the future", description: "Create your cv", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Give me my dessert", description: "Go to a restaurant, order and eat dessert first.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Adventure", description: "Go somewhere you shouldn’t be.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Midnight picnic", description: "Have a midnight picnic.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Give some post-it", description: "Go to your favorite book store, and leave notes in your favorites books for future readers.", isLocked: true),
+                               Trophy(iconName: "Hug", name: "Free Hugs", description: "Give to a stranger an hug", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Business man", description: "Invest 10€ and to gain 11€.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Into the wild", description: "Travel alone.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Fancy lunch", description: "Go to lunch by yourself.", isLocked: true),
+                               Trophy(iconName: "Karaoke", name: "True singer", description: "Sing karoke in a bar", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Wild swimmer", description: "Jump into a lake or something with water with your clothes on.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Explorer", description: "Take a new way home from work.", isLocked: true),
+                               Trophy(iconName: "Trophie", name: "Learn from your mistakes", description: "Ask for constructive criticism at work.", isLocked: true)]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,7 +45,7 @@ class TrophiesViewController: UIViewController,UICollectionViewDelegate, UIColle
     let trophy = trophyArray[indexPath.row]
     
     if !trophy.isLocked {
-      cell.imageTrophy.image = trophy.iconTrophy
+      cell.imageTrophy.image = UIImage(named: trophy.iconName)
     } else {
       cell.imageTrophy.image = #imageLiteral(resourceName: "lockedLeaf")
     }
@@ -55,7 +55,7 @@ class TrophiesViewController: UIViewController,UICollectionViewDelegate, UIColle
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let trophy = trophyArray[indexPath.row]
-    let alert = UIAlertController(title: trophy.isLocked ? "Locked Trophy" : trophy.nameTrophy, message: trophy.isLocked ? "???" : trophy.descriptionTrophy, preferredStyle: .alert)
+    let alert = UIAlertController(title: trophy.isLocked ? "Locked Trophy" : trophy.name, message: trophy.isLocked ? "???" : trophy.description, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }
