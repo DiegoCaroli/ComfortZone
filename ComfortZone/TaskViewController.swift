@@ -4,11 +4,12 @@
 //
 //  Created by Gaetano Acunzo on 11/12/17.
 //  Copyright © 2017 Diego Caroli. All rights reserved.
-//
+//  Virtual Assistant - Coder: Nicola Centonze
 
 import UIKit
 
-//EXTENSION TO GO IN THE BOTTOM OF THE SCROLL VIEW
+//EXTENSION - With this modified extension of the function scrollToTop() we can scroll from the
+//            Top to the Bottom of the scrollView
 
 extension UIScrollView {
     func scrollToTop() {
@@ -17,20 +18,19 @@ extension UIScrollView {
     }
 }
 
-//  TASK VIEW CONTROLLER MAIN SECTION
+// MAIN
 
 class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // Interface Builder
     
     @IBOutlet weak var adventureLabel: UILabel!
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var angryCloudButton: UIButton!
-    
     @IBOutlet weak var sadCloudButton: UIButton!
-    
     @IBOutlet weak var sunButton: UIButton!
     @IBOutlet weak var neutralCloudButton: UIButton!
-    
     @IBOutlet weak var thirdStaticCloudView: UIImageView!
     @IBOutlet weak var secondStaticCloudView: UIImageView!
     @IBOutlet weak var firstStaticCloudView: UIImageView!
@@ -48,11 +48,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         scrollView.scrollToTop()
         labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
-//        sunButton.isHidden = true
-//        sadCloudButton.isHidden = true
-//        angryCloudButton.isHidden = true
-//        neutralCloudButton.isHidden = true
-        
+                                //        sunButton.isHidden = true
+                                //        sadCloudButton.isHidden = true
+                                //        angryCloudButton.isHidden = true
+                                //        neutralCloudButton.isHidden = true
         
     }
     
@@ -72,6 +71,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
 
+    // SEGUE - In order to allow each UIView to comunicate and pass data
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCustomPopUpViewController" {
@@ -86,6 +86,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
+    //    GET ELEMENTS - This function allows to get data from the plist file that cointains all tasks
+    //                   divided by topics: "Adrenaline", "Business", "Lyfestyle"
 
     func getElements() -> [String] {
         
@@ -102,6 +105,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let businessRandomElement = businessDict[Int(arc4random_uniform(UInt32(businessDict.count)))]
                 let lifestyleRandomElement = lifestyleDict[Int(arc4random_uniform(UInt32(lifestyleDict.count)))]
                 
+    //          In order to have an array with the random tasks choosen for each session
+                
                 array = [adrenalineRandomElement, businessRandomElement, lifestyleRandomElement]
                 
                 
@@ -109,6 +114,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return array
     }
+    
+    //  ANIMATION: Functions to use custom animation for the Clouds and the label "Hello my adventure Friend"
     
     func cloudAnimation(viewOfTheCloud: UIView , duration: Double , amount: CGFloat){
         UIView.animate(withDuration: duration, delay: 0.25, options: [.autoreverse, .repeat], animations: {
@@ -122,6 +129,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
     
+    //  TABLE VIEW -  UITableViewDelegate, UITableViewDataSource - Delegation in order to use
+    //                this particular function to customize our tableView
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return imageTask.count
@@ -142,7 +151,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
 
-    //  BUTTON SECTION - SCROLL DOWN AND HIDE THE BUTTON
+    //  CLOUD BUTTONS - For each button there are some methods defined in the previous part of the code.
+    //                  generalFunction includes the function to scrollDown into the scrollView and the
+    //                  function to animate "Hello my adventure friend!" after the scrooling of the sV.
     
     @IBAction func angryCloudButtonPressed(_ sender: Any) {
         generalButtonFunction()
@@ -160,6 +171,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         generalButtonFunction()
     }
     
-    //  SECTION
+
     
 }
