@@ -21,7 +21,7 @@ class ResultSurveyViewController: UIViewController {
   }
   
   @IBAction func nextButtonPressed(_ sender: UIButton) {
-
+    
   }
   
 }

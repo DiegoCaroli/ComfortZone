@@ -53,4 +53,12 @@ final class DataModel {
       }
     }
   }
+  
+  func nextPhotoID() -> Int {
+    let userDefaults = UserDefaults.standard
+    let currentID = userDefaults.integer(forKey: "PhotoID") + 1
+    userDefaults.set(currentID, forKey: "PhotoID")
+    userDefaults.synchronize()
+    return currentID
+  }
 }

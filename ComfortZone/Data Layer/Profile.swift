@@ -20,7 +20,7 @@ class Profile: Codable {
   
   var email = ""
   
-  var photoProfileURL = ""
+  var photoProfile: Photo?
   
   var totalScore = 0
   var adrenalineScore = 0
@@ -38,5 +38,23 @@ class Profile: Codable {
     }
   }
   
+}
+
+struct Photo: Codable {
+  var photoID: Int
+  var photoURL: URL {
+    let filename = "Photo-\(photoID).jpg"
+    return DataModel.shared.documentsDirectory.appendingPathComponent(filename)
+  }
+  
+  func save(image: UIImage) {
+    if let data = UIImageJPEGRepresentation(image, 0.5) {
+      do {
+        try data.write(to: photoURL, options: .atomic)
+      } catch {
+        print("Error writing file: \(error)")
+      }
+    }
+  }
 }
 
