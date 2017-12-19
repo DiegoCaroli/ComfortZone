@@ -10,6 +10,10 @@
 		0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */; };
 		0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */; };
 		F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */; };
+		F11172DC1FE94596005E47AC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11172DA1FE94596005E47AC /* Profile.storyboard */; };
+		F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172DD1FE945AE005E47AC /* ProfileViewController.swift */; };
+		F11172E01FE945CC005E47AC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172DF1FE945CC005E47AC /* ImageCollectionViewCell.swift */; };
+		F11172E21FE945D8005E47AC /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172E11FE945D8005E47AC /* PhotoViewController.swift */; };
 		F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */; };
 		F13C43651FE1349F0021225B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C43641FE1349F0021225B /* Profile.swift */; };
 		F141029E1FE003FC00CF4840 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141029D1FE003FC00CF4840 /* Question.swift */; };
@@ -30,6 +34,10 @@
 		0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesViewController.swift; sourceTree = "<group>"; };
 		F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
+		F11172DB1FE94596005E47AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		F11172DD1FE945AE005E47AC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F11172DF1FE945CC005E47AC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = ComfortZone/Controllers/ImageCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		F11172E11FE945D8005E47AC /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F13C43641FE1349F0021225B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F141029D1FE003FC00CF4840 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -62,6 +70,7 @@
 		F16EC3641FE289F200828735 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F11172DF1FE945CC005E47AC /* ImageCollectionViewCell.swift */,
 				0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */,
 				F16EC3651FE28A1C00828735 /* BorderedButton.swift */,
 			);
@@ -100,6 +109,7 @@
 		F18E0A891FDA85D3001B0740 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				F11172DA1FE94596005E47AC /* Profile.storyboard */,
 				F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */,
 				F14A4E141FE9236800890819 /* LaunchScreen.storyboard */,
 				F14A4E171FE9238200890819 /* Main.storyboard */,
@@ -136,6 +146,8 @@
 				F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */,
 				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
 				0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */,
+				F11172DD1FE945AE005E47AC /* ProfileViewController.swift */,
+				F11172E11FE945D8005E47AC /* PhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11172DC1FE94596005E47AC /* Profile.storyboard in Resources */,
 				F14A4E161FE9236800890819 /* LaunchScreen.storyboard in Resources */,
 				F14A4E211FE924F500890819 /* Trophies.storyboard in Resources */,
 				F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */,
@@ -224,14 +237,25 @@
 				F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */,
 				F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */,
 				F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */,
+				F11172E01FE945CC005E47AC /* ImageCollectionViewCell.swift in Sources */,
+				F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */,
 				0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */,
 				0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */,
+				F11172E21FE945D8005E47AC /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F11172DA1FE94596005E47AC /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F11172DB1FE94596005E47AC /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
 		F14A4E141FE9236800890819 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
