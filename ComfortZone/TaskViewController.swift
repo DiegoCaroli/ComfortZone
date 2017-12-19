@@ -35,7 +35,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var secondStaticCloudView: UIImageView!
     @IBOutlet weak var firstStaticCloudView: UIImageView!
     
-    
+  var profile: Profile!
     var arrayElements: [String] = []
     
     let imageTask = ["imageTaskAdrenaline","imageTaskBusiness","imageTaskLifestyle"]
@@ -68,7 +68,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         arrayElements = getElements()
-        
+      
+      profile = DataModel.shared.profile
     }
 
     // SEGUE - In order to allow each UIView to comunicate and pass data
@@ -157,20 +158,22 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func angryCloudButtonPressed(_ sender: Any) {
         generalButtonFunction()
+      profile.happiness = 0
     }
     
     @IBAction func sadCloudButtonPressed(_ sender: Any) {
         generalButtonFunction()
+      profile.happiness = 1
     }
     
     @IBAction func neutralCloudButtonPressed(_ sender: Any) {
         generalButtonFunction()
+      profile.happiness = 2
     }
     
     @IBAction func sunButtonPressed(_ sender: Any) {
         generalButtonFunction()
+      profile.happiness = 3
     }
-    
-
     
 }

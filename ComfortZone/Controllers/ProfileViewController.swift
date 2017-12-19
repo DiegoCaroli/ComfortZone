@@ -36,13 +36,15 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
       profileImageView.clipsToBounds = true
       
-      configureProgressBar()
+      humorProgressImageView.image = setHappiness()
     }
 
    override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    
+    humorProgressImageView.image = setHappiness()
     
     }
   
@@ -81,6 +83,22 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     default:
       lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelThreeLifestyle")
     }
+  }
+  
+  func setHappiness() -> UIImage {
+    switch profile.happiness {
+    case 0:
+      return #imageLiteral(resourceName: "cloudsEmotionSadTwo")
+    case 1:
+      return #imageLiteral(resourceName: "cloudsEmotionSadOne")
+    case 2:
+      return #imageLiteral(resourceName: "cloudsEmotionHappyOne")
+    case 3:
+      return #imageLiteral(resourceName: "cloudsEmotionHappyTwo")
+    default:
+      return #imageLiteral(resourceName: "cloudsEmotionNeutral")
+    }
+    
   }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

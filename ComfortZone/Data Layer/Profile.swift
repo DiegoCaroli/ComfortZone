@@ -30,6 +30,7 @@ class Profile: Codable {
   var adrenalineScore: Int
   var businessScore: Int
   var lifestyleScore: Int
+  var happiness: Int
   
   var trophies: [Trophy]
   
@@ -38,6 +39,7 @@ class Profile: Codable {
     adrenalineScore = 0
     businessScore = 0
     lifestyleScore = 0
+    happiness = 4
     
     trophies = [
       Trophy(iconName: "Bug", name: "Bug eater", description: "Eat a bug", isLocked: true),
