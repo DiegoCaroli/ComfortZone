@@ -65,7 +65,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xZ-mL-EMF">
                                                 <rect key="frame" x="120" y="133" width="135" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="135" id="F2P-X2-LjB"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="F2P-X2-LjB"/>
                                                     <constraint firstAttribute="height" constant="25" id="ZX0-qg-XyT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
@@ -76,7 +76,7 @@
                                                 <rect key="frame" x="126" y="166" width="122" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="fio-5F-qZL"/>
-                                                    <constraint firstAttribute="width" constant="122" id="zAR-Sy-OWK"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="zAR-Sy-OWK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.31372549019607843" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -107,7 +107,7 @@
                                                 <rect key="frame" x="115" y="575" width="145" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="byD-0l-BcQ"/>
-                                                    <constraint firstAttribute="width" constant="145" id="q5b-5I-tHU"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="q5b-5I-tHU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.31372549020000001" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

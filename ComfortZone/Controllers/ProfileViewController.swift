@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
-
     @IBOutlet weak var photoCollectionView: UICollectionView!
     var photoArray = [UIImage(named: "memoryIcon")]
     
@@ -22,7 +21,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,7 +40,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
         photoVC.showPhoto = photoArray[indexPath.row]!
         self.navigationController?.pushViewController(photoVC, animated: true)
-        
     }
 
 }
