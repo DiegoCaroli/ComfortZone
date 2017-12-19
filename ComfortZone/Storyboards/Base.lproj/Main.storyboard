@@ -21,12 +21,23 @@
                     </tabBar>
                     <connections>
                         <segue destination="7P8-np-ptq" kind="relationship" relationship="viewControllers" id="mXE-lj-eYv"/>
-                        <segue destination="BNs-h2-MDf" kind="relationship" relationship="viewControllers" id="3ib-D3-7VR"/>
+                        <segue destination="gpt-H5-nq9" kind="relationship" relationship="viewControllers" id="KLf-F9-tgu"/>
+                        <segue destination="BNs-h2-MDf" kind="relationship" relationship="viewControllers" id="KR0-CK-kgA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7m-m0-uZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1151" y="-459"/>
+        </scene>
+        <!--Task-->
+        <scene sceneID="RDJ-0L-uc8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Task" id="gpt-H5-nq9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7Y9-6e-RFJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDE-ib-XJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-542" y="-381"/>
         </scene>
         <!--Trophies-->
         <scene sceneID="3Vl-90-CdN">

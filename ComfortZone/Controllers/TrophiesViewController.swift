@@ -14,8 +14,12 @@ class TrophiesViewController: UIViewController,UICollectionViewDelegate, UIColle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     // Do any additional setup after loading the view.
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    trophyCollectionView.contentOffset = CGPoint(x: 0, y: 0)
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
