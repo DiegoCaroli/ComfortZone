@@ -11,14 +11,18 @@ import UIKit
 
 class Profile: Codable {
   
-  var firstName = ""
-  var lastName = ""
+  var firstName: String?
+  var lastName: String?
   
   var fullName: String {
+    guard let firstName = firstName,
+      let lastName = lastName else {
+        return ""
+    }
     return "\(firstName) \(lastName)"
   }
   
-  var email = ""
+  var email: String?
   
   var photoProfile: Photo?
   
