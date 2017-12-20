@@ -134,11 +134,18 @@ struct Photo: Codable {
   }
 }
 
-struct Trophy: Codable {
+class Trophy: Codable {
   let iconName: String
-  var name: String
+  let name: String
   let description: String
   var isLocked: Bool
+  
+  init(iconName: String, name: String, description: String, isLocked: Bool) {
+    self.iconName = iconName
+    self.name = name
+    self.description = description
+    self.isLocked = isLocked
+  }
 }
 
 class Task: Codable {

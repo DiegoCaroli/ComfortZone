@@ -36,12 +36,11 @@ class CustomTableViewCell: UITableViewCell {
     task.toogleChecked()
     configureChechmark()
     updateTask(id: task.id)
-    print(task.isChecked)
-    
+    updateScore()
+    unlockTrophy()
   }
   
   func configureChechmark() {
-    print(task.isChecked)
     if task.isChecked {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
     } else {
@@ -63,7 +62,39 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   
+  func updateScore() {
+    if task.isChecked {
+      switch task.type {
+      case "Adrenaline":
+        DataModel.shared.profile.adrenalineScore += 1
+      case "Business":
+        DataModel.shared.profile.businessScore += 1
+      case "Lifestyle":
+        DataModel.shared.profile.lifestyleScore += 1
+      default:
+        return
+      }
+    } else {
+      switch task.type {
+      case "Adrenaline":
+        DataModel.shared.profile.adrenalineScore -= 1
+      case "Business":
+        DataModel.shared.profile.businessScore -= 1
+      case "Lifestyle":
+        DataModel.shared.profile.lifestyleScore -= 1
+      default:
+        return
+      }
+    }
+    
+  }
+  
   func unlockTrophy() {
+    let trophies = DataModel.shared.profile.trophies.filter { $0.name == task.name }
+    if var firstTrophy = trophies.first {
+      firstTrophy.isLocked = false
+    }
+    
     
   }
   

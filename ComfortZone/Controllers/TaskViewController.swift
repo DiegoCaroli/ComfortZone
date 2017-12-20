@@ -40,14 +40,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   let todayDate = DataModel.shared.todayDate
   let dueDate = Date()
   
-
-  var arrayElements = DataModel.shared.profile.getTodayTasks()
-//
-//  let imageTask = ["imageTaskAdrenaline","imageTaskBusiness","imageTaskLifestyle"]
-//
-//  let labelTask = ["Adrenaline Task", "Business Task", "Lifestyle task"]
-//
-//  let check = ["checkFalse"]
+  var memoryImage: UIImage?
   
   func generalButtonFunction(){
     
@@ -100,7 +93,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     let task = DataModel.shared.todayTasks[indexPath.row]
     
     cell.taskLabel.text = task.name
-    cell.typeTaskLabel.text = task.type
+    cell.typeTaskLabel.text = task.titleTypeTask
     cell.taskImageView.image = task.getTypeImage()
     cell.task = task
     cell.configureChechmark()
@@ -111,6 +104,28 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
+  
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let action = UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
+      self.pickPhoto()
+      completionHandler(true)
+    })
+    
+    action.image = UIImage(named: "cameraSwipe")
+    action.backgroundColor = UIColor(red:0.82, green:0.48, blue:0.28, alpha:1.00)
+    let configuration = UISwipeActionsConfiguration(actions: [action])
+    return configuration
+  }
+  
+//   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//    let configuration = UISwipeActionsConfiguration(actions: [
+//      UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
+////        self.strings.remove(at: indexPath.row)
+//        completionHandler(true)
+//      })
+//      ])
+//    return configuration
+//  }
   
   // SEGUE - In order to allow each UIView to comunicate and pass data
   
@@ -174,3 +189,69 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
 
   }
 }
+
+//MARK: - UIImagePickerControllerDelegate
+extension TaskViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+  func pickPhoto() {
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      showPhotoMenu()
+    } else {
+      choosePhotoFromLibrary()
+    }
+  }
+  
+  func showPhotoMenu() {
+    let alertController = UIAlertController(title: nil, message: nil,
+                                            preferredStyle: .actionSheet)
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    
+    let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in self.takePhotoWithCamera() })
+    
+    alertController.addAction(takePhotoAction)
+    
+    let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library", style: .default, handler: { _ in self.choosePhotoFromLibrary() })
+    
+    alertController.addAction(chooseFromLibraryAction)
+    
+    present(alertController, animated: true, completion: nil)
+  }
+  
+  func takePhotoWithCamera() {
+    let imagePicker = UIImagePickerController()
+    imagePicker.sourceType = .camera
+    imagePicker.delegate = self
+    imagePicker.allowsEditing = true
+    present(imagePicker, animated: true, completion: nil)
+  }
+  
+  func choosePhotoFromLibrary() {
+    let imagePicker = UIImagePickerController()
+    imagePicker.sourceType = .photoLibrary
+    imagePicker.delegate = self
+    imagePicker.allowsEditing = true
+    present(imagePicker, animated: true, completion: nil)
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController,
+                             didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    memoryImage = info[UIImagePickerControllerEditedImage] as? UIImage
+    
+//    if let image = profileImage {
+//      profile.photoProfile = Photo(photoID: DataModel.shared.nextPhotoID())
+//      if let photoProfile = profile.photoProfile {
+//        photoProfile.save(image: image)
+//      }
+//    }
+    
+    dismiss(animated: true, completion: nil)
+  }
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion: nil)
+  }
+}
+

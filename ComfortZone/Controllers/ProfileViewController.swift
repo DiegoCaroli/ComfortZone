@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       profileImageView.clipsToBounds = true
       
       humorProgressImageView.image = setHappiness()
+      configureProgressBar()
     }
 
    override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +46,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
     
     humorProgressImageView.image = setHappiness()
-    
+    configureProgressBar()
     }
   
   func configureProgressBar() {
