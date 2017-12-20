@@ -25,14 +25,14 @@ class Profile: Codable {
   var email: String?
   
   var photoProfile: Photo?
-  
+
   var totalScore: Int
   var adrenalineScore: Int
   var businessScore: Int
   var lifestyleScore: Int
   var happiness: Int
   
-//  var tasks: [Task]
+  var tasks: [Task] = []
   var trophies: [Trophy]
   
   init() {
@@ -61,25 +61,25 @@ class Profile: Codable {
       Trophy(iconName: "Trophie", name: "Explorer", description: "Take a new way home from work.", isLocked: true),
       Trophy(iconName: "Trophie", name: "Learn from your mistakes", description: "Ask for constructive criticism at work.", isLocked: true)
     ]
+    
+    tasks = loadTasks()
   }
   
-//  func loadTasks() -> [Task] {
-//    if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
-//      if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
-//        for typeDict in
-//        var adrenalineDict = dict["Adrenaline"] as! [String]
-//
-//        var businessDict = dict["Business"] as! [String]
-//        var lifestyleDict = dict["Lifestyle"] as! [String]
-//
-//        let adrenalineRandomElement = adrenalineDict[Int(arc4random_uniform(UInt32(adrenalineDict.count)))]
-//        let businessRandomElement = businessDict[Int(arc4random_uniform(UInt32(businessDict.count)))]
-//        let lifestyleRandomElement = lifestyleDict[Int(arc4random_uniform(UInt32(lifestyleDict.count)))]
-//
-//        //          In order to have an array with the random tasks choosen for each session
-//
-//        array = [adrenalineRandomElement, businessRandomElement, lifestyleRandomElement]
-//  }
+  private func loadTasks() -> [Task] {
+    var tasks: [Task] = []
+    if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
+      if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+        
+        for (key, value) in dict {
+          for i in value as! [String] {
+            let task = Task(name: i, type: key)
+            tasks.append(task)
+          }
+        }
+      }
+    }
+    return tasks
+  }
   
   func getComics() -> UIImage {
     switch totalScore {
@@ -92,6 +92,28 @@ class Profile: Codable {
     }
   }
   
+  func getTodayTasks() -> [Task] {
+    var tasks: [Task] = []
+    let adrenalineTasks = self.tasks.filter {$0.type == "Adrenaline" && !$0.isChecked }
+    let businessTasks = self.tasks.filter {$0.type == "Business" && !$0.isChecked }
+    let lifestyleTasks = self.tasks.filter {$0.type == "Lifestyle" && !$0.isChecked }
+    
+    if adrenalineScore <= 8 && businessScore <= 8 && lifestyleScore <= 8 {
+      let adrenalineTask = adrenalineTasks[Int(arc4random_uniform(UInt32(adrenalineTasks.count)))]
+      let businessTask = businessTasks[Int(arc4random_uniform(UInt32(businessTasks.count)))]
+      let lifestyleTask = lifestyleTasks[Int(arc4random_uniform(UInt32(lifestyleTasks.count)))]
+    
+      tasks = [adrenalineTask, businessTask, lifestyleTask]
+    } else if adrenalineScore == 9 && businessScore <= 8 && lifestyleScore <= 8 {
+      let businessTaskOne = businessTasks[businessTasks.count % 3]
+      let businessTaskTwo = businessTasks[(businessTasks.count % 3 + 1) ]
+      let lifestyleTask = lifestyleTasks[Int(arc4random_uniform(UInt32(lifestyleTasks.count)))]
+      
+      tasks = [businessTaskOne, businessTaskTwo, lifestyleTask]
+    } 
+    return tasks
+  }
+
 }
 
 struct Photo: Codable {
@@ -119,3 +141,47 @@ struct Trophy: Codable {
   var isLocked: Bool
 }
 
+struct Task: Codable {
+  
+  var name: String
+  var type: String
+  var isChecked: Bool
+  
+  var titleTypeTask: String {
+    return "\(type) Task"
+  }
+  
+  init(name: String, type: String) {
+    self.name = name
+    self.type = type
+    isChecked = false
+  }
+  
+  func getTypeImage() -> UIImage {
+    if type == "Adrenaline" {
+      return #imageLiteral(resourceName: "imageTaskAdrenaline")
+    } else if type == "Business" {
+      return #imageLiteral(resourceName: "imageTaskBusiness")
+    } else {
+      return #imageLiteral(resourceName: "imageTaskLifestyle")
+    }
+  }
+}
+
+extension UserDefaults {
+  func tasksForKey(key: String) -> [Task]? {
+    var tasks: [Task]?
+    if let tasksData = data(forKey: key) {
+      tasks = NSKeyedUnarchiver.unarchiveObject(with: tasksData) as? [Task]
+    }
+    return tasks
+  }
+  func setTasks(tasks: [Task]?, forKey key: String) {
+    var tasksData: NSData?
+    if let tasks = tasks {
+      tasksData = NSKeyedArchiver.archivedData(withRootObject: tasks) as NSData?
+    }
+    set(tasksData, forKey: key)
+  }
+  
+}

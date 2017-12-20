@@ -21,7 +21,9 @@ class CustomTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    // Initialization code
+    let selectionView = UIView(frame: CGRect.zero)
+    selectionView.backgroundColor = UIColor(red: 0.56, green: 0.33, blue: 0.19, alpha: 0.5)
+    selectedBackgroundView = selectionView
   }
   
   @IBAction func checkButtonPressed(_ sender: Any) {

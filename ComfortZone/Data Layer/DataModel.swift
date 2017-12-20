@@ -22,29 +22,29 @@ final class DataModel {
     return UserDefaults.standard.bool(forKey: "FirstTime")
   }
   
-  var todayDate: Date {
-    get {
-      return UserDefaults.standard.object(forKey: "TodayDate") as! Date
-    }
-    set {
-      UserDefaults.standard.set(newValue, forKey: "TodayDate")
-      UserDefaults.standard.synchronize()
-    }
-  }
+//  var todayDate: Date {
+//    get {
+//      return UserDefaults.standard.object(forKey: "TodayDate") as! Date
+//    }
+//    set {
+//      UserDefaults.standard.set(newValue, forKey: "TodayDate")
+//      UserDefaults.standard.synchronize()
+//    }
+//  }
   
   var todayTasks: [Task] {
     get {
-      return UserDefaults.standard.object(forKey: "TodayTasks") as! [Task]
+      return try! PropertyListDecoder().decode([Task].self, from: UserDefaults.standard.object(forKey: "TodayTasks") as! Data) 
     }
     set {
-      UserDefaults.standard.set(newValue, forKey: "TodayTasks")
+      UserDefaults.standard.set(try! PropertyListEncoder().encode(newValue), forKey: "TodayTasks")
       UserDefaults.standard.synchronize()
     }
   }
   
   private init() {
     UserDefaults.standard.register(defaults: ["FirstTime": true,
-                                              "TodayDate": Date(),
+                                              "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
                                               "TodayTasks": []])
     loadProfile()
     print(documentsDirectory)

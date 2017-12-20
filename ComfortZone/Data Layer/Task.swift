@@ -8,8 +8,4 @@
 
 import Foundation
 
-struct Task: Codable {
-  var name: String
-  var type: String
-  var isChecked: Bool
-}
+

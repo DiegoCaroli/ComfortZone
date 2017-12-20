@@ -36,13 +36,17 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var firstStaticCloudView: UIImageView!
   
   var profile: Profile!
-  var arrayElements: [String] = []
+//  let todayDate = DataModel.shared.todayDate
+//  let dueDate = Date()
   
-  let imageTask = ["imageTaskAdrenaline","imageTaskBusiness","imageTaskLifestyle"]
-  
-  let labelTask = ["Adrenaline Task", "Business Task", "Lifestyle task"]
-  
-  let check = ["checkFalse"]
+
+  var arrayElements = DataModel.shared.profile.getTodayTasks()
+//
+//  let imageTask = ["imageTaskAdrenaline","imageTaskBusiness","imageTaskLifestyle"]
+//
+//  let labelTask = ["Adrenaline Task", "Business Task", "Lifestyle task"]
+//
+//  let check = ["checkFalse"]
   
   func generalButtonFunction(){
     
@@ -56,20 +60,26 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     
     cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -100)
     cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 15 , amount: 60)
     cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
     
-    
     taskTableView.delegate = self
     taskTableView.dataSource = self
     
-    super.viewDidLoad()
-    
-    arrayElements = getElements()
-    
     profile = DataModel.shared.profile
+//    DataModel.shared.todayTasks = profile.getTodayTasks()
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+//    if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
+//      scrollView.scrollToTop()
+//    }
   }
   
   // SEGUE - In order to allow each UIView to comunicate and pass data
@@ -78,42 +88,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     if segue.identifier == "toCustomPopUpViewController" {
       let customPopUpView = segue.destination as! CustomPopUpViewController
       
-      if let indexPath = taskTableView.indexPath(for: sender as! UITableViewCell){
-        
-        customPopUpView.todayTask = arrayElements[indexPath.row]
-        customPopUpView.typeTask = labelTask[indexPath.row]
-        customPopUpView.imgTask = imageTask[indexPath.row]
-        
+      if let indexPath = taskTableView.indexPath(for: sender as! UITableViewCell) {
+        customPopUpView.task = DataModel.shared.todayTasks[indexPath.row]
       }
     }
-  }
-  
-  //    GET ELEMENTS - This function allows to get data from the plist file that cointains all tasks
-  //                   divided by topics: "Adrenaline", "Business", "Lyfestyle"
-  
-  func getElements() -> [String] {
-    
-    var array: [String] = []
-    
-    if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
-      if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
-        
-        var adrenalineDict = dict["Adrenaline"] as! [String]
-        var businessDict = dict["Business"] as! [String]
-        var lifestyleDict = dict["Lifestyle"] as! [String]
-        
-        let adrenalineRandomElement = adrenalineDict[Int(arc4random_uniform(UInt32(adrenalineDict.count)))]
-        let businessRandomElement = businessDict[Int(arc4random_uniform(UInt32(businessDict.count)))]
-        let lifestyleRandomElement = lifestyleDict[Int(arc4random_uniform(UInt32(lifestyleDict.count)))]
-        
-        //          In order to have an array with the random tasks choosen for each session
-        
-        array = [adrenalineRandomElement, businessRandomElement, lifestyleRandomElement]
-        
-        
-      }
-    }
-    return array
   }
   
   //  ANIMATION: Functions to use custom animation for the Clouds and the label "Hello my adventure Friend"
@@ -134,17 +112,19 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   //                this particular function to customize our tableView
   
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    return imageTask.count
+    return DataModel.shared.todayTasks.count
   }
   
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
     let cell = taskTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
     
+    let task = DataModel.shared.todayTasks[indexPath.row]
+    
     cell.checkButton.layer.cornerRadius = 50
     cell.checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
-    cell.taskLabel.text = arrayElements[indexPath.row]
-    cell.typeTaskLabel.text = labelTask[indexPath.row]
-    cell.taskImageView.image = UIImage(named: imageTask[indexPath.row])
+    cell.taskLabel.text = task.name
+    cell.typeTaskLabel.text = task.type
+    cell.taskImageView.image = task.getTypeImage()
     
     return cell
   }
@@ -156,21 +136,31 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func angryCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 0
+//    setTodayDate()
   }
   
   @IBAction func sadCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 1
+//    setTodayDate()
   }
   
   @IBAction func neutralCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 2
+//    setTodayDate()
   }
   
   @IBAction func sunButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 3
+//    setTodayDate()
   }
   
+//  private func setTodayDate() {
+//    if todayDate.getDay != dueDate.getDay && todayDate.getMonth != dueDate.getMonth {
+//      DataModel.shared.todayDate = dueDate
+//    }
+//
+//  }
 }
