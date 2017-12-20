@@ -23,35 +23,31 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   var memories: [UIImage] = [] {
     didSet {
-  photoCollectionView.reloadData()
+      photoCollectionView.reloadData()
     }
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    profile = DataModel.shared.profile
     
-      profile = DataModel.shared.profile
-      
-      fullNameLabel.text = profile.fullName
-      if let photoProfile = profile.photoProfile {
-        profileImageView.image = UIImage(contentsOfFile: photoProfile.photoURL.path)
-      }
-      
-      profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
-      profileImageView.clipsToBounds = true
-      
-      humorProgressImageView.image = setHappiness()
-      
-      configureProgressBar(score: profile.adrenalineScore, typeImageView: adrenalineProgressImageView, imageType: "Adrenaline")
-      configureProgressBar(score: profile.businessScore, typeImageView: businessProgressImageView, imageType: "Business")
-      configureProgressBar(score: profile.lifestyleScore, typeImageView: lifestyleProgressImageView, imageType: "Lifestyle")
+    fullNameLabel.text = profile.fullName
+    if let photoProfile = profile.photoProfile {
+      profileImageView.image = UIImage(contentsOfFile: photoProfile.photoURL.path)
     }
+    
+    profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
+    profileImageView.clipsToBounds = true
+    
+    humorProgressImageView.image = setHappiness()
+    
+    configureProgressBars()
+  }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     memories = []
-    
-
     
     for i in DataModel.shared.profile.memories {
       if let memoryPhoto = UIImage(contentsOfFile: i.photoURL.path) {
@@ -60,13 +56,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     humorProgressImageView.image = setHappiness()
-//    configureProgressBar()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    configureProgressBars()
   }
   
   private func configureProgressBar(score: Int, typeImageView: UIImageView, imageType: String) {
@@ -80,6 +76,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     default:
       typeImageView.image = UIImage(named: "levelThree\(imageType)")
     }
+  }
+  
+  private func configureProgressBars() {
+    configureProgressBar(score: profile.adrenalineScore, typeImageView: adrenalineProgressImageView, imageType: "Adrenaline")
+    configureProgressBar(score: profile.businessScore, typeImageView: businessProgressImageView, imageType: "Business")
+    configureProgressBar(score: profile.lifestyleScore, typeImageView: lifestyleProgressImageView, imageType: "Lifestyle")
   }
   
   func setHappiness() -> UIImage {
@@ -97,7 +99,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
   }
-    
+  
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return memories.count
   }
