@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   var profile: Profile!
   
-    var photoArray = [UIImage(named: "memoryIcon")]
+  lazy var memories: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +103,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoArray.count
+        return memories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.memoryIcon.image = photoArray[indexPath.row]
+        cell.memoryIcon.image = memories[indexPath.row]
         
         return cell
     }
@@ -117,7 +117,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-        photoVC.showPhoto = photoArray[indexPath.row]!
+      photoVC.showPhoto = memories[indexPath.row]
         self.navigationController?.pushViewController(photoVC, animated: true)
     }
 

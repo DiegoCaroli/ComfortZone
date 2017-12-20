@@ -34,6 +34,7 @@ class Profile: Codable {
   
   var tasks: [Task] = []
   var trophies: [Trophy]
+  var memories: [Photo] = []
   
   init() {
     totalScore = 0

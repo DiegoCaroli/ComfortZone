@@ -240,12 +240,13 @@ extension TaskViewController: UIImagePickerControllerDelegate, UINavigationContr
     
     memoryImage = info[UIImagePickerControllerEditedImage] as? UIImage
     
-//    if let image = profileImage {
-//      profile.photoProfile = Photo(photoID: DataModel.shared.nextPhotoID())
-//      if let photoProfile = profile.photoProfile {
-//        photoProfile.save(image: image)
-//      }
-//    }
+    if let image = memoryImage {
+      profile.photoProfile = Photo(photoID: DataModel.shared.nextPhotoID())
+      if let photoMemory = profile.photoProfile {
+        photoMemory.save(image: image)
+        DataModel.shared.profile.memories.append(photoMemory)
+      }
+    }
     
     dismiss(animated: true, completion: nil)
   }

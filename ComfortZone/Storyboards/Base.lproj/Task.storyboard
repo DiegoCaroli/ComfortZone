@@ -105,13 +105,13 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-Hz-is1">
-                                                                    <rect key="frame" x="63" y="2" width="245" height="26"/>
+                                                                    <rect key="frame" x="63" y="2" width="233" height="26"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                                                     <color key="textColor" red="0.99123507738113403" green="0.99636763334274292" blue="0.9917110800743103" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqE-Yz-YAe">
-                                                                    <rect key="frame" x="63" y="29" width="245" height="22"/>
+                                                                    <rect key="frame" x="63" y="29" width="233" height="22"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                                                     <color key="textColor" red="0.99128538370132446" green="0.99629455804824829" blue="0.99602717161178589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -124,7 +124,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkFalse" translatesAutoresizingMaskIntoConstraints="NO" id="Eh8-h0-6qt">
-                                                                    <rect key="frame" x="328" y="14" width="32" height="32"/>
+                                                                    <rect key="frame" x="316" y="14" width="32" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="32" id="1pS-Ql-F5j"/>
                                                                         <constraint firstAttribute="width" constant="32" id="OQN-kt-P79"/>
@@ -140,7 +140,7 @@
                                                                 <constraint firstItem="tPy-XC-G0t" firstAttribute="leading" secondItem="cVz-GX-ebD" secondAttribute="leading" constant="15" id="Gi0-rJ-sfZ"/>
                                                                 <constraint firstItem="Eh8-h0-6qt" firstAttribute="centerY" secondItem="cVz-GX-ebD" secondAttribute="centerY" id="LAQ-mp-JVs"/>
                                                                 <constraint firstItem="Eh8-h0-6qt" firstAttribute="leading" secondItem="PqE-Yz-YAe" secondAttribute="trailing" constant="20" id="Q7b-bX-unc"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Eh8-h0-6qt" secondAttribute="trailing" constant="15" id="S9Y-ej-c08"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Eh8-h0-6qt" secondAttribute="trailing" constant="27" id="S9Y-ej-c08"/>
                                                                 <constraint firstItem="PqE-Yz-YAe" firstAttribute="top" secondItem="OPs-Hz-is1" secondAttribute="bottom" constant="1" id="ked-lo-Lc6"/>
                                                                 <constraint firstItem="tPy-XC-G0t" firstAttribute="centerY" secondItem="cVz-GX-ebD" secondAttribute="centerY" id="oxG-mw-Kax"/>
                                                             </constraints>
