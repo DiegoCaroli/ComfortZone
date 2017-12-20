@@ -39,20 +39,20 @@ class SurveyViewController: UIViewController {
   
   @IBAction func haveDoneButtonPressed(_ sender: Any) {
     calculateInitialProgress(points: 3)
-    nextQuestion(index: index)
+    nextQuestion()
     profile.totalScore += 3
 
   }
   
   @IBAction func wantToDoButtonPressed(_ sender: Any) {
     calculateInitialProgress(points: 2)
-    nextQuestion(index: index)
+    nextQuestion()
     profile.totalScore += 2
   }
   
   @IBAction func wouldNotDoButtonPressed(_ sender: Any) {
     calculateInitialProgress(points: 1)
-    nextQuestion(index: index)
+    nextQuestion()
     profile.totalScore += 1
   }
   
@@ -64,7 +64,8 @@ class SurveyViewController: UIViewController {
     button.layer.shadowOpacity = 0.8
   }
   
-  private func nextQuestion(index: Int) {
+  private func nextQuestion() {
+    self.index += 1
     if index < QuestionStore.questions.count {
       let question = QuestionStore.questions[index]
       titleSurveyLabel.text = question.text
@@ -73,7 +74,6 @@ class SurveyViewController: UIViewController {
       performSegue(withIdentifier: "ShowResult", sender: profile)
       
     }
-    self.index += 1
   }
   
   private func calculateInitialProgress(points: Int) {
