@@ -75,6 +75,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     print(todayDate)
     print(dueDate)
     
+    for i in DataModel.shared.todayTasks {
+      print(i.isChecked) }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -97,11 +99,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let task = DataModel.shared.todayTasks[indexPath.row]
     
-    cell.checkButton.layer.cornerRadius = 50
-    cell.checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
     cell.taskLabel.text = task.name
     cell.typeTaskLabel.text = task.type
     cell.taskImageView.image = task.getTypeImage()
+    cell.task = task
+    cell.configureChechmark()
     
     return cell
   }

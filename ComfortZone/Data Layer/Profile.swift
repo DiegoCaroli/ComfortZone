@@ -141,8 +141,9 @@ struct Trophy: Codable {
   var isLocked: Bool
 }
 
-struct Task: Codable {
+class Task: Codable {
   
+  let id: String
   var name: String
   var type: String
   var isChecked: Bool
@@ -152,6 +153,7 @@ struct Task: Codable {
   }
   
   init(name: String, type: String) {
+    id = UUID().uuidString
     self.name = name
     self.type = type
     isChecked = false
@@ -165,5 +167,9 @@ struct Task: Codable {
     } else {
       return #imageLiteral(resourceName: "imageTaskLifestyle")
     }
+  }
+  
+  func toogleChecked() {
+    isChecked = !isChecked
   }
 }

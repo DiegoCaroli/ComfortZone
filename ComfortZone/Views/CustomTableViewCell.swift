@@ -14,25 +14,56 @@ class CustomTableViewCell: UITableViewCell {
   @IBOutlet weak var taskImageView: UIImageView!
   @IBOutlet weak var typeTaskLabel: UILabel!
   @IBOutlet weak var taskLabel: UILabel!
+  @IBOutlet weak var checkmarkImageView: UIImageView!
   
-  @IBOutlet weak var checkButton: UIButton!
   
-  
+  var task: Task! 
+
   override func awakeFromNib() {
     super.awakeFromNib()
     
     let selectionView = UIView(frame: CGRect.zero)
     selectionView.backgroundColor = UIColor(red: 0.56, green: 0.33, blue: 0.19, alpha: 0.5)
     selectedBackgroundView = selectionView
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(sender:)))
+    
+    checkmarkImageView.addGestureRecognizer(tapGesture)
+    checkmarkImageView.isUserInteractionEnabled = true
   }
   
-  @IBAction func checkButtonPressed(_ sender: Any) {
+  @objc func imageTapped(sender: UITapGestureRecognizer) {
+    task.toogleChecked()
+    configureChechmark()
+    updateTask(id: task.id)
+    print(task.isChecked)
     
-    if checkButton.currentBackgroundImage == #imageLiteral(resourceName: "checkFalse") {
-      checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkTrue"), for: .normal)
+  }
+  
+  func configureChechmark() {
+    print(task.isChecked)
+    if task.isChecked {
+      checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
     } else {
-      checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
+      checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
     }
+  }
+  
+  func updateTask(id: String) {
+    let profile = DataModel.shared.profile
+    
+    if let i = DataModel.shared.todayTasks.index(where: {$0.id == id}) {
+      var tasks = DataModel.shared.todayTasks
+      tasks[i] = task
+      DataModel.shared.todayTasks = tasks
+    }
+    
+    if let i = profile.tasks.index(where: {$0.id == id}) {
+      profile.tasks[i] = task
+    }
+  }
+  
+  func unlockTrophy() {
     
   }
   
