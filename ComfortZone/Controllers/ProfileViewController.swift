@@ -97,9 +97,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     default:
       return #imageLiteral(resourceName: "cloudsEmotionNeutral")
     }
-    
   }
-  
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return memories.count
