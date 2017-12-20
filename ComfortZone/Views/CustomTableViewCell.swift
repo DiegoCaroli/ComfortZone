@@ -37,14 +37,15 @@ class CustomTableViewCell: UITableViewCell {
     configureChechmark()
     updateTask(id: task.id)
     updateScore()
-    unlockTrophy()
   }
   
   func configureChechmark() {
     if task.isChecked {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
+      isLockedTrophy(isLocked: false)
     } else {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
+      isLockedTrophy(isLocked: true)
     }
   }
   
@@ -89,14 +90,10 @@ class CustomTableViewCell: UITableViewCell {
     
   }
   
-  func unlockTrophy() {
+  func isLockedTrophy(isLocked: Bool) {
     let trophies = DataModel.shared.profile.trophies
-//    if let trophy = trophies.first(where: { $0.name == task.name}) {
       if let i = trophies.index(where: { $0.description.contains(task.name) }) {
-        print("hello")
-        trophies[i].isLocked = false
-        print(trophies[i])
-        print(trophies[i].isLocked)
+        trophies[i].isLocked = isLocked
       }
     }
   

@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //      currentViewController.profile = dataModel.profile
     
-    self.window?.tintColor = UIColor.green
-    
     self.window = UIWindow(frame: UIScreen.main.bounds)
     var viewController: UIViewController!
     
