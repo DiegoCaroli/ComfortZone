@@ -35,6 +35,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var secondStaticCloudView: UIImageView!
   @IBOutlet weak var firstStaticCloudView: UIImageView!
   @IBOutlet weak var backgroundImage: UIImageView!
+  @IBOutlet weak var welcomeBackLabel: UILabel!
   
   var profile: Profile!
   let todayDate = DataModel.shared.todayDate
@@ -56,31 +57,23 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -100)
-    cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 15 , amount: 60)
-    cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
-    
     taskTableView.delegate = self
     taskTableView.dataSource = self
-    
     profile = DataModel.shared.profile
-//    DataModel.shared.todayTasks = profile.getTodayTasks()
-    print(todayDate)
-    print(dueDate)
-    
-    
-    
-    for i in DataModel.shared.todayTasks {
-      print(i.isChecked)
-      
-    }
+    setTodayDate()
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    setTodayDate()
+    
+    cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -100)
+    cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 15 , amount: 60)
+    cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
+    
+    
     if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
       scrollView.contentOffset = CGPoint(x: 0, y: 200)
+      welcomeBackLabel.isHidden = false
     } else {
       
     }
@@ -178,9 +171,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   private func setTodayDate() {
-    if todayDate.getDay != dueDate.getDay && todayDate.getMonth != dueDate.getMonth {
+    if todayDate.getDay != dueDate.getDay || todayDate.getMonth != dueDate.getMonth {
       DataModel.shared.todayDate = dueDate
       DataModel.shared.todayTasks = profile.getTodayTasks()
+  
     }
 
   }

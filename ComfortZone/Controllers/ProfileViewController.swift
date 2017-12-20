@@ -48,8 +48,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     super.viewDidAppear(animated)
     memories = []
     
-    navigationController?.isNavigationBarHidden = true
-    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+
     
     for i in DataModel.shared.profile.memories {
       if let memoryPhoto = UIImage(contentsOfFile: i.photoURL.path) {
@@ -59,6 +58,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     humorProgressImageView.image = setHappiness()
     configureProgressBar()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.isNavigationBarHidden = true
+    scrollView.contentOffset = CGPoint(x: 0, y: 0)
   }
   
   func configureProgressBar() {

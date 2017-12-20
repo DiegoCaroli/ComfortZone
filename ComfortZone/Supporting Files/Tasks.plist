@@ -4,38 +4,39 @@
 <dict>
 	<key>Adrenaline</key>
 	<array>
-        <string>Make a fool of yourself on a dance floor in public.</string>
-		<string>Give online dating a chance.</string>
-		<string>Travel alone.</string>
-		<string>Sing karaoke.</string>
-		<string>Eat a bug.</string>
-		<string>Go zip lining.</string>
-		<string>Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh.</string>
-		<string>Jump into a lake with your clothes on.</string>
-		<string>Go somewhere you shouldn’t be.</string>
+		<string>Make a fool of yourself on a dance floor in public</string>
+		<string>Give online dating a chance</string>
+		<string>Travel alone</string>
+		<string>Sing karoke in a bar</string>
+		<string>Eat a bug</string>
+		<string>Go zip lining</string>
+		<string>Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh</string>
+		<string>Jump into a lake or something with water with your clothes on</string>
+		<string>Go somewhere you shouldn’t be</string>
 	</array>
 	<key>Lifestyle</key>
 	<array>
-		<string>Go to a restaurant, order and eat dessert first.</string>
-		<string>Send someone flowers for no reason. </string>
-		<string>Take a new fitness class you’ve always wanted to try. Exclaim at yourself when you fail.</string>
-		<string>Try a new coffee place in town or go somewhere new every time you go out to eat.</string>
-		<string>Go to lunch by yourself.</string>
-		<string>Hug a stranger.</string>
-		<string>Have a midnight picnic.</string>
-		<string>Go to your favorite book store, and leave notes in your favorites books for future readers.</string>
-		<string>Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because.</string>
+		<string>Go to a restaurant, order and eat dessert first</string>
+		<string>Send someone flowers for no reason</string>
+		<string>Take a new fitness class you’ve always wanted to try. Exclaim at yourself when you fail</string>
+		<string>Try a new coffee place in town or go somewhere new every time you go out to eat</string>
+		<string>Go to lunch by yourself</string>
+		<string>Give to a stranger an hug</string>
+		<string>Have a midnight picnic</string>
+		<string>Go to your favorite book store, and leave notes in your favorites books for future readers</string>
+		<string>Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because</string>
 	</array>
 	<key>Business</key>
 	<array>
-		<string>Try to sell something.</string>
-		<string>Invest 10€ and to gain 11€.</string>
-		<string>Start to save 1€. Try to do this every day.</string>
-		<string>Apply for jobs that intimidate you.</string>
-		<string>Ask for constructive criticism at work.</string>
-		<string>Invite a co-worker you don’t know well to lunch and get to know them better.</string>
-		<string>Have a difficult conversation face to face instead of email/text/phone.</string>
-		<string>Take a new way home from work.</string>
+		<string>Try to sell something</string>
+		<string>Invest 10€ and to gain 11€</string>
+		<string>Start to save 1€. Try to do this every day</string>
+		<string>Apply for jobs that intimidate you</string>
+		<string>Ask for constructive criticism at work</string>
+		<string>Invite a co-worker you don’t know well to lunch and get to know them better</string>
+		<string>Have a difficult conversation face to face instead of email/text/phone</string>
+		<string>Take a new way home from work</string>
+		<string>Create your cv</string>
 	</array>
 </dict>
 </plist>

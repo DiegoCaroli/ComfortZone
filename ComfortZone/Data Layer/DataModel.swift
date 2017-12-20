@@ -44,7 +44,8 @@ final class DataModel {
   
   private init() {
     UserDefaults.standard.register(defaults: ["FirstTime": true,
-                                              "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!])
+                                              "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
+                                              "TodayTask": []])
     loadProfile()
     print(documentsDirectory)
   }

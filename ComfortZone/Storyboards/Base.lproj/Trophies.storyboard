@@ -50,7 +50,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSp-fI-08b">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSp-fI-08b">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="100"/>
                                                 </imageView>
                                             </subviews>

@@ -90,12 +90,14 @@ class CustomTableViewCell: UITableViewCell {
   }
   
   func unlockTrophy() {
-    let trophies = DataModel.shared.profile.trophies.filter { $0.name == task.name }
-    if var firstTrophy = trophies.first {
-      firstTrophy.isLocked = false
+    let trophies = DataModel.shared.profile.trophies
+//    if let trophy = trophies.first(where: { $0.name == task.name}) {
+      if let i = trophies.index(where: { $0.description.contains(task.name) }) {
+        print("hello")
+        trophies[i].isLocked = false
+        print(trophies[i])
+        print(trophies[i].isLocked)
+      }
     }
-    
-    
-  }
   
 }
