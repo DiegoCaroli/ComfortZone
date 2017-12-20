@@ -43,6 +43,14 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   var memoryImage: UIImage?
   
+  var newTrophy = DataModel.shared.isNewTrophyDiscored {
+    didSet {
+      if newTrophy == true {
+        tabBarController?.tabBar.items![2].badgeValue = "New"
+      }
+    }
+  }
+  
   func generalButtonFunction(){
     
     scrollView.scrollToTop()
@@ -57,6 +65,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    newTrophy = DataModel.shared.isNewTrophyDiscored
     taskTableView.delegate = self
     taskTableView.dataSource = self
     profile = DataModel.shared.profile

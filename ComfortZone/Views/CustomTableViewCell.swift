@@ -46,6 +46,7 @@ class CustomTableViewCell: UITableViewCell {
     if task.isChecked {
       updateScore(score: 1)
       isLockedTrophy(isLocked: false)
+      DataModel.shared.isNewTrophyDiscored = true
     } else {
       updateScore(score: -1)
       isLockedTrophy(isLocked: true)
@@ -104,7 +105,7 @@ class CustomTableViewCell: UITableViewCell {
         return
       }
     }
-      let alert = UIAlertController(title: "Well Done", message: "Hey looks like today you were too good. Come tomorrow for more fun.", preferredStyle: .alert)
+      let alert = UIAlertController(title: "Well Done", message: "Hey, looks like today you were too good! Come tomorrow for more fun.", preferredStyle: .alert)
       
       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
       

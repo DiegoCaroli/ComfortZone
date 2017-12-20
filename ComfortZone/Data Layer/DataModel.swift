@@ -42,10 +42,21 @@ final class DataModel {
     }
   }
   
+  var isNewTrophyDiscored: Bool {
+    get {
+      return UserDefaults.standard.bool(forKey: "NewTrophy")
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: "NewTrophy")
+      UserDefaults.standard.synchronize()
+    }
+  }
+  
   private init() {
     UserDefaults.standard.register(defaults: ["FirstTime": true,
                                               "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-                                              "TodayTask": []])
+                                              "TodayTask": [],
+                                              "NewTrophy": false])
     loadProfile()
     print(documentsDirectory)
   }

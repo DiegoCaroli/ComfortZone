@@ -21,6 +21,9 @@ class TrophiesViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     trophyCollectionView.reloadData()
     trophyCollectionView.contentOffset = CGPoint(x: 0, y: 0)
+    
+    DataModel.shared.isNewTrophyDiscored = false
+    tabBarController?.tabBar.items![2].badgeValue = nil
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
