@@ -11,14 +11,21 @@ import UIKit
 class PhotoViewController: UIViewController {
   
   @IBOutlet weak var photo: UIImageView!
-  var showPhoto = UIImage()
+  var showPhoto: UIImage!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationController?.isNavigationBarHidden = false
-    self.photo.image = self.showPhoto
-    photo.image = showPhoto
+    if let image = showPhoto {
+       photo.image = image
+    }
   }
+  
+  @IBAction func shareButton(_ sender: Any) {
+    let activityVC = UIActivityViewController(activityItems: [showPhoto], applicationActivities: [])
+    present(activityVC, animated: true, completion: nil)
+  }
+  
   
 }

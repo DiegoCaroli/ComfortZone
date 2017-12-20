@@ -21,7 +21,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   var profile: Profile!
   
-  lazy var memories: [UIImage] = []
+  var memories: [UIImage] = [] {
+    didSet {
+  photoCollectionView.reloadData()
+    }
+  }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +43,23 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       humorProgressImageView.image = setHappiness()
       configureProgressBar()
     }
-
-   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    memories = []
+    
     navigationController?.isNavigationBarHidden = true
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
     
+    for i in DataModel.shared.profile.memories {
+      if let memoryPhoto = UIImage(contentsOfFile: i.photoURL.path) {
+        self.memories.append(memoryPhoto)
+      }
+    }
+    
     humorProgressImageView.image = setHappiness()
     configureProgressBar()
-    }
+  }
   
   func configureProgressBar() {
     print(profile.adrenalineScore)
@@ -102,23 +114,24 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
   }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return memories.count
-    }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return memories.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+    print(memories[indexPath.row])
+    cell.memoryIcon.image = memories[indexPath.row]
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-        cell.memoryIcon.image = memories[indexPath.row]
-        
-        return cell
-    }
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-        let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-      photoVC.showPhoto = memories[indexPath.row]
-        self.navigationController?.pushViewController(photoVC, animated: true)
-    }
+    let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+    let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+    photoVC.showPhoto = memories[indexPath.row]
+    self.navigationController?.pushViewController(photoVC, animated: true)
+  }
 
 }

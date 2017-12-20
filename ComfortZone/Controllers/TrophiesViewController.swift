@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrophiesViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class TrophiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
   @IBOutlet weak var trophyCollectionView: UICollectionView!
   
@@ -20,7 +20,6 @@ class TrophiesViewController: UIViewController,UICollectionViewDelegate, UIColle
   
   override func viewWillAppear(_ animated: Bool) {
     trophyCollectionView.contentOffset = CGPoint(x: 0, y: 0)
-    trophyCollectionView.reloadData()
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
