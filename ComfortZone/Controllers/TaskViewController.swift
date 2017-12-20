@@ -107,7 +107,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cell.typeTaskLabel.text = task.titleTypeTask
     cell.taskImageView.image = task.getTypeImage()
     cell.task = task
-    cell.configureChechmark()
+//    cell.configureChechmark()
     
     return cell
   }
@@ -176,8 +176,22 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
       DataModel.shared.todayTasks = profile.getTodayTasks()
   
     }
-
   }
+  
+  private func updateTask(task: Task) {
+    let profile = DataModel.shared.profile
+    
+    if let i = DataModel.shared.todayTasks.index(where: {$0.id == task.id}) {
+      var tasks = DataModel.shared.todayTasks
+      tasks[i] = task
+      DataModel.shared.todayTasks = tasks
+    }
+    
+    if let i = profile.tasks.index(where: {$0.id == task.id}) {
+      profile.tasks[i] = task
+    }
+  }
+  
 }
 
 //MARK: - UIImagePickerControllerDelegate

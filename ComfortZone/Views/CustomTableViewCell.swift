@@ -16,9 +16,14 @@ class CustomTableViewCell: UITableViewCell {
   @IBOutlet weak var taskLabel: UILabel!
   @IBOutlet weak var checkmarkImageView: UIImageView!
   
+  var task: Task! {
+    didSet {
+      configureChechmark()
+      checkAllTodayTasksDone()
+    }
+  }
+  let profile = DataModel.shared.profile
   
-  var task: Task! 
-
   override func awakeFromNib() {
     super.awakeFromNib()
     
@@ -34,67 +39,78 @@ class CustomTableViewCell: UITableViewCell {
   
   @objc func imageTapped(sender: UITapGestureRecognizer) {
     task.toogleChecked()
+    
     configureChechmark()
-    updateTask(id: task.id)
-    updateScore()
-  }
-  
-  func configureChechmark() {
+    updateTask()
+    
     if task.isChecked {
-      checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
+      updateScore(score: 1)
       isLockedTrophy(isLocked: false)
     } else {
-      checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
+      updateScore(score: -1)
       isLockedTrophy(isLocked: true)
+    }
+    
+    checkAllTodayTasksDone()
+  }
+  
+  private func configureChechmark() {
+    if task.isChecked {
+      checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
+      //      isLockedTrophy(isLocked: false)
+    } else {
+      checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
+      //      isLockedTrophy(isLocked: true)
     }
   }
   
-  func updateTask(id: String) {
-    let profile = DataModel.shared.profile
-    
-    if let i = DataModel.shared.todayTasks.index(where: {$0.id == id}) {
-      var tasks = DataModel.shared.todayTasks
-      tasks[i] = task
-      DataModel.shared.todayTasks = tasks
+  private func updateTask() {
+    if let i = DataModel.shared.todayTasks.index(where: {$0.id == task.id}) {
+      var todayTasks = DataModel.shared.todayTasks
+      todayTasks[i] = task
+      DataModel.shared.todayTasks = todayTasks
     }
     
-    if let i = profile.tasks.index(where: {$0.id == id}) {
+    if let i = profile.tasks.index(where: {$0.id == task.id}) {
       profile.tasks[i] = task
     }
   }
   
-  func updateScore() {
-    if task.isChecked {
-      switch task.type {
-      case "Adrenaline":
-        DataModel.shared.profile.adrenalineScore += 1
-      case "Business":
-        DataModel.shared.profile.businessScore += 1
-      case "Lifestyle":
-        DataModel.shared.profile.lifestyleScore += 1
-      default:
-        return
-      }
-    } else {
-      switch task.type {
-      case "Adrenaline":
-        DataModel.shared.profile.adrenalineScore -= 1
-      case "Business":
-        DataModel.shared.profile.businessScore -= 1
-      case "Lifestyle":
-        DataModel.shared.profile.lifestyleScore -= 1
-      default:
-        return
-      }
+  private func updateScore(score: Int) {
+    switch task.type {
+    case "Adrenaline":
+      DataModel.shared.profile.adrenalineScore += score
+    case "Business":
+      DataModel.shared.profile.businessScore += score
+    case "Lifestyle":
+      DataModel.shared.profile.lifestyleScore += score
+    default:
+      return
     }
-    
   }
   
-  func isLockedTrophy(isLocked: Bool) {
+  private func isLockedTrophy(isLocked: Bool) {
     let trophies = DataModel.shared.profile.trophies
-      if let i = trophies.index(where: { $0.description.contains(task.name) }) {
-        trophies[i].isLocked = isLocked
+    if let i = trophies.index(where: { $0.description.contains(task.name) }) {
+      trophies[i].isLocked = isLocked
+    }
+  }
+  
+  private func checkAllTodayTasksDone() {
+    let todayTasks = DataModel.shared.todayTasks
+    
+    for task in todayTasks {
+      if task.isChecked == false {
+        return
       }
     }
+      let alert = UIAlertController(title: "Well Done", message: "Hey looks like today you were too good. Come tomorrow for more fun.", preferredStyle: .alert)
+      
+      let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      
+      alert.addAction(okAction)
+      
+      UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+  }
   
 }

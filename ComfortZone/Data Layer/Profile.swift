@@ -156,6 +156,8 @@ class Trophy: Codable {
     self.description = description
     self.isLocked = isLocked
   }
+  
+  
 }
 
 class Task: Codable {
@@ -189,4 +191,6 @@ class Task: Codable {
   func toogleChecked() {
     isChecked = !isChecked
   }
+  
+  
 }
