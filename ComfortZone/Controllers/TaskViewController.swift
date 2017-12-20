@@ -68,15 +68,33 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     print(todayDate)
     print(dueDate)
     
+    
+    
     for i in DataModel.shared.todayTasks {
-      print(i.isChecked) }
+      print(i.isChecked)
+      
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
+    setTodayDate()
     if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
       scrollView.contentOffset = CGPoint(x: 0, y: 200)
+    } else {
+      
+    }
+  }
+  
+  // SEGUE - In order to allow each UIView to comunicate and pass data
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toCustomPopUpViewController" {
+      let customPopUpView = segue.destination as! CustomPopUpViewController
+      
+      if let indexPath = taskTableView.indexPath(for: sender as! UITableViewCell) {
+        customPopUpView.task = DataModel.shared.todayTasks[indexPath.row]
+      }
     }
   }
   
@@ -117,28 +135,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     return configuration
   }
   
-//   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//    let configuration = UISwipeActionsConfiguration(actions: [
-//      UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
-////        self.strings.remove(at: indexPath.row)
-//        completionHandler(true)
-//      })
-//      ])
-//    return configuration
-//  }
-  
-  // SEGUE - In order to allow each UIView to comunicate and pass data
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "toCustomPopUpViewController" {
-      let customPopUpView = segue.destination as! CustomPopUpViewController
-      
-      if let indexPath = taskTableView.indexPath(for: sender as! UITableViewCell) {
-        customPopUpView.task = DataModel.shared.todayTasks[indexPath.row]
-      }
-    }
-  }
-  
   //  ANIMATION: Functions to use custom animation for the Clouds and the label "Hello my adventure Friend"
   
   func cloudAnimation(viewOfTheCloud: UIView , duration: Double , amount: CGFloat){
@@ -160,25 +156,25 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func angryCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 0
-    setTodayDate()
+//    setTodayDate()
   }
   
   @IBAction func sadCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 1
-    setTodayDate()
+//    setTodayDate()
   }
   
   @IBAction func neutralCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 2
-    setTodayDate()
+//    setTodayDate()
   }
   
   @IBAction func sunButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 3
-    setTodayDate()
+//    setTodayDate()
   }
   
   private func setTodayDate() {
