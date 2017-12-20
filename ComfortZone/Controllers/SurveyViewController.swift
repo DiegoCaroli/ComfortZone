@@ -72,7 +72,6 @@ class SurveyViewController: UIViewController {
       backgroundSurveyImageView.image = question.backgroundImage
     } else {
       performSegue(withIdentifier: "ShowResult", sender: profile)
-      
     }
   }
   

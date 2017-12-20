@@ -41,7 +41,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       profileImageView.clipsToBounds = true
       
       humorProgressImageView.image = setHappiness()
-      configureProgressBar()
+      
+      configureProgressBar(score: profile.adrenalineScore, typeImageView: adrenalineProgressImageView, imageType: "Adrenaline")
+      configureProgressBar(score: profile.businessScore, typeImageView: businessProgressImageView, imageType: "Business")
+      configureProgressBar(score: profile.lifestyleScore, typeImageView: lifestyleProgressImageView, imageType: "Lifestyle")
     }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -57,7 +60,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     humorProgressImageView.image = setHappiness()
-    configureProgressBar()
+//    configureProgressBar()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -66,40 +69,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
   }
   
-  func configureProgressBar() {
-    print(profile.adrenalineScore)
-    
-    switch profile.adrenalineScore {
+  private func configureProgressBar(score: Int, typeImageView: UIImageView, imageType: String) {
+    switch score {
     case 0...3:
-      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelZeroAdrenaline")
+      typeImageView.image = UIImage(named: "levelZero\(imageType)")
     case 4...6:
-      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelOneAdrenaline")
+      typeImageView.image = UIImage(named: "levelOne\(imageType)")
     case 7...8:
-      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelTwoAdrenaline")
+      typeImageView.image = UIImage(named: "levelTwo\(imageType)")
     default:
-      adrenalineProgressImageView.image = #imageLiteral(resourceName: "levelThreeAdrenaline")
-    }
-    
-    switch profile.businessScore {
-    case 0...3:
-      businessProgressImageView.image = #imageLiteral(resourceName: "levelZeroBusiness")
-    case 4...6:
-      businessProgressImageView.image = #imageLiteral(resourceName: "levelOneBusiness")
-    case 7...8:
-      businessProgressImageView.image = #imageLiteral(resourceName: "levelTwoBusiness")
-    default:
-      businessProgressImageView.image = #imageLiteral(resourceName: "levelThreeBusiness")
-    }
-    
-    switch profile.lifestyleScore {
-    case 0...3:
-      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelZeroLifestyle")
-    case 4...6:
-      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelOneLifestyle")
-    case 7...8:
-      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelTwoLifestyle")
-    default:
-      lifestyleProgressImageView.image = #imageLiteral(resourceName: "levelThreeLifestyle")
+      typeImageView.image = UIImage(named: "levelThree\(imageType)")
     }
   }
   
