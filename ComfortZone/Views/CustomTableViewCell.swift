@@ -46,8 +46,10 @@ class CustomTableViewCell: UITableViewCell {
     if task.isChecked {
       updateScore(score: 1)
       isLockedTrophy(isLocked: false)
-      (UIApplication.shared.keyWindow?.rootViewController as! MyTabBarController).tabBar.items![2].badgeValue = "New"
-      //.tabBar.items![2].badgeValue = "New"
+      if (UIApplication.shared.keyWindow?.rootViewController as? MyTabBarController) != nil {
+        (UIApplication.shared.keyWindow?.rootViewController as! MyTabBarController).tabBar.items![2].badgeValue = "New"
+      }
+
     } else {
       updateScore(score: -1)
       isLockedTrophy(isLocked: true)
