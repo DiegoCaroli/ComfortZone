@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CustomTableViewCellDelegate: class {
+  func showAlert(_ class: CustomTableViewCell)
+  func showBadge(_ class: CustomTableViewCell)
+}
+
 class CustomTableViewCell: UITableViewCell {
   
   @IBOutlet weak var cellView: UIView!
@@ -23,6 +28,7 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   let profile = DataModel.shared.profile
+  weak var delegate: CustomTableViewCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -46,10 +52,10 @@ class CustomTableViewCell: UITableViewCell {
     if task.isChecked {
       updateScore(score: 1)
       isLockedTrophy(isLocked: false)
-      if (UIApplication.shared.keyWindow?.rootViewController as? MyTabBarController) != nil {
-        (UIApplication.shared.keyWindow?.rootViewController as! MyTabBarController).tabBar.items![2].badgeValue = "New"
-      }
-
+//      if (UIApplication.shared.keyWindow?.rootViewController as? MyTabBarController) != nil {
+//        (UIApplication.shared.keyWindow?.rootViewController as! MyTabBarController).tabBar.items![2].badgeValue = "New"
+//      }
+delegate?.showBadge(self)
     } else {
       updateScore(score: -1)
       isLockedTrophy(isLocked: true)
@@ -98,7 +104,7 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   
-  private func checkAllTodayTasksDone() {
+  func checkAllTodayTasksDone() {
     let todayTasks = DataModel.shared.todayTasks
     
     for task in todayTasks {
@@ -106,13 +112,7 @@ class CustomTableViewCell: UITableViewCell {
         return
       }
     }
-      let alert = UIAlertController(title: "Well Done", message: "Hey, looks like today you were too good! Come tomorrow for more fun.", preferredStyle: .alert)
-    
-      let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-    
-      alert.addAction(okAction)
-      
-      UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    delegate?.showAlert(self)
   }
   
 }

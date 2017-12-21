@@ -20,7 +20,7 @@ extension UIScrollView {
 
 // MAIN
 
-class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomTableViewCellDelegate {
   
   // Interface Builder
   
@@ -105,6 +105,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cell.typeTaskLabel.text = task.titleTypeTask
     cell.taskImageView.image = task.getTypeImage()
     cell.task = task
+    cell.delegate = self
+    cell.checkAllTodayTasksDone()
     
     return cell
   }
@@ -184,6 +186,20 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
   }
   
+  func showBadge(_ class: CustomTableViewCell) {
+    tabBarController?.tabBar.items![2].badgeValue = "New"
+  }
+  
+  func showAlert(_ class: CustomTableViewCell) {
+    let alert = UIAlertController(title: "Well Done", message: "Hey, looks like today you were too good! Come tomorrow for more fun.", preferredStyle: .alert)
+    
+    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    
+    alert.addAction(okAction)
+    
+    present(alert, animated: true, completion: nil)
+  }
+  
 }
 
 //MARK: - UIImagePickerControllerDelegate
@@ -249,4 +265,3 @@ extension TaskViewController: UIImagePickerControllerDelegate, UINavigationContr
     dismiss(animated: true, completion: nil)
   }
 }
-
