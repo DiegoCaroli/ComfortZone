@@ -23,7 +23,6 @@
 		F14A4E211FE924F500890819 /* Trophies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A4E1F1FE924F500890819 /* Trophies.storyboard */; };
 		F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC35C1FE26F4B00828735 /* DataModel.swift */; };
 		F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC3651FE28A1C00828735 /* BorderedButton.swift */; };
-		F1709CDA1FE997AA007F366F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CD91FE997AA007F366F /* Task.swift */; };
 		F1709CDC1FE9B50C007F366F /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */; };
 		F1709CDE1FE9B723007F366F /* Date+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDD1FE9B723007F366F /* Date+Component.swift */; };
 		F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */; };
@@ -55,7 +54,6 @@
 		F14A4E201FE924F500890819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trophies.storyboard; sourceTree = "<group>"; };
 		F16EC35C1FE26F4B00828735 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F16EC3651FE28A1C00828735 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
-		F1709CD91FE997AA007F366F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		F1709CDD1FE9B723007F366F /* Date+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Component.swift"; path = "ComfortZone/Date+Component.swift"; sourceTree = SOURCE_ROOT; };
 		F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSurveyViewController.swift; sourceTree = "<group>"; };
@@ -150,11 +148,10 @@
 		FAC97F2D1FDED8A00012F2B2 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
 				F13C43641FE1349F0021225B /* Profile.swift */,
 				F141029D1FE003FC00CF4840 /* Question.swift */,
-				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
 				F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */,
-				F1709CD91FE997AA007F366F /* Task.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -260,7 +257,6 @@
 				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
 				F141029E1FE003FC00CF4840 /* Question.swift in Sources */,
 				F13C43651FE1349F0021225B /* Profile.swift in Sources */,
-				F1709CDA1FE997AA007F366F /* Task.swift in Sources */,
 				FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */,
 				F1709CDC1FE9B50C007F366F /* MyTabBarController.swift in Sources */,
 				F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */,

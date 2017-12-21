@@ -27,10 +27,16 @@ class CustomPopUpViewController: UIViewController {
     popUpView.layer.shadowRadius = 5.0
     popUpView.layer.shadowOpacity = 0.3
     
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(sender:)))
+    view.addGestureRecognizer(tapGesture)
     
     imgView.image = task.getTypeImage()
     taskLabelPopUp.text = task.name
     typeTaskLabel.text = task.titleTypeTask
+  }
+  
+  @objc func viewTapped(sender: UITapGestureRecognizer) {
+    dismiss(animated: true, completion: nil)
   }
   
   @IBAction func exitButtonPopUpPressed(_ sender: Any) {
