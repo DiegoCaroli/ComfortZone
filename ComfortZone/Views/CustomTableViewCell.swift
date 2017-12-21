@@ -51,14 +51,10 @@ class CustomTableViewCell: UITableViewCell {
     
     if task.isChecked {
       updateScore(score: 1)
-      isLockedTrophy(isLocked: false)
-//      if (UIApplication.shared.keyWindow?.rootViewController as? MyTabBarController) != nil {
-//        (UIApplication.shared.keyWindow?.rootViewController as! MyTabBarController).tabBar.items![2].badgeValue = "New"
-//      }
-delegate?.showBadge(self)
+      unlockTrophy()
     } else {
       updateScore(score: -1)
-      isLockedTrophy(isLocked: true)
+      lockTrophy()
     }
     
     checkAllTodayTasksDone()
@@ -97,11 +93,26 @@ delegate?.showBadge(self)
     }
   }
   
-  private func isLockedTrophy(isLocked: Bool) {
+  private func unlockTrophy() {
     let trophies = DataModel.shared.profile.trophies
-    if let i = trophies.index(where: { $0.description.contains(task.name) }) {
-      trophies[i].isLocked = isLocked
+    if let i = indexOfTrophy(trophies: trophies) {
+      trophies[i].isLocked = false
+      delegate?.showBadge(self)
     }
+  }
+  
+  private func lockTrophy() {
+    let trophies = DataModel.shared.profile.trophies
+    if let i = indexOfTrophy(trophies: trophies) {
+      trophies[i].isLocked = true
+    }
+  }
+  
+  private func indexOfTrophy(trophies: [Trophy]) -> Int? {
+    if let i = trophies.index(where: { $0.description.contains(task.name) }) {
+      return i
+    }
+    return nil
   }
   
   func checkAllTodayTasksDone() {
