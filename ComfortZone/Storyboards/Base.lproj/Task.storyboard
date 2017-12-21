@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--LeafHome-->
+        <!--Leafy-->
         <scene sceneID="WLi-ff-sWB">
             <objects>
                 <viewController id="Ueg-Ch-Ab8" customClass="TaskViewController" customModule="ComfortZone" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,7 +231,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m71-J4-cld"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="LeafHome" image="AssistantTabBar" id="tAb-kL-PoD"/>
+                    <tabBarItem key="tabBarItem" title="Leafy" image="AssistantTabBar" id="tAb-kL-PoD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="899"/>
