@@ -22,15 +22,15 @@ final class DataModel {
     return UserDefaults.standard.bool(forKey: "FirstTime")
   }
   
-//  var todayDate: Date {
-//    get {
-//      return UserDefaults.standard.object(forKey: "TodayDate") as! Date
-//    }
-//    set {
-//      UserDefaults.standard.set(newValue, forKey: "TodayDate")
-//      UserDefaults.standard.synchronize()
-//    }
-//  }
+  var todayDate: Date {
+    get {
+      return UserDefaults.standard.object(forKey: "TodayDate") as! Date
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: "TodayDate")
+      UserDefaults.standard.synchronize()
+    }
+  }
   
   var todayTasks: [Task] {
     get {
@@ -44,8 +44,7 @@ final class DataModel {
   
   private init() {
     UserDefaults.standard.register(defaults: ["FirstTime": true,
-                                              "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-                                              "TodayTasks": []])
+                                              "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!])
     loadProfile()
     print(documentsDirectory)
   }

@@ -249,6 +249,7 @@
                     <connections>
                         <outlet property="adventureLabel" destination="2ft-Yt-mgT" id="b65-Kq-QFa"/>
                         <outlet property="angryCloudButton" destination="nRJ-mz-RF2" id="r5t-MP-vLd"/>
+                        <outlet property="backgroundImage" destination="Sb4-h8-QQp" id="xQo-gM-Ie3"/>
                         <outlet property="firstStaticCloudView" destination="XBO-Wo-qla" id="bng-TQ-MGD"/>
                         <outlet property="neutralCloudButton" destination="QEy-dg-7K9" id="A2U-tA-4k3"/>
                         <outlet property="sadCloudButton" destination="q35-H3-s4d" id="U5U-Ge-xo1"/>

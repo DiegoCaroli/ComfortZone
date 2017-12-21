@@ -150,9 +150,9 @@
 		FAC97F2D1FDED8A00012F2B2 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
 				F13C43641FE1349F0021225B /* Profile.swift */,
 				F141029D1FE003FC00CF4840 /* Question.swift */,
+				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
 				F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */,
 				F1709CD91FE997AA007F366F /* Task.swift */,
 			);

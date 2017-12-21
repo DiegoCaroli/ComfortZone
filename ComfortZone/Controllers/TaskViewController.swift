@@ -34,10 +34,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var thirdStaticCloudView: UIImageView!
   @IBOutlet weak var secondStaticCloudView: UIImageView!
   @IBOutlet weak var firstStaticCloudView: UIImageView!
+  @IBOutlet weak var backgroundImage: UIImageView!
   
   var profile: Profile!
-//  let todayDate = DataModel.shared.todayDate
-//  let dueDate = Date()
+  let todayDate = DataModel.shared.todayDate
+  let dueDate = Date()
   
 
   var arrayElements = DataModel.shared.profile.getTodayTasks()
@@ -71,15 +72,42 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     profile = DataModel.shared.profile
 //    DataModel.shared.todayTasks = profile.getTodayTasks()
+    print(todayDate)
+    print(dueDate)
     
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-//    if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
-//      scrollView.scrollToTop()
-//    }
+    if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
+      scrollView.contentOffset = CGPoint(x: 0, y: 200)
+    }
+  }
+  
+  //  TABLE VIEW -  UITableViewDelegate, UITableViewDataSource - Delegation in order to use
+  //                this particular function to customize our tableView
+  
+  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    return DataModel.shared.todayTasks.count
+  }
+  
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+    let cell = taskTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+    
+    let task = DataModel.shared.todayTasks[indexPath.row]
+    
+    cell.checkButton.layer.cornerRadius = 50
+    cell.checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
+    cell.taskLabel.text = task.name
+    cell.typeTaskLabel.text = task.type
+    cell.taskImageView.image = task.getTypeImage()
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
   // SEGUE - In order to allow each UIView to comunicate and pass data
@@ -108,27 +136,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     })
   }
   
-  //  TABLE VIEW -  UITableViewDelegate, UITableViewDataSource - Delegation in order to use
-  //                this particular function to customize our tableView
-  
-  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    return DataModel.shared.todayTasks.count
-  }
-  
-  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-    let cell = taskTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
-    
-    let task = DataModel.shared.todayTasks[indexPath.row]
-    
-    cell.checkButton.layer.cornerRadius = 50
-    cell.checkButton.setBackgroundImage(#imageLiteral(resourceName: "checkFalse"), for: .normal)
-    cell.taskLabel.text = task.name
-    cell.typeTaskLabel.text = task.type
-    cell.taskImageView.image = task.getTypeImage()
-    
-    return cell
-  }
-  
   //  CLOUD BUTTONS - For each button there are some methods defined in the previous part of the code.
   //                  generalFunction includes the function to scrollDown into the scrollView and the
   //                  function to animate "Hello my adventure friend!" after the scrooling of the sV.
@@ -136,31 +143,32 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func angryCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 0
-//    setTodayDate()
+    setTodayDate()
   }
   
   @IBAction func sadCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 1
-//    setTodayDate()
+    setTodayDate()
   }
   
   @IBAction func neutralCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 2
-//    setTodayDate()
+    setTodayDate()
   }
   
   @IBAction func sunButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 3
-//    setTodayDate()
+    setTodayDate()
   }
   
-//  private func setTodayDate() {
-//    if todayDate.getDay != dueDate.getDay && todayDate.getMonth != dueDate.getMonth {
-//      DataModel.shared.todayDate = dueDate
-//    }
-//
-//  }
+  private func setTodayDate() {
+    if todayDate.getDay != dueDate.getDay && todayDate.getMonth != dueDate.getMonth {
+      DataModel.shared.todayDate = dueDate
+      DataModel.shared.todayTasks = profile.getTodayTasks()
+    }
+
+  }
 }

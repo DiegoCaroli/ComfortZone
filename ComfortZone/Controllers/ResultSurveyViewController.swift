@@ -22,6 +22,7 @@ class ResultSurveyViewController: UIViewController {
   
   @IBAction func nextButtonPressed(_ sender: UIButton) {
     UserDefaults.standard.set(false, forKey: "FirstTime")
+    DataModel.shared.todayTasks = profile.getTodayTasks()
     
     let tabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabBar") as! UITabBarController
     present(tabBarController, animated: true, completion: nil)

@@ -167,21 +167,3 @@ struct Task: Codable {
     }
   }
 }
-
-extension UserDefaults {
-  func tasksForKey(key: String) -> [Task]? {
-    var tasks: [Task]?
-    if let tasksData = data(forKey: key) {
-      tasks = NSKeyedUnarchiver.unarchiveObject(with: tasksData) as? [Task]
-    }
-    return tasks
-  }
-  func setTasks(tasks: [Task]?, forKey key: String) {
-    var tasksData: NSData?
-    if let tasks = tasks {
-      tasksData = NSKeyedArchiver.archivedData(withRootObject: tasks) as NSData?
-    }
-    set(tasksData, forKey: key)
-  }
-  
-}
