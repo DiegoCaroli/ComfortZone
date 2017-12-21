@@ -21,11 +21,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   var profile: Profile!
   
-  var memories: [UIImage] = [] {
-    didSet {
-      photoCollectionView.reloadData()
-    }
-  }
+  lazy var memories: [UIImage] = [] 
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,11 +51,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       }
     }
     
+    photoCollectionView.reloadData()
     humorProgressImageView.image = setHappiness()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
     navigationController?.isNavigationBarHidden = true
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
     configureProgressBars()
