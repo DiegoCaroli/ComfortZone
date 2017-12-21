@@ -46,7 +46,8 @@ class CustomTableViewCell: UITableViewCell {
     if task.isChecked {
       updateScore(score: 1)
       isLockedTrophy(isLocked: false)
-      DataModel.shared.isNewTrophyDiscored = true
+      (UIApplication.shared.keyWindow?.rootViewController as! MyTabBarController).tabBar.items![2].badgeValue = "New"
+      //.tabBar.items![2].badgeValue = "New"
     } else {
       updateScore(score: -1)
       isLockedTrophy(isLocked: true)
@@ -58,10 +59,8 @@ class CustomTableViewCell: UITableViewCell {
   private func configureChechmark() {
     if task.isChecked {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
-      //      isLockedTrophy(isLocked: false)
     } else {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
-      //      isLockedTrophy(isLocked: true)
     }
   }
   
@@ -106,9 +105,9 @@ class CustomTableViewCell: UITableViewCell {
       }
     }
       let alert = UIAlertController(title: "Well Done", message: "Hey, looks like today you were too good! Come tomorrow for more fun.", preferredStyle: .alert)
-      
+    
       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-      
+    
       alert.addAction(okAction)
       
       UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)

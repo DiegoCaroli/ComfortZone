@@ -27,5 +27,4 @@ class PhotoViewController: UIViewController {
     present(activityVC, animated: true, completion: nil)
   }
   
-  
 }

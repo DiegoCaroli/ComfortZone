@@ -45,7 +45,7 @@ class Profile: Codable {
     
     trophies = [
       Trophy(iconName: "Bug", name: "Bug eater", description: "Eat a bug", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Lock Trophy", description: "Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because", isLocked: true),
+      Trophy(iconName: "Trophie", name: "Sunrise watcher", description: "Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because", isLocked: true),
       Trophy(iconName: "ZipLine" , name: "Human zipper", description: "Go to zip lining", isLocked: true),
       Trophy(iconName: "Trophie", name: "Dirty dancer", description: "Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh", isLocked: true),
       Trophy(iconName: "Trophie", name: "Ready for the future", description: "Create your cv", isLocked: true),

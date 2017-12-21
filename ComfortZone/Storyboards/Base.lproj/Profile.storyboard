@@ -137,7 +137,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-0s-bn3">
-                                        <rect key="frame" x="8" y="632" width="359" height="541"/>
+                                        <rect key="frame" x="0.0" y="632" width="375" height="541"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="541" id="blO-ue-fuq"/>
@@ -146,11 +146,11 @@
                                             <size key="itemSize" width="100" height="100"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="8"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="ifI-Wd-r7h" customClass="ImageCollectionViewCell" customModule="ComfortZone" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="8" y="0.0" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -182,10 +182,10 @@
                                     <constraint firstAttribute="trailing" secondItem="BdH-x8-T2s" secondAttribute="trailing" id="D5H-hu-Ven"/>
                                     <constraint firstItem="OM2-0s-bn3" firstAttribute="top" secondItem="BdH-x8-T2s" secondAttribute="bottom" constant="-38" id="IM5-Wg-Udv"/>
                                     <constraint firstItem="BdH-x8-T2s" firstAttribute="leading" secondItem="2wu-T9-tN2" secondAttribute="leading" id="RfV-6G-iFo"/>
-                                    <constraint firstAttribute="trailing" secondItem="OM2-0s-bn3" secondAttribute="trailing" constant="8" id="Rrg-Ir-c5o"/>
+                                    <constraint firstAttribute="trailing" secondItem="OM2-0s-bn3" secondAttribute="trailing" id="Rrg-Ir-c5o"/>
                                     <constraint firstAttribute="bottom" secondItem="OM2-0s-bn3" secondAttribute="bottom" id="WLF-1p-zov"/>
                                     <constraint firstItem="BdH-x8-T2s" firstAttribute="centerX" secondItem="2wu-T9-tN2" secondAttribute="centerX" id="XxP-iV-y3i"/>
-                                    <constraint firstItem="OM2-0s-bn3" firstAttribute="leading" secondItem="2wu-T9-tN2" secondAttribute="leading" constant="8" id="dyN-zP-TMc"/>
+                                    <constraint firstItem="OM2-0s-bn3" firstAttribute="leading" secondItem="2wu-T9-tN2" secondAttribute="leading" id="dyN-zP-TMc"/>
                                     <constraint firstItem="BdH-x8-T2s" firstAttribute="top" secondItem="2wu-T9-tN2" secondAttribute="top" constant="3" id="oWX-ac-Q6E"/>
                                 </constraints>
                             </scrollView>

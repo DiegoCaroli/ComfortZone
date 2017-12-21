@@ -43,14 +43,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   var memoryImage: UIImage?
   
-  var newTrophy = DataModel.shared.isNewTrophyDiscored {
-    didSet {
-      if newTrophy == true {
-        tabBarController?.tabBar.items![2].badgeValue = "New"
-      }
-    }
-  }
-  
   func generalButtonFunction(){
     
     scrollView.scrollToTop()
@@ -65,7 +57,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    newTrophy = DataModel.shared.isNewTrophyDiscored
     taskTableView.delegate = self
     taskTableView.dataSource = self
     profile = DataModel.shared.profile
@@ -83,8 +74,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
       scrollView.contentOffset = CGPoint(x: 0, y: 200)
       welcomeBackLabel.isHidden = false
-    } else {
-      
     }
   }
   
@@ -116,7 +105,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cell.typeTaskLabel.text = task.titleTypeTask
     cell.taskImageView.image = task.getTypeImage()
     cell.task = task
-//    cell.configureChechmark()
     
     return cell
   }
@@ -158,32 +146,27 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func angryCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 0
-//    setTodayDate()
   }
   
   @IBAction func sadCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 1
-//    setTodayDate()
   }
   
   @IBAction func neutralCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 2
-//    setTodayDate()
   }
   
   @IBAction func sunButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 3
-//    setTodayDate()
   }
   
   private func setTodayDate() {
     if todayDate.getDay != dueDate.getDay || todayDate.getMonth != dueDate.getMonth {
       DataModel.shared.todayDate = dueDate
       DataModel.shared.todayTasks = profile.getTodayTasks()
-  
     }
   }
   

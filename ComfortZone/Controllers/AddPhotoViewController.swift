@@ -100,10 +100,6 @@ extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationC
     
     profileImage = info[UIImagePickerControllerEditedImage] as? UIImage
     
-//    if let theImage = image {
-//      show(image: theImage)
-//    }
-    
     if let image = profileImage {
       profile.photoProfile = Photo(photoID: DataModel.shared.nextPhotoID())
       if let photoProfile = profile.photoProfile {

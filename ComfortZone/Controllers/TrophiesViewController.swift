@@ -22,7 +22,6 @@ class TrophiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     trophyCollectionView.reloadData()
     trophyCollectionView.contentOffset = CGPoint(x: 0, y: 0)
     
-    DataModel.shared.isNewTrophyDiscored = false
     tabBarController?.tabBar.items![2].badgeValue = nil
   }
   
