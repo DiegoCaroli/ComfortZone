@@ -51,7 +51,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       }
     }
     
-    
     photoCollectionView.reloadData()
     humorProgressImageView.image = setHappiness()
   }

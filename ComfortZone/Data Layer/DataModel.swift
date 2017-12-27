@@ -12,6 +12,7 @@ final class DataModel {
   static let shared = DataModel()
   
   var profile = Profile()
+  private let userDefaults = UserDefaults.standard
   
   var documentsDirectory: URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -19,31 +20,31 @@ final class DataModel {
   }
   
   var isFirstTime: Bool {
-    return UserDefaults.standard.bool(forKey: "FirstTime")
+    return userDefaults.bool(forKey: "FirstTime")
   }
   
   var todayDate: Date {
     get {
-      return UserDefaults.standard.object(forKey: "TodayDate") as! Date
+      return userDefaults.object(forKey: "TodayDate") as! Date
     }
     set {
-      UserDefaults.standard.set(newValue, forKey: "TodayDate")
-      UserDefaults.standard.synchronize()
+      userDefaults.set(newValue, forKey: "TodayDate")
+      userDefaults.synchronize()
     }
   }
   
   var todayTasks: [Task] {
     get {
-      return try! PropertyListDecoder().decode([Task].self, from: UserDefaults.standard.object(forKey: "TodayTasks") as! Data) 
+      return try! PropertyListDecoder().decode([Task].self, from: userDefaults.object(forKey: "TodayTasks") as! Data)
     }
     set {
-      UserDefaults.standard.set(try! PropertyListEncoder().encode(newValue), forKey: "TodayTasks")
-      UserDefaults.standard.synchronize()
+      userDefaults.set(try! PropertyListEncoder().encode(newValue), forKey: "TodayTasks")
+      userDefaults.synchronize()
     }
   }
   
   private init() {
-    UserDefaults.standard.register(defaults: ["FirstTime": true,
+    userDefaults.register(defaults: ["FirstTime": true,
                                               "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
                                               "TodayTask": []])
     loadProfile()
@@ -77,7 +78,6 @@ final class DataModel {
   }
   
   func nextPhotoID() -> Int {
-    let userDefaults = UserDefaults.standard
     let currentID = userDefaults.integer(forKey: "PhotoID") + 1
     userDefaults.set(currentID, forKey: "PhotoID")
     userDefaults.synchronize()
