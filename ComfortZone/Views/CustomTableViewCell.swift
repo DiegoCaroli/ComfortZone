@@ -10,7 +10,7 @@ import UIKit
 
 protocol CustomTableViewCellDelegate: class {
   func showAlert(_ class: CustomTableViewCell)
-  func showBadge(_ class: CustomTableViewCell)
+  func showBadge(_ class: CustomTableViewCell, isThereNewTrophy: Bool)
 }
 
 class CustomTableViewCell: UITableViewCell {
@@ -51,10 +51,10 @@ class CustomTableViewCell: UITableViewCell {
     
     if task.isChecked {
       updateScore(score: 1)
-      unlockTrophy()
+      toogleLockedTrophy(isLocked: false)
     } else {
       updateScore(score: -1)
-      lockTrophy()
+      toogleLockedTrophy(isLocked: true)
     }
     
     checkAllTodayTasksDone()
@@ -93,26 +93,12 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   
-  private func unlockTrophy() {
+  private func toogleLockedTrophy(isLocked: Bool) {
     let trophies = DataModel.shared.profile.trophies
-    if let i = indexOfTrophy(trophies: trophies) {
-      trophies[i].isLocked = false
-      delegate?.showBadge(self)
-    }
-  }
-  
-  private func lockTrophy() {
-    let trophies = DataModel.shared.profile.trophies
-    if let i = indexOfTrophy(trophies: trophies) {
-      trophies[i].isLocked = true
-    }
-  }
-  
-  private func indexOfTrophy(trophies: [Trophy]) -> Int? {
     if let i = trophies.index(where: { $0.description.contains(task.name) }) {
-      return i
+      trophies[i].isLocked = isLocked
+      delegate?.showBadge(self, isThereNewTrophy: !isLocked)
     }
-    return nil
   }
   
   func checkAllTodayTasksDone() {

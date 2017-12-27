@@ -186,8 +186,12 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
   }
   
-  func showBadge(_ class: CustomTableViewCell) {
-    tabBarController?.tabBar.items![2].badgeValue = "New"
+//  func showBadge(_ class: CustomTableViewCell) {
+//
+//  }
+  
+  func showBadge(_ class: CustomTableViewCell, isThereNewTrophy: Bool) {
+    isThereNewTrophy ? (tabBarController?.tabBar.items![2].badgeValue = "New") : (tabBarController?.tabBar.items![2].badgeValue = nil)
   }
   
   func showAlert(_ class: CustomTableViewCell) {
