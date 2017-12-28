@@ -44,23 +44,23 @@ class Profile: Codable {
     happiness = 4
     
     trophies = [
-      Trophy(iconName: "Bug", name: "Bug eater", description: "Eat a bug", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Sunrise watcher", description: "Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because", isLocked: true),
-      Trophy(iconName: "ZipLine" , name: "Human zipper", description: "Go to zip lining", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Dirty dancer", description: "Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Ready for the future", description: "Create your cv", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Give me my dessert", description: "Go to a restaurant, order and eat dessert first", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Adventure", description: "Go somewhere you shouldn’t be", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Midnight picnic", description: "Have a midnight picnic", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Give some post-it", description: "Go to your favorite book store, and leave notes in your favorites books for future readers", isLocked: true),
-      Trophy(iconName: "Hug", name: "Free Hugs", description: "Give to a stranger an hug", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Business man", description: "Invest 10€ and to gain 11€", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Into the wild", description: "Travel alone", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Fancy lunch", description: "Go to lunch by yourself", isLocked: true),
-      Trophy(iconName: "Karaoke", name: "True singer", description: "Sing karoke in a bar", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Wild swimmer", description: "Jump into a lake or something with water with your clothes on", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Explorer", description: "Take a new way home from work", isLocked: true),
-      Trophy(iconName: "Trophie", name: "Learn from your mistakes", description: "Ask for constructive criticism at work", isLocked: true)
+      Trophy(iconName: "Bug", name: "Bug eater", description: "Eat a bug"),
+      Trophy(iconName: "Trophie", name: "Sunrise watcher", description: "Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because"),
+      Trophy(iconName: "ZipLine" , name: "Human zipper", description: "Go to zip lining"),
+      Trophy(iconName: "Trophie", name: "Dirty dancer", description: "Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh"),
+      Trophy(iconName: "Trophie", name: "Ready for the future", description: "Create your cv"),
+      Trophy(iconName: "Trophie", name: "Give me my dessert", description: "Go to a restaurant, order and eat dessert first"),
+      Trophy(iconName: "Trophie", name: "Adventure", description: "Go somewhere you shouldn’t be"),
+      Trophy(iconName: "Trophie", name: "Midnight picnic", description: "Have a midnight picnic"),
+      Trophy(iconName: "Trophie", name: "Give some post-it", description: "Go to your favorite book store, and leave notes in your favorites books for future readers"),
+      Trophy(iconName: "Hug", name: "Free Hugs", description: "Give to a stranger an hug"),
+      Trophy(iconName: "Trophie", name: "Business man", description: "Invest 10€ and to gain 11€"),
+      Trophy(iconName: "Trophie", name: "Into the wild", description: "Travel alone"),
+      Trophy(iconName: "Trophie", name: "Fancy lunch", description: "Go to lunch by yourself"),
+      Trophy(iconName: "Karaoke", name: "True singer", description: "Sing karoke in a bar"),
+      Trophy(iconName: "Trophie", name: "Wild swimmer", description: "Jump into a lake or something with water with your clothes on"),
+      Trophy(iconName: "Trophie", name: "Explorer", description: "Take a new way home from work"),
+      Trophy(iconName: "Trophie", name: "Learn from your mistakes", description: "Ask for constructive criticism at work")
     ]
     
     tasks = loadTasks()
@@ -95,9 +95,9 @@ class Profile: Codable {
   
   func getTodayTasks() -> [Task] {
     var tasks: [Task] = []
-    let adrenalineTasks = self.tasks.filter {$0.type == "Adrenaline" && !$0.isChecked }
-    let businessTasks = self.tasks.filter {$0.type == "Business" && !$0.isChecked }
-    let lifestyleTasks = self.tasks.filter {$0.type == "Lifestyle" && !$0.isChecked }
+    let adrenalineTasks = self.tasks.filter {$0.type == "Adrenaline" && !$0.isDone }
+    let businessTasks = self.tasks.filter {$0.type == "Business" && !$0.isDone }
+    let lifestyleTasks = self.tasks.filter {$0.type == "Lifestyle" && !$0.isDone }
     
     if adrenalineScore <= 8 && businessScore <= 8 && lifestyleScore <= 8 {
       let adrenalineTask = adrenalineTasks[Int(arc4random_uniform(UInt32(adrenalineTasks.count)))]
@@ -150,11 +150,11 @@ class Trophy: Codable {
   let description: String
   var isLocked: Bool
   
-  init(iconName: String, name: String, description: String, isLocked: Bool) {
+  init(iconName: String, name: String, description: String) {
     self.iconName = iconName
     self.name = name
     self.description = description
-    self.isLocked = isLocked
+    self.isLocked = true
   }
   
   
@@ -165,7 +165,7 @@ class Task: Codable {
   let id: String
   var name: String
   var type: String
-  var isChecked: Bool
+  var isDone: Bool
   
   var titleTypeTask: String {
     return "\(type) Task"
@@ -175,7 +175,7 @@ class Task: Codable {
     id = UUID().uuidString
     self.name = name
     self.type = type
-    isChecked = false
+    isDone = false
   }
   
   func getTypeImage() -> UIImage {
@@ -189,7 +189,7 @@ class Task: Codable {
   }
   
   func toogleChecked() {
-    isChecked = !isChecked
+    isDone = !isDone
   }
   
   

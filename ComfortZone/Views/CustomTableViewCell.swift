@@ -49,7 +49,7 @@ class CustomTableViewCell: UITableViewCell {
     configureChechmark()
     updateTask()
     
-    if task.isChecked {
+    if task.isDone {
       updateScore(score: 1)
       toogleLockedTrophy(isLocked: false)
     } else {
@@ -61,7 +61,7 @@ class CustomTableViewCell: UITableViewCell {
   }
   
   private func configureChechmark() {
-    if task.isChecked {
+    if task.isDone {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
     } else {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
@@ -105,7 +105,7 @@ class CustomTableViewCell: UITableViewCell {
     let todayTasks = DataModel.shared.todayTasks
     
     for task in todayTasks {
-      if task.isChecked == false {
+      if task.isDone == false {
         return
       }
     }
