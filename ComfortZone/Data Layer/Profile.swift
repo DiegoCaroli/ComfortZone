@@ -123,6 +123,19 @@ class Profile: Codable {
     }
     return tasks
   }
+  
+  func update(score: Int, type: String) {
+    switch type {
+    case "Adrenaline":
+      adrenalineScore += score
+    case "Business":
+      businessScore += score
+    case "Lifestyle":
+      lifestyleScore += score
+    default:
+      return
+    }
+  }
 
 }
 

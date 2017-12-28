@@ -50,13 +50,13 @@ class CustomTableViewCell: UITableViewCell {
     updateTask()
     
     if task.isDone {
-      updateScore(score: 1)
+      profile.update(score: 1, type: task.type)
       toogleLockedTrophy(isLocked: false)
     } else {
-      updateScore(score: -1)
+      profile.update(score: -1, type: task.type)
       toogleLockedTrophy(isLocked: true)
     }
-    
+
     checkAllTodayTasksDone()
   }
   
@@ -80,22 +80,9 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   
-  private func updateScore(score: Int) {
-    switch task.type {
-    case "Adrenaline":
-      DataModel.shared.profile.adrenalineScore += score
-    case "Business":
-      DataModel.shared.profile.businessScore += score
-    case "Lifestyle":
-      DataModel.shared.profile.lifestyleScore += score
-    default:
-      return
-    }
-  }
-  
   private func toogleLockedTrophy(isLocked: Bool) {
     let trophies = DataModel.shared.profile.trophies
-    if let i = trophies.index(where: { $0.description.contains(task.name) }) {
+    if let i = trophies.index(where: { $0.description == task.name }) {
       trophies[i].isLocked = isLocked
       delegate?.showBadge(self, isThereNewTrophy: !isLocked)
     }
