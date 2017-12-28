@@ -27,7 +27,9 @@ class CustomTableViewCell: UITableViewCell {
       checkAllTodayTasksDone()
     }
   }
+  
   let profile = DataModel.shared.profile
+//  let todayTasks = DataModel.shared.todayTasks
   weak var delegate: CustomTableViewCellDelegate?
   
   override func awakeFromNib() {
@@ -49,12 +51,16 @@ class CustomTableViewCell: UITableViewCell {
     configureChechmark()
     updateTask()
     
+    var isNewTrophy: Bool
     if task.isDone {
-      profile.update(score: 1, type: task.type)
-      toogleLockedTrophy(isLocked: false)
+      profile.update(score: 1, task: task)
+      isNewTrophy = false
     } else {
-      profile.update(score: -1, type: task.type)
-      toogleLockedTrophy(isLocked: true)
+      profile.update(score: -1, task: task)
+      isNewTrophy = true
+    }
+    if profile.isThereATrophy(isLocked: isNewTrophy, task: task) {
+      delegate?.showBadge(self, isThereNewTrophy: !isNewTrophy)
     }
 
     checkAllTodayTasksDone()
@@ -80,18 +86,10 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   
-  private func toogleLockedTrophy(isLocked: Bool) {
-    let trophies = DataModel.shared.profile.trophies
-    if let i = trophies.index(where: { $0.description == task.name }) {
-      trophies[i].isLocked = isLocked
-      delegate?.showBadge(self, isThereNewTrophy: !isLocked)
-    }
-  }
-  
   func checkAllTodayTasksDone() {
     let todayTasks = DataModel.shared.todayTasks
     
-    for task in todayTasks {
+    for task in todayTasks  {
       if task.isDone == false {
         return
       }

@@ -124,8 +124,8 @@ class Profile: Codable {
     return tasks
   }
   
-  func update(score: Int, type: String) {
-    switch type {
+  func update(score: Int, task: Task) {
+    switch task.type {
     case "Adrenaline":
       adrenalineScore += score
     case "Business":
@@ -136,7 +136,19 @@ class Profile: Codable {
       return
     }
   }
+  
+  func isThereATrophy(isLocked: Bool, task: Task) -> Bool {
+     if let i = trophies.index(where: { $0.description == task.name }) {
+      toogleLockedTrophy(isLocked: isLocked, index: i)
+      return true
+    }
+    return false
+  }
 
+  private func toogleLockedTrophy(isLocked: Bool, index: Int) {
+      trophies[index].isLocked = isLocked
+  }
+  
 }
 
 struct Photo: Codable {
