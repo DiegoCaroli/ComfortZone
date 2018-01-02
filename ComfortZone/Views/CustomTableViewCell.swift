@@ -49,7 +49,7 @@ class CustomTableViewCell: UITableViewCell {
     task.toogleChecked()
     
     configureChechmark()
-    updateTask()
+    DataModel.shared.update(task: task)
     
     var isNewTrophy: Bool
     if task.isDone {
@@ -71,18 +71,6 @@ class CustomTableViewCell: UITableViewCell {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
     } else {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
-    }
-  }
-  
-  private func updateTask() {
-    if let i = DataModel.shared.todayTasks.index(where: {$0.id == task.id}) {
-      var todayTasks = DataModel.shared.todayTasks
-      todayTasks[i] = task
-      DataModel.shared.todayTasks = todayTasks
-    }
-    
-    if let i = profile.tasks.index(where: {$0.id == task.id}) {
-      profile.tasks[i] = task
     }
   }
   

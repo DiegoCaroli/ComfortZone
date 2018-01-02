@@ -83,4 +83,18 @@ final class DataModel {
     userDefaults.synchronize()
     return currentID
   }
+  
+  func update(task: Task) {
+    var todayTasks = self.todayTasks
+    
+    if let i = todayTasks.index(where: {$0.id == task.id}) {
+      todayTasks[i] = task
+      self.todayTasks = todayTasks
+    }
+    
+    if let i = profile.tasks.index(where: {$0.id == task.id}) {
+      profile.tasks[i] = task
+    }
+  }
+  
 }

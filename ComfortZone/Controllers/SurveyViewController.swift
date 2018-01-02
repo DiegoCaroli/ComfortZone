@@ -90,7 +90,7 @@ class SurveyViewController: UIViewController {
   }
   
   private func animate(question: UILabel) {
-    UIView.animate(withDuration: 0.5) {
+    UIView.animate(withDuration: 0.8) {
       question.center.x = self.view.bounds.width
     }
   }
