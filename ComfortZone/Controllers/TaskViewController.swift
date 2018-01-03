@@ -47,11 +47,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     scrollView.scrollToTop()
     labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
-    //        sunButton.isHidden = true
-    //        sadCloudButton.isHidden = true
-    //        angryCloudButton.isHidden = true
-    //        neutralCloudButton.isHidden = true
-    
   }
   
   override func viewDidLoad() {
@@ -105,8 +100,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cell.typeTaskLabel.text = task.titleTypeTask
     cell.taskImageView.image = task.getTypeImage()
     cell.task = task
+    cell.configureChechmark()
     cell.delegate = self
-    cell.checkAllTodayTasksDone()
+//    cell.checkAllTodayTasksDone()
     
     return cell
   }
@@ -125,6 +121,25 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     action.backgroundColor = UIColor(red:0.82, green:0.48, blue:0.28, alpha:1.00)
     let configuration = UISwipeActionsConfiguration(actions: [action])
     return configuration
+  }
+  
+  func imageTapped(_ cell: CustomTableViewCell) {
+    if let indexPath = taskTableView.indexPath(for: cell) {
+      let task = DataModel.shared.todayTasks[indexPath.row]
+      task.toogleChecked()
+      
+      cell.task = task
+      cell.configureChechmark()
+      
+      DataModel.shared.update(task: task)
+      
+      task.isDone ? profile.update(score: 1, task: task) : profile.update(score: -1, task: task)
+      
+      if profile.isThereATrophy(isLocked: !task.isDone, task: task) {
+        showBadge(isThereNewTrophy: task.isDone)
+      }
+      checkAllTodayTasksDone()
+    }
   }
   
   //  ANIMATION: Functions to use custom animation for the Clouds and the label "Hello my adventure Friend"
@@ -172,11 +187,15 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
   }
   
-  func showBadge(_ class: CustomTableViewCell, isThereNewTrophy: Bool) {
-    isThereNewTrophy ? (tabBarController?.tabBar.items![2].badgeValue = "New") : (tabBarController?.tabBar.items![2].badgeValue = nil)
-  }
-  
-  func showAlert(_ class: CustomTableViewCell) {
+  func checkAllTodayTasksDone() {
+    let todayTasks = DataModel.shared.todayTasks
+    
+    for task in todayTasks  {
+      if task.isDone == false {
+        return
+      }
+    }
+    
     let alert = UIAlertController(title: "Well Done", message: "Hey, looks like today you were too good! Come tomorrow for more fun.", preferredStyle: .alert)
     
     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -184,6 +203,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     alert.addAction(okAction)
     
     present(alert, animated: true, completion: nil)
+  }
+  
+  func showBadge(isThereNewTrophy: Bool) {
+    isThereNewTrophy ? (tabBarController?.tabBar.items![2].badgeValue = "New") : (tabBarController?.tabBar.items![2].badgeValue = nil)
   }
   
 }

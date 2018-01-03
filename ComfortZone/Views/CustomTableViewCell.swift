@@ -9,8 +9,7 @@
 import UIKit
 
 protocol CustomTableViewCellDelegate: class {
-  func showAlert(_ class: CustomTableViewCell)
-  func showBadge(_ class: CustomTableViewCell, isThereNewTrophy: Bool)
+  func imageTapped(_ cell: CustomTableViewCell)
 }
 
 class CustomTableViewCell: UITableViewCell {
@@ -21,15 +20,9 @@ class CustomTableViewCell: UITableViewCell {
   @IBOutlet weak var taskLabel: UILabel!
   @IBOutlet weak var checkmarkImageView: UIImageView!
   
-  var task: Task! {
-    didSet {
-      configureChechmark()
-      checkAllTodayTasksDone()
-    }
-  }
+  var task: Task!
   
   let profile = DataModel.shared.profile
-//  let todayTasks = DataModel.shared.todayTasks
   weak var delegate: CustomTableViewCellDelegate?
   
   override func awakeFromNib() {
@@ -46,43 +39,15 @@ class CustomTableViewCell: UITableViewCell {
   }
   
   @objc func imageTapped(sender: UITapGestureRecognizer) {
-    task.toogleChecked()
-    
-    configureChechmark()
-    DataModel.shared.update(task: task)
-    
-    var isNewTrophy: Bool
-    if task.isDone {
-      profile.update(score: 1, task: task)
-      isNewTrophy = false
-    } else {
-      profile.update(score: -1, task: task)
-      isNewTrophy = true
-    }
-    if profile.isThereATrophy(isLocked: isNewTrophy, task: task) {
-      delegate?.showBadge(self, isThereNewTrophy: !isNewTrophy)
-    }
-
-    checkAllTodayTasksDone()
+    delegate?.imageTapped(self)
   }
   
-  private func configureChechmark() {
+  func configureChechmark() {
     if task.isDone {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
     } else {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
     }
-  }
-  
-  func checkAllTodayTasksDone() {
-    let todayTasks = DataModel.shared.todayTasks
-    
-    for task in todayTasks  {
-      if task.isDone == false {
-        return
-      }
-    }
-    delegate?.showAlert(self)
   }
   
 }
