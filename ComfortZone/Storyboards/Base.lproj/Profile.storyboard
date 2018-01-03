@@ -227,27 +227,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AoY-fR-wh0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AoY-fR-wh0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1r-te-Ij1">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1r-te-Ij1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="S1f-WZ-0sD">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S1f-WZ-0sD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-PP-yrb">
-                                            <rect key="frame" x="0.0" y="146" width="375" height="375"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-PP-yrb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="I1V-PP-yrb" secondAttribute="trailing" id="0d1-L0-70y"/>
+                                        <constraint firstItem="I1V-PP-yrb" firstAttribute="leading" secondItem="S1f-WZ-0sD" secondAttribute="leading" id="jmC-tc-eLa"/>
+                                        <constraint firstItem="I1V-PP-yrb" firstAttribute="top" secondItem="S1f-WZ-0sD" secondAttribute="top" id="phV-Ni-E74"/>
+                                        <constraint firstAttribute="bottom" secondItem="I1V-PP-yrb" secondAttribute="bottom" id="wOB-jc-Jcp"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="top" secondItem="tO2-Bb-epQ" secondAttribute="top" id="1fw-v2-9ir"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="E3e-hL-cYz"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="MdF-2s-K2L"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="NgM-Pd-odw"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="bottom" secondItem="sy1-SO-uXc" secondAttribute="bottom" id="QeY-Jp-qC3"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="aLS-C0-Mol"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="bottom" secondItem="sy1-SO-uXc" secondAttribute="bottom" id="c1m-XA-RfD"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="top" secondItem="tO2-Bb-epQ" secondAttribute="top" id="yDw-ga-96c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sy1-SO-uXc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Photo" id="qhn-VK-6eN">

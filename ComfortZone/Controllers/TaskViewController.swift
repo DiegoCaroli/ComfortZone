@@ -38,7 +38,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var welcomeBackLabel: UILabel!
   
   var profile: Profile!
-  let todayDate = DataModel.shared.todayDate
+  let lastDate = DataModel.shared.lastDate
   let dueDate = Date()
   
   var memoryImage: UIImage?
@@ -71,7 +71,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
     
     
-    if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
+    if lastDate.day == dueDate.day && lastDate.month == dueDate.month {
       scrollView.contentOffset = CGPoint(x: 0, y: 200)
       welcomeBackLabel.isHidden = false
     }
@@ -166,8 +166,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   private func setTodayDate() {
-    if todayDate.getDay != dueDate.getDay || todayDate.getMonth != dueDate.getMonth {
-      DataModel.shared.todayDate = dueDate
+    if lastDate.day != dueDate.day || lastDate.month != dueDate.month {
+      DataModel.shared.lastDate = dueDate
       DataModel.shared.todayTasks = profile.getTodayTasks()
     }
   }

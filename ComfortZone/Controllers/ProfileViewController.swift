@@ -103,7 +103,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-    print(memories[indexPath.row])
     cell.memoryIcon.image = memories[indexPath.row]
     
     return cell

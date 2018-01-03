@@ -23,12 +23,12 @@ final class DataModel {
     return userDefaults.bool(forKey: "FirstTime")
   }
   
-  var todayDate: Date {
+  var lastDate: Date {
     get {
-      return userDefaults.object(forKey: "TodayDate") as! Date
+      return userDefaults.object(forKey: "LastDate") as! Date
     }
     set {
-      userDefaults.set(newValue, forKey: "TodayDate")
+      userDefaults.set(newValue, forKey: "LastDate")
       userDefaults.synchronize()
     }
   }
@@ -45,7 +45,7 @@ final class DataModel {
   
   private init() {
     userDefaults.register(defaults: ["FirstTime": true,
-                                              "TodayDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
+                                              "LastDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
                                               "TodayTask": []])
     loadProfile()
     print(documentsDirectory)
@@ -94,6 +94,12 @@ final class DataModel {
     
     if let i = profile.tasks.index(where: {$0.id == task.id}) {
       profile.tasks[i] = task
+    }
+  }
+  
+  func generateNewTasks(todayDate: Date = Date()) {
+    if lastDate.day != todayDate.day || lastDate.month != todayDate.month {
+      todayTasks = profile.getTodayTasks()
     }
   }
   
