@@ -50,6 +50,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     taskTableView.dataSource = self
     profile = DataModel.shared.profile
     notificationObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { _ in
+      self.checkAllTodayTasksDone()
       self.updateUI()
     }
   }
