@@ -33,6 +33,11 @@ final class DataModel {
     }
   }
   
+  var isTheSameDay: Bool {
+    let todayDate = Date()
+    return lastDate.day == todayDate.day && lastDate.month == todayDate.month
+  }
+  
   var todayTasks: [Task] {
     get {
       return try! PropertyListDecoder().decode([Task].self, from: userDefaults.object(forKey: "TodayTasks") as! Data)
@@ -97,7 +102,8 @@ final class DataModel {
     }
   }
   
-  func generateNewTasks(todayDate: Date = Date()) {
+  func generateNewTodayTasks() {
+    let todayDate = Date()
     if lastDate.day != todayDate.day || lastDate.month != todayDate.month {
       todayTasks = profile.getTodayTasks()
     }

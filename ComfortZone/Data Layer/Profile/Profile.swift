@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class Profile: Codable {
-  
   var firstName: String?
   var lastName: String?
   
@@ -148,74 +147,5 @@ class Profile: Codable {
   private func toogleLockedTrophy(isLocked: Bool, index: Int) {
       trophies[index].isLocked = isLocked
   }
-  
-}
-
-struct Photo: Codable {
-  var photoID: Int
-  var photoURL: URL {
-    let filename = "Photo-\(photoID).jpg"
-    return DataModel.shared.documentsDirectory.appendingPathComponent(filename)
-  }
-  
-  func save(image: UIImage) {
-    if let data = UIImageJPEGRepresentation(image, 0.5) {
-      do {
-        try data.write(to: photoURL, options: .atomic)
-      } catch {
-        print("Error writing file: \(error)")
-      }
-    }
-  }
-}
-
-class Trophy: Codable {
-  let iconName: String
-  let name: String
-  let description: String
-  var isLocked: Bool
-  
-  init(iconName: String, name: String, description: String) {
-    self.iconName = iconName
-    self.name = name
-    self.description = description
-    self.isLocked = true
-  }
-  
-  
-}
-
-class Task: Codable {
-  
-  let id: String
-  var name: String
-  var type: String
-  var isDone: Bool
-  
-  var titleTypeTask: String {
-    return "\(type) Task"
-  }
-  
-  init(name: String, type: String) {
-    id = UUID().uuidString
-    self.name = name
-    self.type = type
-    isDone = false
-  }
-  
-  func getTypeImage() -> UIImage {
-    if type == "Adrenaline" {
-      return #imageLiteral(resourceName: "imageTaskAdrenaline")
-    } else if type == "Business" {
-      return #imageLiteral(resourceName: "imageTaskBusiness")
-    } else {
-      return #imageLiteral(resourceName: "imageTaskLifestyle")
-    }
-  }
-  
-  func toogleChecked() {
-    isDone = !isDone
-  }
-  
   
 }

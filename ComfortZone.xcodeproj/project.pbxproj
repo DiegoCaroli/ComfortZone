@@ -32,6 +32,9 @@
 		F186732B1FE96DF80089D400 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18673291FE96DF80089D400 /* Task.storyboard */; };
 		F186732D1FE96E9F0089D400 /* Tasks.plist in Resources */ = {isa = PBXBuildFile; fileRef = F186732C1FE96E9F0089D400 /* Tasks.plist */; };
 		F18B36451FE922D800A1E437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18B36441FE922D800A1E437 /* AppDelegate.swift */; };
+		F18C99301FFE586200A61E18 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C992F1FFE586200A61E18 /* Photo.swift */; };
+		F18C99321FFE588600A61E18 /* Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C99311FFE588600A61E18 /* Trophy.swift */; };
+		F18C99341FFE589E00A61E18 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C99331FFE589E00A61E18 /* Task.swift */; };
 		F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */; };
 		F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */; };
 		FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */; };
@@ -63,6 +66,9 @@
 		F186732A1FE96DF80089D400 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
 		F186732C1FE96E9F0089D400 /* Tasks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tasks.plist; sourceTree = "<group>"; };
 		F18B36441FE922D800A1E437 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F18C992F1FFE586200A61E18 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F18C99311FFE588600A61E18 /* Trophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
+		F18C99331FFE589E00A61E18 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F18E0A721FD9F416001B0740 /* ComfortZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComfortZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStore.swift; sourceTree = "<group>"; };
@@ -90,6 +96,28 @@
 				0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F18C992E1FFE581A00A61E18 /* First Time */ = {
+			isa = PBXGroup;
+			children = (
+				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
+				F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */,
+				F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */,
+				FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */,
+			);
+			path = "First Time";
+			sourceTree = "<group>";
+		};
+		F18C99351FFE58E800A61E18 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F18C992F1FFE586200A61E18 /* Photo.swift */,
+				F13C43641FE1349F0021225B /* Profile.swift */,
+				F18C99331FFE589E00A61E18 /* Task.swift */,
+				F18C99311FFE588600A61E18 /* Trophy.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		F18E0A691FD9F416001B0740 = {
@@ -149,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				F16EC35C1FE26F4B00828735 /* DataModel.swift */,
-				F13C43641FE1349F0021225B /* Profile.swift */,
+				F18C99351FFE58E800A61E18 /* Profile */,
 				F141029D1FE003FC00CF4840 /* Question.swift */,
 				F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */,
 			);
@@ -159,14 +187,11 @@
 		FAC97F2E1FDED8B70012F2B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */,
 				F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */,
+				F18C992E1FFE581A00A61E18 /* First Time */,
 				F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */,
 				F11172E11FE945D8005E47AC /* PhotoViewController.swift */,
 				F11172DD1FE945AE005E47AC /* ProfileViewController.swift */,
-				F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */,
-				F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */,
-				FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */,
 				F18673241FE96DE70089D400 /* TaskViewController.swift */,
 				0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */,
 			);
@@ -250,9 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18C99301FFE586200A61E18 /* Photo.swift in Sources */,
 				F18673281FE96DE80089D400 /* CustomTableViewCell.swift in Sources */,
 				F18B36451FE922D800A1E437 /* AppDelegate.swift in Sources */,
 				F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */,
+				F18C99341FFE589E00A61E18 /* Task.swift in Sources */,
 				F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */,
 				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
 				F141029E1FE003FC00CF4840 /* Question.swift in Sources */,
@@ -262,6 +289,7 @@
 				F16EC35D1FE26F4B00828735 /* DataModel.swift in Sources */,
 				F18673261FE96DE80089D400 /* CustomPopUpViewController.swift in Sources */,
 				F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */,
+				F18C99321FFE588600A61E18 /* Trophy.swift in Sources */,
 				F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */,
 				F11172E01FE945CC005E47AC /* ImageCollectionViewCell.swift in Sources */,
 				F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */,

@@ -35,19 +35,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var secondStaticCloudView: UIImageView!
   @IBOutlet weak var firstStaticCloudView: UIImageView!
   @IBOutlet weak var backgroundImage: UIImageView!
-  @IBOutlet weak var welcomeBackLabel: UILabel!
   
   var profile: Profile!
-  let lastDate = DataModel.shared.lastDate
-  let dueDate = Date()
-  
   var memoryImage: UIImage?
-  
-  func generalButtonFunction(){
-    
-    scrollView.scrollToTop()
-    labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
-  }
+  lazy var notificationCenter: NotificationCenter = {
+    return NotificationCenter.default
+  }()
+  var notificationObserver: NSObjectProtocol?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,7 +49,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     taskTableView.delegate = self
     taskTableView.dataSource = self
     profile = DataModel.shared.profile
-    setTodayDate()
+    notificationObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { _ in
+      self.updateUI()
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -64,11 +60,16 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -100)
     cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 15 , amount: 60)
     cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
-    
-    
-    if lastDate.day == dueDate.day && lastDate.month == dueDate.month {
-      scrollView.contentOffset = CGPoint(x: 0, y: 200)
-      welcomeBackLabel.isHidden = false
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.updateUI()
+  }
+  
+  deinit {
+    if let observer = notificationObserver {
+      notificationCenter.removeObserver(observer)
     }
   }
   
@@ -102,7 +103,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cell.task = task
     cell.configureChechmark()
     cell.delegate = self
-//    cell.checkAllTodayTasksDone()
     
     return cell
   }
@@ -142,6 +142,40 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
   }
   
+  private func updateUI() {
+    DispatchQueue.main.async { () -> Void in
+      if !DataModel.shared.isTheSameDay {
+        DataModel.shared.generateNewTodayTasks()
+        self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        self.configureAdventureLabel(text: "Hello my adventure friend!")
+        self.taskTableView.reloadData()
+      } else {
+        self.scrollView.contentOffset = CGPoint(x: 0, y: 200)
+        self.configureAdventureLabel(text: "Welcome back my adventure friend!")
+        self.adventureLabel.frame = CGRect(x: 8, y: 264, width: self.view.bounds.width - 16, height: 74.0)
+      }
+    }
+  }
+  
+  private func configureAdventureLabel(text: String) {
+    adventureLabel.text = text
+     adventureLabel.textAlignment = .center
+    if text == "Hello my adventure friend!" {
+      self.adventureLabel.font = self.adventureLabel.font.withSize(24.0)
+      self.adventureLabel.numberOfLines = 1
+      adventureLabel.frame = CGRect(x: 8, y: 75, width: self.view.bounds.width - 16, height: 33.0)
+    } else {
+      self.adventureLabel.font = self.adventureLabel.font.withSize(27.0)
+      self.adventureLabel.numberOfLines = 0
+      adventureLabel.frame = CGRect(x: 8, y: 264, width: self.view.bounds.width - 16, height: 74.0)
+    }
+  }
+  
+  func generalButtonFunction(){
+    scrollView.scrollToTop()
+    labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
+  }
+  
   //  ANIMATION: Functions to use custom animation for the Clouds and the label "Hello my adventure Friend"
   
   func cloudAnimation(viewOfTheCloud: UIView , duration: Double , amount: CGFloat){
@@ -163,28 +197,29 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func angryCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 0
+    setTodayDate()
   }
   
   @IBAction func sadCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 1
+    setTodayDate()
   }
   
   @IBAction func neutralCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 2
+    setTodayDate()
   }
   
   @IBAction func sunButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 3
+    setTodayDate()
   }
   
   private func setTodayDate() {
-    if lastDate.day != dueDate.day || lastDate.month != dueDate.month {
-      DataModel.shared.lastDate = dueDate
-      DataModel.shared.todayTasks = profile.getTodayTasks()
-    }
+    DataModel.shared.lastDate = Date()
   }
   
   func checkAllTodayTasksDone() {
