@@ -37,7 +37,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     profileImageView.clipsToBounds = true
     
     humorProgressImageView.image = setHappiness()
-    
     configureProgressBars()
   }
   
@@ -58,7 +57,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    navigationController?.isNavigationBarHidden = true
     configureProgressBars()
   }
   
