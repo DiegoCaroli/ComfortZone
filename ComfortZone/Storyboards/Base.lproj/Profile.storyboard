@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pzx-EG-fmI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cyI-Lj-oYw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,39 +18,21 @@
     </customFonts>
     <scenes>
         <!--Profile-->
-        <scene sceneID="6rc-if-3zf">
-            <objects>
-                <navigationController id="pzx-EG-fmI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabBar" id="kQb-MU-Fwg"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nKw-TS-iuD">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="cyI-Lj-oYw" kind="relationship" relationship="rootViewController" id="frQ-Ou-Uiv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2OT-oL-mEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-807" y="87"/>
-        </scene>
-        <!--Profile-->
         <scene sceneID="gOc-bw-bd9">
             <objects>
                 <viewController id="cyI-Lj-oYw" customClass="ProfileViewController" customModule="ComfortZone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ph-bI-HHF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1234"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="reA-Pq-qVD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="731"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="731" id="At1-q1-b04"/>
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-T9-tN2">
-                                <rect key="frame" x="0.0" y="16" width="375" height="1173"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="606"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdH-x8-T2s">
                                         <rect key="frame" x="0.0" y="3" width="375" height="667"/>
@@ -201,9 +183,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i4F-n8-8Vy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="vhE-mc-BOo"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <size key="freeformSize" width="375" height="1234"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabBar" id="KVG-gx-14K"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adrenalineProgressImageView" destination="70l-19-QJL" id="2T2-NB-CmW"/>
                         <outlet property="businessProgressImageView" destination="DIh-mq-iL9" id="Vh0-hi-rLx"/>
@@ -241,25 +222,48 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="I1V-PP-yrb" secondAttribute="trailing" id="0d1-L0-70y"/>
-                                        <constraint firstItem="I1V-PP-yrb" firstAttribute="leading" secondItem="S1f-WZ-0sD" secondAttribute="leading" id="jmC-tc-eLa"/>
-                                        <constraint firstItem="I1V-PP-yrb" firstAttribute="top" secondItem="S1f-WZ-0sD" secondAttribute="top" id="phV-Ni-E74"/>
-                                        <constraint firstAttribute="bottom" secondItem="I1V-PP-yrb" secondAttribute="bottom" id="wOB-jc-Jcp"/>
+                                        <constraint firstItem="I1V-PP-yrb" firstAttribute="leading" secondItem="S1f-WZ-0sD" secondAttribute="leading" id="7Up-k2-49r"/>
+                                        <constraint firstAttribute="bottom" secondItem="I1V-PP-yrb" secondAttribute="bottom" id="D5t-V2-wrm"/>
+                                        <constraint firstItem="I1V-PP-yrb" firstAttribute="top" secondItem="S1f-WZ-0sD" secondAttribute="top" id="HjJ-Dr-cQI"/>
+                                        <constraint firstAttribute="trailing" secondItem="I1V-PP-yrb" secondAttribute="trailing" id="Qsz-aH-M79"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Fc-e9-Yn1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Memory" id="5wS-eA-qbL">
+                                        <barButtonItem key="leftBarButtonItem" image="back" id="vDu-52-1Hq">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="rLA-DW-RdF" id="GbW-AP-W3B"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Ozs-vQ-E8E">
+                                            <connections>
+                                                <action selector="shareButton:" destination="rLA-DW-RdF" id="JG9-I0-GWW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="rLA-DW-RdF" id="TWB-OG-T2A"/>
+                                </connections>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="N1r-te-Ij1" firstAttribute="top" secondItem="tO2-Bb-epQ" secondAttribute="top" id="1fw-v2-9ir"/>
-                            <constraint firstItem="AoY-fR-wh0" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="E3e-hL-cYz"/>
-                            <constraint firstItem="AoY-fR-wh0" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="MdF-2s-K2L"/>
-                            <constraint firstItem="N1r-te-Ij1" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="NgM-Pd-odw"/>
-                            <constraint firstItem="N1r-te-Ij1" firstAttribute="bottom" secondItem="sy1-SO-uXc" secondAttribute="bottom" id="QeY-Jp-qC3"/>
-                            <constraint firstItem="N1r-te-Ij1" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="aLS-C0-Mol"/>
-                            <constraint firstItem="AoY-fR-wh0" firstAttribute="bottom" secondItem="sy1-SO-uXc" secondAttribute="bottom" id="c1m-XA-RfD"/>
-                            <constraint firstItem="AoY-fR-wh0" firstAttribute="top" secondItem="tO2-Bb-epQ" secondAttribute="top" id="yDw-ga-96c"/>
+                            <constraint firstItem="0Fc-e9-Yn1" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="72c-yD-iqi"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="bottom" secondItem="sy1-SO-uXc" secondAttribute="bottom" id="CXu-ig-CXH"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="EqD-cR-2CA"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="JKF-24-txF"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="bottom" secondItem="sy1-SO-uXc" secondAttribute="bottom" id="MSb-Bi-w22"/>
+                            <constraint firstItem="0Fc-e9-Yn1" firstAttribute="top" secondItem="sy1-SO-uXc" secondAttribute="top" id="NKV-ux-upL"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="top" secondItem="tO2-Bb-epQ" secondAttribute="top" id="P2S-O4-27X"/>
+                            <constraint firstItem="0Fc-e9-Yn1" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="ajc-XN-jba"/>
+                            <constraint firstItem="N1r-te-Ij1" firstAttribute="top" secondItem="tO2-Bb-epQ" secondAttribute="top" id="hlu-Jx-tU1"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="trailing" secondItem="sy1-SO-uXc" secondAttribute="trailing" id="rco-Mr-mFv"/>
+                            <constraint firstItem="AoY-fR-wh0" firstAttribute="leading" secondItem="sy1-SO-uXc" secondAttribute="leading" id="u7J-12-8fo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sy1-SO-uXc"/>
                     </view>
@@ -276,12 +280,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cW6-t3-R6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="87"/>
+            <point key="canvasLocation" x="1048.8" y="86.806596701649184"/>
         </scene>
     </scenes>
     <resources>
         <image name="ProfileTabBar" width="32" height="32"/>
         <image name="ProfileViewBackground" width="375" height="667"/>
+        <image name="back" width="24" height="24"/>
         <image name="cloudsEmotionNeutral" width="251" height="50"/>
         <image name="levelZeroAdrenaline" width="62" height="279"/>
         <image name="levelZeroBusiness" width="61" height="279"/>
@@ -289,4 +294,5 @@
         <image name="memoryIcon" width="40" height="42"/>
         <image name="profileImage" width="134" height="134"/>
     </resources>
+    <color key="tintColor" red="0.47058823529411764" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

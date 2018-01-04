@@ -1,5 +1,5 @@
 //
-//  PopupPresentAnimationController.swift
+//  PhotoPresentAnimationController.swift
 //  ComfortZone
 //
 //  Created by Diego Caroli on 04/01/2018.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PopupPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+class PhotoPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+  var originalFrame = CGRect.zero
+  
   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return 0.3
+    return 0.5
   }
   
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -18,14 +20,18 @@ class PopupPresentAnimationController: NSObject, UIViewControllerAnimatedTransit
       let containerView = transitionContext.containerView
       let time = transitionDuration(using: transitionContext)
       
-      toView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-      toView.alpha = 0.0
+      let finalFrame = toView.frame
+      let xScaleFactor = originalFrame.width / finalFrame.width
+      let yScaleFactor = originalFrame.height / finalFrame.height
+      
+      toView.transform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
+      toView.center = CGPoint(x: originalFrame.midX, y: originalFrame.midY)
       toView.clipsToBounds = true
       containerView.addSubview(toView)
       
       UIView.animate(withDuration: time, animations: {
-        toView.alpha = 1.0
-        toView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        toView.transform = CGAffineTransform.identity
+        toView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
       }, completion: { finished in
         transitionContext.completeTransition(finished)
       })

@@ -20,8 +20,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var photoCollectionView: UICollectionView!
 
   var profile: Profile!
-  
   lazy var memories: [UIImage] = [] 
+  var selectedCell = ImageCollectionViewCell()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -108,11 +108,17 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-    let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-    let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-    photoVC.showPhoto = memories[indexPath.row]
-    self.navigationController?.pushViewController(photoVC, animated: true)
+    if let selectedCellImage = photoCollectionView.cellForItem(at: indexPath) {
+      selectedCell = selectedCellImage as! ImageCollectionViewCell
+      let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+      let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+      photoVC.showPhoto = selectedCell.memoryIcon.image
+      photoVC.cellFrame = selectedCell.frame
+
+      present(photoVC, animated: true, completion: nil)
+    }
   }
 
 }
+
+

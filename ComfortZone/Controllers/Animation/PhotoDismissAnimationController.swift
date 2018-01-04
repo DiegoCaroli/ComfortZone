@@ -1,5 +1,5 @@
 //
-//  PopupDismissAnimationController.swift
+//  PhotoDismissAnimationController.swift
 //  ComfortZone
 //
 //  Created by Diego Caroli on 04/01/2018.
@@ -8,18 +8,17 @@
 
 import UIKit
 
-class PopupDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+class PhotoDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return 0.4
+    return 0.5
   }
-
+  
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     if let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from) {
       let time = transitionDuration(using: transitionContext)
       
       UIView.animate(withDuration: time, animations: {
-        fromView.alpha = 0
-        fromView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        fromView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
       }, completion: { finished in
         fromView.removeFromSuperview()
         transitionContext.completeTransition(finished)
@@ -27,3 +26,4 @@ class PopupDismissAnimationController: NSObject, UIViewControllerAnimatedTransit
     }
   }
 }
+

@@ -18,6 +18,12 @@ class CustomPopUpViewController: UIViewController {
   
   var task: Task!
   
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    modalPresentationStyle = .custom
+    transitioningDelegate = self
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,12 +39,6 @@ class CustomPopUpViewController: UIViewController {
     imgView.image = task.getTypeImage()
     taskLabelPopUp.text = task.name
     typeTaskLabel.text = task.titleTypeTask
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    modalPresentationStyle = .custom
-    transitioningDelegate = self
   }
   
   @objc func viewTapped(sender: UITapGestureRecognizer) {

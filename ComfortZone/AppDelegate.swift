@@ -14,13 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
-//    let navigationController = window!.rootViewController as! UINavigationController
-//
-//      let currentViewController = navigationController.viewControllers[0] as! SignUpViewController
-//
-//      currentViewController.profile = dataModel.profile
-    
     self.window = UIWindow(frame: UIScreen.main.bounds)
     var viewController: UIViewController!
     
