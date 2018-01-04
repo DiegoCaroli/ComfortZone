@@ -41,6 +41,7 @@
 		F18C99341FFE589E00A61E18 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C99331FFE589E00A61E18 /* Task.swift */; };
 		F1B6D84F1FE01F3600AC0659 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */; };
 		F1C5079C1FDED5EE00D0F48A /* FirstTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C5079A1FDED5EE00D0F48A /* FirstTime.storyboard */; };
+		F1FCF8D51FFE99AE000B8971 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FCF8D41FFE99AE000B8971 /* ImagePickerManager.swift */; };
 		FA11E63E1FDFF3DF008FE164 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		F18E0A811FD9F416001B0740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B6D84E1FE01F3600AC0659 /* QuestionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStore.swift; sourceTree = "<group>"; };
 		F1C5079B1FDED5EE00D0F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstTime.storyboard; sourceTree = "<group>"; };
+		F1FCF8D41FFE99AE000B8971 /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		FA11E63D1FDFF3DF008FE164 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 			children = (
 				F18B36441FE922D800A1E437 /* AppDelegate.swift */,
 				F1709CDD1FE9B723007F366F /* Date+Component.swift */,
+				F1FCF8D41FFE99AE000B8971 /* ImagePickerManager.swift */,
 				FAC97F2E1FDED8B70012F2B2 /* Controllers */,
 				FAC97F2D1FDED8A00012F2B2 /* Data Layer */,
 				F18E0A891FDA85D3001B0740 /* Storyboards */,
@@ -318,6 +321,7 @@
 				0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */,
 				F105C0171FFE6B7000BCBA22 /* PopupDismissAnimationController.swift in Sources */,
 				F11481331FFE8CD0000B762C /* PhotoDismissAnimationController.swift in Sources */,
+				F1FCF8D51FFE99AE000B8971 /* ImagePickerManager.swift in Sources */,
 				F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */,
 				0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */,
 				F11172E21FE945D8005E47AC /* PhotoViewController.swift in Sources */,

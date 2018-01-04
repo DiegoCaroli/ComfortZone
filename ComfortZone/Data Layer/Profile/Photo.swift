@@ -25,4 +25,12 @@ struct Photo: Codable {
       }
     }
   }
+  
+  func remove() {
+    do {
+      try FileManager.default.removeItem(at: photoURL)
+    } catch {
+      print("Error removing file: \(error)")
+    }
+  }
 }

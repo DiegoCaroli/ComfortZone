@@ -20,6 +20,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var photoCollectionView: UICollectionView!
 
   var profile: Profile!
+  var profileImage: UIImage? {
+    didSet {
+      profileImageView.image = profileImage
+    }
+  }
   lazy var memories: [UIImage] = [] 
   var selectedCell = ImageCollectionViewCell()
   
@@ -32,6 +37,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     if let photoProfile = profile.photoProfile {
       profileImageView.image = UIImage(contentsOfFile: photoProfile.photoURL.path)
     }
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+    
+    profileImageView.addGestureRecognizer(tapGesture)
+    profileImageView.isUserInteractionEnabled = true
     
     profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
     profileImageView.clipsToBounds = true
@@ -116,7 +126,18 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       present(photoVC, animated: true, completion: nil)
     }
   }
-
+  
+  @objc func handleTap(sender: UITapGestureRecognizer) {
+    ImagePickerManager.shared.pickPhoto { image in
+      self.profileImage = image
+      self.profile.photoProfile?.remove()
+      self.profile.photoProfile = Photo(photoID: DataModel.shared.nextPhotoID())
+      if let theImage = self.profile.photoProfile {
+        theImage.save(image: image)
+      }
+    }
+  }
 }
+
 
 

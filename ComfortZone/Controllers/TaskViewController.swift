@@ -114,7 +114,11 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let action = UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
-      self.pickPhoto()
+      ImagePickerManager.shared.pickPhoto { image in
+        let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
+        photoMemory.save(image: image)
+        DataModel.shared.profile.memories.append(photoMemory)
+      }
       completionHandler(true)
     })
     
@@ -245,68 +249,4 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     isThereNewTrophy ? (tabBarController?.tabBar.items![2].badgeValue = "New") : (tabBarController?.tabBar.items![2].badgeValue = nil)
   }
   
-}
-
-//MARK: - UIImagePickerControllerDelegate
-extension TaskViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  
-  func pickPhoto() {
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      showPhotoMenu()
-    } else {
-      choosePhotoFromLibrary()
-    }
-  }
-  
-  func showPhotoMenu() {
-    let alertController = UIAlertController(title: nil, message: nil,
-                                            preferredStyle: .actionSheet)
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    alertController.addAction(cancelAction)
-    
-    let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in self.takePhotoWithCamera() })
-    
-    alertController.addAction(takePhotoAction)
-    
-    let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library", style: .default, handler: { _ in self.choosePhotoFromLibrary() })
-    
-    alertController.addAction(chooseFromLibraryAction)
-    
-    present(alertController, animated: true, completion: nil)
-  }
-  
-  func takePhotoWithCamera() {
-    let imagePicker = UIImagePickerController()
-    imagePicker.sourceType = .camera
-    imagePicker.delegate = self
-    imagePicker.allowsEditing = true
-    present(imagePicker, animated: true, completion: nil)
-  }
-  
-  func choosePhotoFromLibrary() {
-    let imagePicker = UIImagePickerController()
-    imagePicker.sourceType = .photoLibrary
-    imagePicker.delegate = self
-    imagePicker.allowsEditing = true
-    present(imagePicker, animated: true, completion: nil)
-  }
-  
-  func imagePickerController(_ picker: UIImagePickerController,
-                             didFinishPickingMediaWithInfo info: [String : Any]) {
-    
-    memoryImage = info[UIImagePickerControllerEditedImage] as? UIImage
-    
-    if let image = memoryImage {
-      let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
-      photoMemory.save(image: image)
-      DataModel.shared.profile.memories.append(photoMemory)
-    }
-    
-    dismiss(animated: true, completion: nil)
-  }
-  
-  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    dismiss(animated: true, completion: nil)
-  }
 }
