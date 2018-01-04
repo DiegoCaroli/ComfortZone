@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */; };
 		0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */; };
+		F105C0171FFE6B7000BCBA22 /* PopupDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105C0161FFE6B7000BCBA22 /* PopupDismissAnimationController.swift */; };
+		F105C01A1FFE708600BCBA22 /* PopupPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105C0191FFE708600BCBA22 /* PopupPresentAnimationController.swift */; };
 		F109B66B1FE2D53A0098D23C /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */; };
 		F11172DC1FE94596005E47AC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11172DA1FE94596005E47AC /* Profile.storyboard */; };
 		F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172DD1FE945AE005E47AC /* ProfileViewController.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		0F1A475A1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F1A475C1FE1DF930069EB8D /* TrophiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophiesViewController.swift; sourceTree = "<group>"; };
+		F105C0161FFE6B7000BCBA22 /* PopupDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDismissAnimationController.swift; sourceTree = "<group>"; };
+		F105C0191FFE708600BCBA22 /* PopupPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPresentAnimationController.swift; sourceTree = "<group>"; };
 		F109B66A1FE2D53A0098D23C /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		F11172DB1FE94596005E47AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		F11172DD1FE945AE005E47AC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F105C0181FFE704B00BCBA22 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				F105C0161FFE6B7000BCBA22 /* PopupDismissAnimationController.swift */,
+				F105C0191FFE708600BCBA22 /* PopupPresentAnimationController.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		F16EC3641FE289F200828735 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */,
+				F105C0181FFE704B00BCBA22 /* Animation */,
 				F18C992E1FFE581A00A61E18 /* First Time */,
 				F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */,
 				F11172E11FE945D8005E47AC /* PhotoViewController.swift */,
@@ -295,9 +309,11 @@
 				F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */,
 				F1709CDE1FE9B723007F366F /* Date+Component.swift in Sources */,
 				0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */,
+				F105C0171FFE6B7000BCBA22 /* PopupDismissAnimationController.swift in Sources */,
 				F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */,
 				0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */,
 				F11172E21FE945D8005E47AC /* PhotoViewController.swift in Sources */,
+				F105C01A1FFE708600BCBA22 /* PopupPresentAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

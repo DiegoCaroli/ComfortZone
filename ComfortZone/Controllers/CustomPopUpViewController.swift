@@ -35,6 +35,12 @@ class CustomPopUpViewController: UIViewController {
     typeTaskLabel.text = task.titleTypeTask
   }
   
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    modalPresentationStyle = .custom
+    transitioningDelegate = self
+  }
+  
   @objc func viewTapped(sender: UITapGestureRecognizer) {
     dismiss(animated: true, completion: nil)
   }
@@ -43,4 +49,15 @@ class CustomPopUpViewController: UIViewController {
     dismiss(animated: true)
   }
   
+}
+
+//MARK: - UIViewControllerTransitioningDelegate
+extension CustomPopUpViewController: UIViewControllerTransitioningDelegate {
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return PopupPresentAnimationController()
+  }
+  
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return PopupDismissAnimationController()
+  }
 }

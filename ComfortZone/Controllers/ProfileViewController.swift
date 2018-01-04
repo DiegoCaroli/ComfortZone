@@ -59,7 +59,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     super.viewWillAppear(animated)
     
     navigationController?.isNavigationBarHidden = true
-    scrollView.contentOffset = CGPoint(x: 0, y: 0)
     configureProgressBars()
   }
   
