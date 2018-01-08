@@ -19,6 +19,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var humorProgressImageView: UIImageView!
   @IBOutlet weak var photoCollectionView: UICollectionView!
 
+  @IBOutlet weak var imageProfileLayoutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var fullNameLayoutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var progressLayoutContraint: NSLayoutConstraint!
+  @IBOutlet weak var humorLayoutConstaint: NSLayoutConstraint!
+  @IBOutlet weak var memoriesLayoutConstaint: NSLayoutConstraint!
+  
   var profile: Profile!
   var profileImage: UIImage? {
     didSet {
@@ -48,6 +54,15 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     humorProgressImageView.image = setHappiness()
     configureProgressBars()
+    
+    if UIScreen.main.bounds.height == 736 {
+      imageProfileLayoutConstraint.constant = 38
+      fullNameLayoutConstraint.constant = 12
+      progressLayoutContraint.constant = 27
+      humorLayoutConstaint.constant = 27
+      memoriesLayoutConstaint.constant = 28
+    }
+    
   }
   
   override func viewDidAppear(_ animated: Bool) {

@@ -28,11 +28,11 @@ class Task: Codable {
   
   func getTypeImage() -> UIImage {
     if type == "Adrenaline" {
-      return #imageLiteral(resourceName: "imageTaskAdrenaline")
+      return #imageLiteral(resourceName: "ImageTaskAdrenaline")
     } else if type == "Business" {
-      return #imageLiteral(resourceName: "imageTaskBusiness")
+      return #imageLiteral(resourceName: "ImageTaskBusiness")
     } else {
-      return #imageLiteral(resourceName: "imageTaskLifestyle")
+      return #imageLiteral(resourceName: "ImageTaskLifestyle")
     }
   }
   

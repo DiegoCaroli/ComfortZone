@@ -98,27 +98,19 @@ class Profile: Codable {
     let businessTasks = self.tasks.filter {$0.type == "Business" && !$0.isDone }
     let lifestyleTasks = self.tasks.filter {$0.type == "Lifestyle" && !$0.isDone }
     
-    if adrenalineScore <= 8 && businessScore <= 8 && lifestyleScore <= 8 {
+    if adrenalineScore <= 8  {
       let adrenalineTask = adrenalineTasks[Int(arc4random_uniform(UInt32(adrenalineTasks.count)))]
-      let businessTask = businessTasks[Int(arc4random_uniform(UInt32(businessTasks.count)))]
-      let lifestyleTask = lifestyleTasks[Int(arc4random_uniform(UInt32(lifestyleTasks.count)))]
+      tasks.append(adrenalineTask)
+    }
     
-      tasks = [adrenalineTask, businessTask, lifestyleTask]
-    } else if adrenalineScore == 9 && businessScore <= 8 && lifestyleScore <= 8 {
+    if businessScore <= 8 {
       let businessTask = businessTasks[Int(arc4random_uniform(UInt32(businessTasks.count)))]
+      tasks.append(businessTask)
+    }
+    
+    if lifestyleScore <= 8 {
       let lifestyleTask = lifestyleTasks[Int(arc4random_uniform(UInt32(lifestyleTasks.count)))]
-      
-      tasks = [businessTask, lifestyleTask]
-    } else if adrenalineScore <= 8 && businessScore == 9 && lifestyleScore <= 8 {
-      let adrenalineTask = adrenalineTasks[Int(arc4random_uniform(UInt32(adrenalineTasks.count)))]
-      let lifestyleTask = lifestyleTasks[Int(arc4random_uniform(UInt32(lifestyleTasks.count)))]
-      
-      tasks = [adrenalineTask, lifestyleTask]
-    } else if adrenalineScore <= 8 && businessScore <= 8 && lifestyleScore == 9 {
-      let adrenalineTask = adrenalineTasks[Int(arc4random_uniform(UInt32(adrenalineTasks.count)))]
-      let businessTask = businessTasks[Int(arc4random_uniform(UInt32(businessTasks.count)))]
-      
-      tasks = [adrenalineTask, businessTask]
+      tasks.append(lifestyleTask)
     }
     return tasks
   }
