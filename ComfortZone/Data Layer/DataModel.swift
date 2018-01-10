@@ -48,12 +48,31 @@ final class DataModel {
     }
   }
   
+  lazy var allTasks: [Task] = {
+    var tasks: [Task] = []
+    if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
+      if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+        
+        for (key, value) in dict {
+          for i in value as! [[String: Any]] {
+            let name = i["name"] as! String
+            let priority = i["priority"] as! Int
+            let task = Task(name: name, type: key, priority: priority)
+            tasks.append(task)
+          }
+        }
+      }
+    }
+    return tasks
+  }()
+  
   private init() {
     userDefaults.register(defaults: ["FirstTime": true,
                                               "LastDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
                                               "TodayTask": []])
     loadProfile()
     print(documentsDirectory)
+    profile.tasks = allTasks
   }
   
   func dataFilePath() -> URL {
@@ -105,8 +124,58 @@ final class DataModel {
   func generateNewTodayTasks() {
     let todayDate = Date()
     if lastDate.day != todayDate.day || lastDate.month != todayDate.month {
-      todayTasks = profile.getTodayTasks()
+      todayTasks = getTodayTasks()
     }
+  }
+  
+  private func getTodayTasks() -> [Task] {
+    var tasks: [Task] = []
+    let adrenalineTasks = profile.tasks.filter {$0.type == "Adrenaline" && !$0.isDone }
+    let businessTasks = profile.tasks.filter {$0.type == "Business" && !$0.isDone }
+    let lifestyleTasks = profile.tasks.filter {$0.type == "Lifestyle" && !$0.isDone }
+    
+    if let adrenalineTask = extractNormalTask(score: profile.adrenalineScore, tasks: adrenalineTasks) {
+      tasks.append(adrenalineTask)
+    }
+    
+    if let businessTask = extractNormalTask(score: profile.businessScore, tasks: businessTasks) {
+      tasks.append(businessTask)
+    }
+    
+    if let lifestyleTask = extractNormalTask(score: profile.lifestyleScore, tasks: lifestyleTasks) {
+      tasks.append(lifestyleTask)
+    }
+    
+    if profile.adrenalineScore >= 9 && profile.businessScore >= 9 && profile.lifestyleScore >= 9 {
+      if let adrenalineTask = extractExtremeTask(adrenalineTasks) {
+        tasks.append(adrenalineTask)
+      }
+      
+      if let businessTask = extractExtremeTask(businessTasks) {
+        tasks.append(businessTask)
+      }
+      
+      if let lifestyleTask = extractExtremeTask(lifestyleTasks) {
+        tasks.append(lifestyleTask)
+      }
+    }
+    return tasks
+  }
+  
+  private func extractNormalTask(score: Int, tasks: [Task]) -> Task? {
+    let tasks = tasks.filter { $0.priority == 0 }
+    if score <= 8 {
+      return tasks[Int(arc4random_uniform(UInt32(tasks.count)))]
+    }
+    return nil
+  }
+  
+  private func extractExtremeTask(_ tasks: [Task]) -> Task? {
+    let tasks = tasks.filter { $0.priority == 1 }
+    if !tasks.isEmpty {
+      return tasks[Int(arc4random_uniform(UInt32(tasks.count)))]
+    }
+    return nil
   }
   
 }

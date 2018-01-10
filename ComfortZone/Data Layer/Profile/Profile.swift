@@ -61,24 +61,6 @@ class Profile: Codable {
       Trophy(iconName: "Trophie", name: "Explorer", description: "Take a new way home from work"),
       Trophy(iconName: "Trophie", name: "Learn from your mistakes", description: "Ask for constructive criticism at work")
     ]
-    
-    tasks = loadTasks()
-  }
-  
-  private func loadTasks() -> [Task] {
-    var tasks: [Task] = []
-    if let path = Bundle.main.path(forResource: "Tasks", ofType: "plist") {
-      if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
-        
-        for (key, value) in dict {
-          for i in value as! [String] {
-            let task = Task(name: i, type: key)
-            tasks.append(task)
-          }
-        }
-      }
-    }
-    return tasks
   }
   
   func getComics() -> UIImage {
@@ -90,29 +72,6 @@ class Profile: Codable {
    default:
       return #imageLiteral(resourceName: "haveDoneAnswer")
     }
-  }
-  
-  func getTodayTasks() -> [Task] {
-    var tasks: [Task] = []
-    let adrenalineTasks = self.tasks.filter {$0.type == "Adrenaline" && !$0.isDone }
-    let businessTasks = self.tasks.filter {$0.type == "Business" && !$0.isDone }
-    let lifestyleTasks = self.tasks.filter {$0.type == "Lifestyle" && !$0.isDone }
-    
-    if adrenalineScore <= 8  {
-      let adrenalineTask = adrenalineTasks[Int(arc4random_uniform(UInt32(adrenalineTasks.count)))]
-      tasks.append(adrenalineTask)
-    }
-    
-    if businessScore <= 8 {
-      let businessTask = businessTasks[Int(arc4random_uniform(UInt32(businessTasks.count)))]
-      tasks.append(businessTask)
-    }
-    
-    if lifestyleScore <= 8 {
-      let lifestyleTask = lifestyleTasks[Int(arc4random_uniform(UInt32(lifestyleTasks.count)))]
-      tasks.append(lifestyleTask)
-    }
-    return tasks
   }
   
   func update(score: Int, task: Task) {

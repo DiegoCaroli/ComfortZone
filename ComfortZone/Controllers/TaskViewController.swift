@@ -50,7 +50,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     taskTableView.dataSource = self
     profile = DataModel.shared.profile
     notificationObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { _ in
-      self.checkAllTodayTasksDone()
+      if DataModel.shared.isTheSameDay && self.isViewLoaded && (self.view.window != nil) {
+        self.checkAllTodayTasksDone()
+      }
       self.updateUI()
     }
   }
@@ -148,7 +150,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   private func updateUI() {
-    DispatchQueue.main.async { () -> Void in
+    DispatchQueue.main.async {
       if !DataModel.shared.isTheSameDay {
         DataModel.shared.generateNewTodayTasks()
         self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
@@ -158,6 +160,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.scrollView.contentOffset = CGPoint(x: 0, y: 200)
         self.configureAdventureLabel(text: "Welcome back my adventure friend!")
         self.adventureLabel.frame = CGRect(x: 8, y: 264, width: self.view.bounds.width - 16, height: 74.0)
+      }
+      
+      if self.profile.adrenalineScore >= 9 && self.profile.businessScore >= 9 && self.profile.lifestyleScore >= 9 {
+        self.backgroundImage.image = #imageLiteral(resourceName: "VirtualAssistantLevel2")
       }
     }
   }

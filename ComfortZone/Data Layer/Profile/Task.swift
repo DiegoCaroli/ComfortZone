@@ -9,20 +9,22 @@
 import Foundation
 import UIKit
 
-class Task: Codable {
+class Task: Codable, CustomStringConvertible {
   let id: String
   var name: String
   var type: String
+  var priority: Int
   var isDone: Bool
   
   var titleTypeTask: String {
     return "\(type) Task"
   }
   
-  init(name: String, type: String) {
+  init(name: String, type: String, priority: Int) {
     id = UUID().uuidString
     self.name = name
     self.type = type
+    self.priority = priority
     isDone = false
   }
   
@@ -38,5 +40,8 @@ class Task: Codable {
   
   func toogleChecked() {
     isDone = !isDone
+  }
+  var description: String {
+    return "name: \(name), type: \(type), description: \(priority)"
   }
 }
