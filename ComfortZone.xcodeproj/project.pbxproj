@@ -28,6 +28,7 @@
 		F1709CDC1FE9B50C007F366F /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */; };
 		F1709CDE1FE9B723007F366F /* Date+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1709CDD1FE9B723007F366F /* Date+Component.swift */; };
 		F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */; };
+		F185F25D2006B794000D6AEF /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185F25C2006B794000D6AEF /* ZoomTransitioningDelegate.swift */; };
 		F18673261FE96DE80089D400 /* CustomPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */; };
 		F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673241FE96DE70089D400 /* TaskViewController.swift */; };
 		F18673281FE96DE80089D400 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18673251FE96DE80089D400 /* CustomTableViewCell.swift */; };
@@ -65,6 +66,7 @@
 		F1709CDB1FE9B50C007F366F /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		F1709CDD1FE9B723007F366F /* Date+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Component.swift"; path = "ComfortZone/Date+Component.swift"; sourceTree = SOURCE_ROOT; };
 		F17B59111FE16A18007D3918 /* ResultSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSurveyViewController.swift; sourceTree = "<group>"; };
+		F185F25C2006B794000D6AEF /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
 		F18673231FE96DE70089D400 /* CustomPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPopUpViewController.swift; sourceTree = "<group>"; };
 		F18673241FE96DE70089D400 /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		F18673251FE96DE80089D400 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				F105C0161FFE6B7000BCBA22 /* PopupDismissAnimationController.swift */,
 				F105C0191FFE708600BCBA22 /* PopupPresentAnimationController.swift */,
+				F185F25C2006B794000D6AEF /* ZoomTransitioningDelegate.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				F18B36451FE922D800A1E437 /* AppDelegate.swift in Sources */,
 				F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */,
 				F18C99341FFE589E00A61E18 /* Task.swift in Sources */,
+				F185F25D2006B794000D6AEF /* ZoomTransitioningDelegate.swift in Sources */,
 				F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */,
 				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
 				F141029E1FE003FC00CF4840 /* Question.swift in Sources */,

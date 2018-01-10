@@ -257,10 +257,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="GBH-ae-bje" id="lPX-kA-bYC"/>
                         <segue destination="cyI-Lj-oYw" kind="relationship" relationship="rootViewController" id="Vy5-Ba-U9Z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0A-DV-StM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="GBH-ae-bje" customClass="ZoomTransitioningDelegate" customModule="ComfortZone" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-425" y="87"/>
         </scene>

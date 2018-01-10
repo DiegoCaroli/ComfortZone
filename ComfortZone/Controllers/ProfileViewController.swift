@@ -31,7 +31,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       profileImageView.image = profileImage
     }
   }
-  lazy var memories: [UIImage] = [] 
+  lazy var memories: [UIImage] = []
+  var selectedIndexPath: IndexPath!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -132,6 +133,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
     let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
     photoVC.showPhoto = memories[indexPath.row]
+    selectedIndexPath = indexPath
     
     navigationController?.pushViewController(photoVC, animated: true)
   }
@@ -148,5 +150,19 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   }
 }
 
-
+//MARK: - ZoomingViewController
+extension ProfileViewController : ZoomingViewController {
+  func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+    return nil
+  }
+  
+  func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+    if let indexPath = selectedIndexPath {
+      let cell = photoCollectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+      return cell.memoryIcon
+    } else {
+      return nil
+    }
+  }
+}
 
