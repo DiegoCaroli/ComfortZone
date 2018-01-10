@@ -32,23 +32,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
   }
   lazy var memories: [UIImage] = [] 
-  var selectedCell = ImageCollectionViewCell()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     profile = DataModel.shared.profile
-    
     fullNameLabel.text = profile.fullName
     if let photoProfile = profile.photoProfile {
       profileImageView.image = UIImage(contentsOfFile: photoProfile.photoURL.path)
     }
     
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-    
     profileImageView.addGestureRecognizer(tapGesture)
     profileImageView.isUserInteractionEnabled = true
-    
     profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
     profileImageView.clipsToBounds = true
     
@@ -62,7 +59,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       humorLayoutConstaint.constant = 27
       memoriesLayoutConstaint.constant = 28
     }
-    
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +78,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    navigationController?.isNavigationBarHidden = true
+
     configureProgressBars()
   }
   
@@ -131,15 +129,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if let selectedCellImage = photoCollectionView.cellForItem(at: indexPath) {
-      selectedCell = selectedCellImage as! ImageCollectionViewCell
-      let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-      let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-      photoVC.showPhoto = selectedCell.memoryIcon.image
-      photoVC.cellFrame = selectedCell.frame
-
-      present(photoVC, animated: true, completion: nil)
-    }
+    let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+    let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+    photoVC.showPhoto = memories[indexPath.row]
+    
+    navigationController?.pushViewController(photoVC, animated: true)
   }
   
   @objc func handleTap(sender: UITapGestureRecognizer) {

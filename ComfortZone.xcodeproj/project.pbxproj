@@ -16,8 +16,6 @@
 		F11172DE1FE945AE005E47AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172DD1FE945AE005E47AC /* ProfileViewController.swift */; };
 		F11172E01FE945CC005E47AC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172DF1FE945CC005E47AC /* ImageCollectionViewCell.swift */; };
 		F11172E21FE945D8005E47AC /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11172E11FE945D8005E47AC /* PhotoViewController.swift */; };
-		F11481311FFE8728000B762C /* PhotoPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11481301FFE8728000B762C /* PhotoPresentAnimationController.swift */; };
-		F11481331FFE8CD0000B762C /* PhotoDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11481321FFE8CD0000B762C /* PhotoDismissAnimationController.swift */; };
 		F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */; };
 		F13C43651FE1349F0021225B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C43641FE1349F0021225B /* Profile.swift */; };
 		F141029E1FE003FC00CF4840 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141029D1FE003FC00CF4840 /* Question.swift */; };
@@ -55,8 +53,6 @@
 		F11172DD1FE945AE005E47AC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F11172DF1FE945CC005E47AC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = ComfortZone/Controllers/ImageCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		F11172E11FE945D8005E47AC /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		F11481301FFE8728000B762C /* PhotoPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresentAnimationController.swift; sourceTree = "<group>"; };
-		F11481321FFE8CD0000B762C /* PhotoDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDismissAnimationController.swift; sourceTree = "<group>"; };
 		F11ECB681FE1DDF9007F9BBD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F13C43641FE1349F0021225B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F141029D1FE003FC00CF4840 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -101,9 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F105C0161FFE6B7000BCBA22 /* PopupDismissAnimationController.swift */,
-				F11481321FFE8CD0000B762C /* PhotoDismissAnimationController.swift */,
 				F105C0191FFE708600BCBA22 /* PopupPresentAnimationController.swift */,
-				F11481301FFE8728000B762C /* PhotoPresentAnimationController.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -303,7 +297,6 @@
 				F18B36451FE922D800A1E437 /* AppDelegate.swift in Sources */,
 				F17B59121FE16A18007D3918 /* ResultSurveyViewController.swift in Sources */,
 				F18C99341FFE589E00A61E18 /* Task.swift in Sources */,
-				F11481311FFE8728000B762C /* PhotoPresentAnimationController.swift in Sources */,
 				F11ECB691FE1DDF9007F9BBD /* SignUpViewController.swift in Sources */,
 				F16EC3661FE28A1C00828735 /* BorderedButton.swift in Sources */,
 				F141029E1FE003FC00CF4840 /* Question.swift in Sources */,
@@ -320,7 +313,6 @@
 				F1709CDE1FE9B723007F366F /* Date+Component.swift in Sources */,
 				0F1A475B1FE1DEDA0069EB8D /* TrophyCollectionViewCell.swift in Sources */,
 				F105C0171FFE6B7000BCBA22 /* PopupDismissAnimationController.swift in Sources */,
-				F11481331FFE8CD0000B762C /* PhotoDismissAnimationController.swift in Sources */,
 				F1FCF8D51FFE99AE000B8971 /* ImagePickerManager.swift in Sources */,
 				F18673271FE96DE80089D400 /* TaskViewController.swift in Sources */,
 				0F1A475D1FE1DF930069EB8D /* TrophiesViewController.swift in Sources */,
