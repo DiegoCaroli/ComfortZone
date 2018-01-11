@@ -128,6 +128,29 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
 //    return configuration
 //  }
   
+  private func addMemory() {
+    let alert = UIAlertController(title: "Add a memory", message: "Your journey must be remembered, take a photo about it.", preferredStyle: .alert)
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+    let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+      self.addImage()
+    })
+      alert.addAction(cancelAction)
+      alert.addAction(okAction)
+      
+      present(alert, animated: true, completion: nil)
+  }
+  
+  private func addImage() {
+    ImagePickerManager.shared.pickPhoto { image in
+      let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
+      photoMemory.save(image: image)
+      DataModel.shared.profile.memories.append(photoMemory)
+      
+      self.checkAllTodayTasksDone()
+    }
+}
+  
   func checkmarkTapped(_ cell: CustomTableViewCell) {
     if let indexPath = taskTableView.indexPath(for: cell) {
       let task = DataModel.shared.todayTasks[indexPath.row]
@@ -138,24 +161,15 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
       
       DataModel.shared.update(task: task)
       
-      if task.isDone {
-        let alert = UIAlertController(title: "Add a memory", message: "Your journey must be remembered, take a photo about it.", preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-          ImagePickerManager.shared.pickPhoto { image in
-            let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
-            photoMemory.save(image: image)
-            DataModel.shared.profile.memories.append(photoMemory)
-            
-            self.checkAllTodayTasksDone()
-          }
-        })
-        
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        
-        present(alert, animated: true, completion: nil)
+      if DataModel.shared.counterReminderMemory < 3 {
+        if task.isDone {
+          addMemory()
+          DataModel.shared.counterReminderMemory += 1
+        }
+      } else {
+        if task.isDone {
+          addImage()
+        }
       }
       
       task.isDone ? profile.update(score: 1, task: task) : profile.update(score: -1, task: task)

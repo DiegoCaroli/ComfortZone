@@ -66,6 +66,16 @@ final class DataModel {
     return tasks
   }()
   
+  var counterReminderMemory: Int {
+    get {
+      return userDefaults.integer(forKey: "ReminderMemory")
+    }
+    set {
+      userDefaults.set(newValue, forKey: "ReminderMemory")
+      userDefaults.synchronize()
+    }
+  }
+  
   private init() {
     userDefaults.register(defaults: ["FirstTime": true,
                                               "LastDate": Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
