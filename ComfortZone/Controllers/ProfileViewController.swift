@@ -25,17 +25,29 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var humorLayoutConstaint: NSLayoutConstraint!
   @IBOutlet weak var memoriesLayoutConstaint: NSLayoutConstraint!
   
+  @IBOutlet weak var memoryLabel: UILabel!
   var profile: Profile!
   var profileImage: UIImage? {
     didSet {
       profileImageView.image = profileImage
     }
   }
-  lazy var memories: [UIImage] = []
+  var memories: [UIImage]! {
+    didSet {
+      if memories.isEmpty {
+        memoryLabel.isHidden = true
+        scrollView.isScrollEnabled = false
+      } else {
+        memoryLabel.isHidden = false
+        scrollView.isScrollEnabled = true
+      }
+    }
+  }
   var selectedIndexPath: IndexPath!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    memories = []
     
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     profile = DataModel.shared.profile
@@ -64,8 +76,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    memories = []
     
+     memories = []
     for i in DataModel.shared.profile.memories {
       if let memoryPhoto = UIImage(contentsOfFile: i.photoURL.path) {
         self.memories.append(memoryPhoto)

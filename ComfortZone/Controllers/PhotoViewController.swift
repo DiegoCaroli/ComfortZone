@@ -17,6 +17,10 @@ class PhotoViewController: UIViewController {
     super.viewDidLoad()
     
     navigationController?.isNavigationBarHidden = false
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.isTranslucent = true
+    navigationController?.view.backgroundColor = .clear
     
     if let image = showPhoto {
        photo.image = image
