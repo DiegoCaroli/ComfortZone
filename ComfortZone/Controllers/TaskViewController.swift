@@ -115,23 +115,23 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.deselectRow(at: indexPath, animated: true)
   }
   
-  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    let action = UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
-      ImagePickerManager.shared.pickPhoto { image in
-        let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
-        photoMemory.save(image: image)
-        DataModel.shared.profile.memories.append(photoMemory)
-      }
-      completionHandler(true)
-    })
-    
-    action.image = UIImage(named: "cameraSwipe")
-    action.backgroundColor = UIColor(red:0.82, green:0.48, blue:0.28, alpha:1.00)
-    let configuration = UISwipeActionsConfiguration(actions: [action])
-    return configuration
-  }
+//  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//    let action = UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
+//      ImagePickerManager.shared.pickPhoto { image in
+//        let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
+//        photoMemory.save(image: image)
+//        DataModel.shared.profile.memories.append(photoMemory)
+//      }
+//      completionHandler(true)
+//    })
+//
+//    action.image = UIImage(named: "cameraSwipe")
+//    action.backgroundColor = UIColor(red:0.82, green:0.48, blue:0.28, alpha:1.00)
+//    let configuration = UISwipeActionsConfiguration(actions: [action])
+//    return configuration
+//  }
   
-  func imageTapped(_ cell: CustomTableViewCell) {
+  func checkmarkTapped(_ cell: CustomTableViewCell) {
     if let indexPath = taskTableView.indexPath(for: cell) {
       let task = DataModel.shared.todayTasks[indexPath.row]
       task.toogleChecked()
@@ -141,12 +141,32 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
       
       DataModel.shared.update(task: task)
       
+      if task.isDone {
+        let alert = UIAlertController(title: "Add a memory", message: "Your journey must be remembered, take a photo about it.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+          ImagePickerManager.shared.pickPhoto { image in
+            let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
+            photoMemory.save(image: image)
+            DataModel.shared.profile.memories.append(photoMemory)
+            
+            self.checkAllTodayTasksDone()
+          }
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+      }
+      
       task.isDone ? profile.update(score: 1, task: task) : profile.update(score: -1, task: task)
       
       if profile.isThereATrophy(isLocked: !task.isDone, task: task) {
         showBadge(isThereNewTrophy: task.isDone)
       }
-      checkAllTodayTasksDone()
+      
     }
   }
   

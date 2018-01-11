@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CustomTableViewCellDelegate: class {
-  func imageTapped(_ cell: CustomTableViewCell)
+  func checkmarkTapped(_ cell: CustomTableViewCell)
 }
 
 class CustomTableViewCell: UITableViewCell {
@@ -39,7 +39,7 @@ class CustomTableViewCell: UITableViewCell {
   }
   
   @objc func imageTapped(sender: UITapGestureRecognizer) {
-    delegate?.imageTapped(self)
+    delegate?.checkmarkTapped(self)
   }
   
   func configureChechmark() {
