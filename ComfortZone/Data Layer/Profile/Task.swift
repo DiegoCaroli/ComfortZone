@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Task: Codable, CustomStringConvertible {
+class Task: Codable {
   let id: String
   var name: String
   var type: String
@@ -30,18 +30,16 @@ class Task: Codable, CustomStringConvertible {
   
   func getTypeImage() -> UIImage {
     if type == "Adrenaline" {
-      return #imageLiteral(resourceName: "ImageTaskAdrenaline")
+      return #imageLiteral(resourceName: "imageTaskAdrenaline")
     } else if type == "Business" {
-      return #imageLiteral(resourceName: "ImageTaskBusiness")
+      return #imageLiteral(resourceName: "imageTaskBusiness")
     } else {
-      return #imageLiteral(resourceName: "ImageTaskLifestyle")
+      return #imageLiteral(resourceName: "imageTaskLifestyle")
     }
   }
   
   func toogleChecked() {
     isDone = !isDone
   }
-  var description: String {
-    return "name: \(name), type: \(type), description: \(priority)"
-  }
+
 }
