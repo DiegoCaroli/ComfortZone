@@ -13,28 +13,26 @@ import UIKit
 
 extension UIScrollView {
   func scrollToTop() {
-    let desiredOffset = CGPoint(x: 0, y: 200)
+    let height = UIScreen.main.bounds.height == 667 ? 260 : 230
+    let desiredOffset = CGPoint(x: 0, y: CGFloat(height))
     setContentOffset(desiredOffset, animated: true)
   }
 }
 
 // MAIN
 
-class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomTableViewCellDelegate {
+class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   // Interface Builder
-  
   @IBOutlet weak var adventureLabel: UILabel!
   @IBOutlet weak var taskTableView: UITableView!
   @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var angryCloudButton: UIButton!
-  @IBOutlet weak var sadCloudButton: UIButton!
-  @IBOutlet weak var sunButton: UIButton!
-  @IBOutlet weak var neutralCloudButton: UIButton!
   @IBOutlet weak var thirdStaticCloudView: UIImageView!
   @IBOutlet weak var secondStaticCloudView: UIImageView!
   @IBOutlet weak var firstStaticCloudView: UIImageView!
   @IBOutlet weak var backgroundImage: UIImageView!
+  @IBOutlet weak var welcomeBackLabel: UILabel!
+  @IBOutlet weak var adventureLabelLayoutConstraint: NSLayoutConstraint!
   
   var profile: Profile!
   var memoryImage: UIImage?
@@ -42,6 +40,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     return NotificationCenter.default
   }()
   var notificationObserver: NSObjectProtocol?
+  let height667 = 260
+  let height736 = 230
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +52,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     notificationObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { _ in
       self.updateUI()
     }
+    welcomeBackLabel.isHidden = true
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -112,22 +113,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.deselectRow(at: indexPath, animated: true)
   }
   
-//  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//    let action = UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
-//      ImagePickerManager.shared.pickPhoto { image in
-//        let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
-//        photoMemory.save(image: image)
-//        DataModel.shared.profile.memories.append(photoMemory)
-//      }
-//      completionHandler(true)
-//    })
-//
-//    action.image = UIImage(named: "cameraSwipe")
-//    action.backgroundColor = UIColor(red:0.82, green:0.48, blue:0.28, alpha:1.00)
-//    let configuration = UISwipeActionsConfiguration(actions: [action])
-//    return configuration
-//  }
-  
   private func addMemory() {
     let alert = UIAlertController(title: "Add a memory", message: "Your journey must be remembered, take a photo about it.", preferredStyle: .alert)
     
@@ -135,10 +120,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
       self.addImage()
     })
-      alert.addAction(cancelAction)
-      alert.addAction(okAction)
-      
-      present(alert, animated: true, completion: nil)
+    alert.addAction(cancelAction)
+    alert.addAction(okAction)
+    
+    present(alert, animated: true, completion: nil)
   }
   
   private func addImage() {
@@ -149,68 +134,34 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
       
       self.checkAllTodayTasksDone()
     }
-}
-  
-  func checkmarkTapped(_ cell: CustomTableViewCell) {
-    if let indexPath = taskTableView.indexPath(for: cell) {
-      let task = DataModel.shared.todayTasks[indexPath.row]
-      task.toogleChecked()
-      
-      cell.task = task
-      cell.configureChechmark()
-      
-      DataModel.shared.update(task: task)
-      
-      if DataModel.shared.counterReminderMemory < 3 {
-        if task.isDone {
-          addMemory()
-          DataModel.shared.counterReminderMemory += 1
-        }
-      } else {
-        if task.isDone {
-          addImage()
-        }
-      }
-      
-      task.isDone ? profile.update(score: 1, task: task) : profile.update(score: -1, task: task)
-      
-      if profile.isThereATrophy(isLocked: !task.isDone, task: task) {
-        showBadge(isThereNewTrophy: task.isDone)
-      }
-      
-    }
   }
   
+  
+  
   private func updateUI() {
+    let height = UIScreen.main.bounds.height
     DispatchQueue.main.async {
       if !DataModel.shared.isTheSameDay {
         DataModel.shared.generateNewTodayTasks()
-        self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
-        self.configureAdventureLabel(text: "Hello my adventure friend!")
+        let rightHeight = height == 667 ? CGFloat(60) : CGFloat(0)
+        self.scrollView.contentOffset = CGPoint(x: 0, y: rightHeight)
+        if height == 667 {
+          self.adventureLabelLayoutConstraint.constant = self.adventureLabelLayoutConstraint.constant + 20
+        }
+        self.adventureLabel.frame = CGRect(x: (UIScreen.main.bounds.width - self.adventureLabel.bounds.width) / 2, y: 79, width: self.adventureLabel.bounds.width, height: self.adventureLabel.bounds.height)
+        self.adventureLabel.isHidden = false
+        self.welcomeBackLabel.isHidden = true
         self.taskTableView.reloadData()
       } else {
-        self.scrollView.contentOffset = CGPoint(x: 0, y: 200)
-        self.configureAdventureLabel(text: "Welcome back my adventure friend!")
-        self.adventureLabel.frame = CGRect(x: 8, y: 264, width: self.view.bounds.width - 16, height: 74.0)
+        let rightHeight = height == 667 ? CGFloat(260) : CGFloat(230)
+        self.scrollView.contentOffset = CGPoint(x: 0, y: rightHeight)
+        self.adventureLabel.isHidden = true
+        self.welcomeBackLabel.isHidden = false
       }
       
       if self.profile.adrenalineScore >= 9 && self.profile.businessScore >= 9 && self.profile.lifestyleScore >= 9 {
         self.backgroundImage.image = #imageLiteral(resourceName: "VirtualAssistantLevel2")
       }
-    }
-  }
-  
-  private func configureAdventureLabel(text: String) {
-    adventureLabel.text = text
-     adventureLabel.textAlignment = .center
-    if text == "Hello my adventure friend!" {
-      self.adventureLabel.font = self.adventureLabel.font.withSize(24.0)
-      self.adventureLabel.numberOfLines = 1
-      adventureLabel.frame = CGRect(x: 8, y: 75, width: self.view.bounds.width - 16, height: 33.0)
-    } else {
-      self.adventureLabel.font = self.adventureLabel.font.withSize(27.0)
-      self.adventureLabel.numberOfLines = 0
-      adventureLabel.frame = CGRect(x: 8, y: 264, width: self.view.bounds.width - 16, height: 74.0)
     }
   }
   
@@ -286,5 +237,37 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   func showBadge(isThereNewTrophy: Bool) {
     isThereNewTrophy ? (tabBarController?.tabBar.items![2].badgeValue = "New") : (tabBarController?.tabBar.items![2].badgeValue = nil)
   }
-  
+}
+
+//MARK: - CustomTableViewCellDelegate
+extension TaskViewController: CustomTableViewCellDelegate {
+  func checkmarkTapped(_ cell: CustomTableViewCell) {
+    if let indexPath = taskTableView.indexPath(for: cell) {
+      let task = DataModel.shared.todayTasks[indexPath.row]
+      task.toogleChecked()
+      
+      cell.task = task
+      cell.configureChechmark()
+      
+      DataModel.shared.update(task: task)
+      
+      if DataModel.shared.counterReminderMemory < 3 {
+        if task.isDone {
+          addMemory()
+          DataModel.shared.counterReminderMemory += 1
+        }
+      } else {
+        if task.isDone {
+          addImage()
+        }
+      }
+      
+      task.isDone ? profile.update(score: 1, task: task) : profile.update(score: -1, task: task)
+      
+      if profile.isThereATrophy(isLocked: !task.isDone, task: task) {
+        showBadge(isThereNewTrophy: task.isDone)
+      }
+      
+    }
+  }
 }
