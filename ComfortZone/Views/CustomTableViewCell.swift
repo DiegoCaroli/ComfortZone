@@ -9,8 +9,7 @@
 import UIKit
 
 protocol CustomTableViewCellDelegate: class {
-  func showAlert(_ class: CustomTableViewCell)
-  func showBadge(_ class: CustomTableViewCell)
+  func checkmarkTapped(_ cell: CustomTableViewCell)
 }
 
 class CustomTableViewCell: UITableViewCell {
@@ -21,12 +20,8 @@ class CustomTableViewCell: UITableViewCell {
   @IBOutlet weak var taskLabel: UILabel!
   @IBOutlet weak var checkmarkImageView: UIImageView!
   
-  var task: Task! {
-    didSet {
-      configureChechmark()
-      checkAllTodayTasksDone()
-    }
-  }
+  var task: Task!
+  
   let profile = DataModel.shared.profile
   weak var delegate: CustomTableViewCellDelegate?
   
@@ -44,86 +39,15 @@ class CustomTableViewCell: UITableViewCell {
   }
   
   @objc func imageTapped(sender: UITapGestureRecognizer) {
-    task.toogleChecked()
-    
-    configureChechmark()
-    updateTask()
-    
-    if task.isChecked {
-      updateScore(score: 1)
-      unlockTrophy()
-    } else {
-      updateScore(score: -1)
-      lockTrophy()
-    }
-    
-    checkAllTodayTasksDone()
+    delegate?.checkmarkTapped(self)
   }
   
-  private func configureChechmark() {
-    if task.isChecked {
+  func configureChechmark() {
+    if task.isDone {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkTrue")
     } else {
       checkmarkImageView.image = #imageLiteral(resourceName: "checkFalse")
     }
-  }
-  
-  private func updateTask() {
-    if let i = DataModel.shared.todayTasks.index(where: {$0.id == task.id}) {
-      var todayTasks = DataModel.shared.todayTasks
-      todayTasks[i] = task
-      DataModel.shared.todayTasks = todayTasks
-    }
-    
-    if let i = profile.tasks.index(where: {$0.id == task.id}) {
-      profile.tasks[i] = task
-    }
-  }
-  
-  private func updateScore(score: Int) {
-    switch task.type {
-    case "Adrenaline":
-      DataModel.shared.profile.adrenalineScore += score
-    case "Business":
-      DataModel.shared.profile.businessScore += score
-    case "Lifestyle":
-      DataModel.shared.profile.lifestyleScore += score
-    default:
-      return
-    }
-  }
-  
-  private func unlockTrophy() {
-    let trophies = DataModel.shared.profile.trophies
-    if let i = indexOfTrophy(trophies: trophies) {
-      trophies[i].isLocked = false
-      delegate?.showBadge(self)
-    }
-  }
-  
-  private func lockTrophy() {
-    let trophies = DataModel.shared.profile.trophies
-    if let i = indexOfTrophy(trophies: trophies) {
-      trophies[i].isLocked = true
-    }
-  }
-  
-  private func indexOfTrophy(trophies: [Trophy]) -> Int? {
-    if let i = trophies.index(where: { $0.description.contains(task.name) }) {
-      return i
-    }
-    return nil
-  }
-  
-  func checkAllTodayTasksDone() {
-    let todayTasks = DataModel.shared.todayTasks
-    
-    for task in todayTasks {
-      if task.isChecked == false {
-        return
-      }
-    }
-    delegate?.showAlert(self)
   }
   
 }

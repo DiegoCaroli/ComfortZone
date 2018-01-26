@@ -13,46 +13,35 @@ import UIKit
 
 extension UIScrollView {
   func scrollToTop() {
-    let desiredOffset = CGPoint(x: 0, y: 200)
+    let height = UIScreen.main.bounds.height == 667 ? 260 : 230
+    let desiredOffset = CGPoint(x: 0, y: CGFloat(height))
     setContentOffset(desiredOffset, animated: true)
   }
 }
 
 // MAIN
 
-class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomTableViewCellDelegate {
+class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   // Interface Builder
-  
   @IBOutlet weak var adventureLabel: UILabel!
   @IBOutlet weak var taskTableView: UITableView!
   @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var angryCloudButton: UIButton!
-  @IBOutlet weak var sadCloudButton: UIButton!
-  @IBOutlet weak var sunButton: UIButton!
-  @IBOutlet weak var neutralCloudButton: UIButton!
   @IBOutlet weak var thirdStaticCloudView: UIImageView!
   @IBOutlet weak var secondStaticCloudView: UIImageView!
   @IBOutlet weak var firstStaticCloudView: UIImageView!
   @IBOutlet weak var backgroundImage: UIImageView!
   @IBOutlet weak var welcomeBackLabel: UILabel!
+  @IBOutlet weak var adventureLabelLayoutConstraint: NSLayoutConstraint!
   
   var profile: Profile!
-  let todayDate = DataModel.shared.todayDate
-  let dueDate = Date()
-  
   var memoryImage: UIImage?
-  
-  func generalButtonFunction(){
-    
-    scrollView.scrollToTop()
-    labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
-    //        sunButton.isHidden = true
-    //        sadCloudButton.isHidden = true
-    //        angryCloudButton.isHidden = true
-    //        neutralCloudButton.isHidden = true
-    
-  }
+  lazy var notificationCenter: NotificationCenter = {
+    return NotificationCenter.default
+  }()
+  var notificationObserver: NSObjectProtocol?
+  let height667 = 260
+  let height736 = 230
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,7 +49,10 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     taskTableView.delegate = self
     taskTableView.dataSource = self
     profile = DataModel.shared.profile
-    setTodayDate()
+    notificationObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { _ in
+      self.updateUI()
+    }
+    welcomeBackLabel.isHidden = true
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -69,11 +61,17 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cloudAnimation(viewOfTheCloud: firstStaticCloudView , duration: 10 , amount: -100)
     cloudAnimation(viewOfTheCloud: secondStaticCloudView , duration: 15 , amount: 60)
     cloudAnimation(viewOfTheCloud: thirdStaticCloudView , duration: 12 , amount: -50)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
-    
-    if todayDate.getDay == dueDate.getDay && todayDate.getMonth == dueDate.getMonth {
-      scrollView.contentOffset = CGPoint(x: 0, y: 200)
-      welcomeBackLabel.isHidden = false
+    self.updateUI()
+  }
+  
+  deinit {
+    if let observer = notificationObserver {
+      notificationCenter.removeObserver(observer)
     }
   }
   
@@ -105,8 +103,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     cell.typeTaskLabel.text = task.titleTypeTask
     cell.taskImageView.image = task.getTypeImage()
     cell.task = task
+    cell.configureChechmark()
     cell.delegate = self
-    cell.checkAllTodayTasksDone()
     
     return cell
   }
@@ -115,16 +113,61 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.deselectRow(at: indexPath, animated: true)
   }
   
-  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    let action = UIContextualAction(style: .normal, title: "Add Photo", handler: { (action, view, completionHandler) in
-      self.pickPhoto()
-      completionHandler(true)
-    })
+  private func addMemory() {
+    let alert = UIAlertController(title: "Add a memory", message: "Your journey must be remembered, take a photo about it.", preferredStyle: .alert)
     
-    action.image = UIImage(named: "cameraSwipe")
-    action.backgroundColor = UIColor(red:0.82, green:0.48, blue:0.28, alpha:1.00)
-    let configuration = UISwipeActionsConfiguration(actions: [action])
-    return configuration
+    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+    let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+      self.addImage()
+    })
+    alert.addAction(cancelAction)
+    alert.addAction(okAction)
+    
+    present(alert, animated: true, completion: nil)
+  }
+  
+  private func addImage() {
+    ImagePickerManager.shared.pickPhoto { image in
+      let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
+      photoMemory.save(image: image)
+      DataModel.shared.profile.memories.append(photoMemory)
+      
+      self.checkAllTodayTasksDone()
+    }
+  }
+  
+  
+  
+  private func updateUI() {
+    let height = UIScreen.main.bounds.height
+    DispatchQueue.main.async {
+      if !DataModel.shared.isTheSameDay {
+        DataModel.shared.generateNewTodayTasks()
+        let rightHeight = height == 667 ? CGFloat(60) : CGFloat(0)
+        self.scrollView.contentOffset = CGPoint(x: 0, y: rightHeight)
+        if height == 667 {
+          self.adventureLabelLayoutConstraint.constant = self.adventureLabelLayoutConstraint.constant + 20
+        }
+        self.adventureLabel.frame = CGRect(x: (UIScreen.main.bounds.width - self.adventureLabel.bounds.width) / 2, y: 79, width: self.adventureLabel.bounds.width, height: self.adventureLabel.bounds.height)
+        self.adventureLabel.isHidden = false
+        self.welcomeBackLabel.isHidden = true
+        self.taskTableView.reloadData()
+      } else {
+        let rightHeight = height == 667 ? CGFloat(260) : CGFloat(230)
+        self.scrollView.contentOffset = CGPoint(x: 0, y: rightHeight)
+        self.adventureLabel.isHidden = true
+        self.welcomeBackLabel.isHidden = false
+      }
+      
+      if self.profile.adrenalineScore >= 9 && self.profile.businessScore >= 9 && self.profile.lifestyleScore >= 9 {
+        self.backgroundImage.image = #imageLiteral(resourceName: "VirtualAssistantLevel2")
+      }
+    }
+  }
+  
+  func generalButtonFunction(){
+    scrollView.scrollToTop()
+    labelAnimation(label: adventureLabel, duration: 0.5, amount: -210)
   }
   
   //  ANIMATION: Functions to use custom animation for the Clouds and the label "Hello my adventure Friend"
@@ -148,49 +191,40 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBAction func angryCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 0
+    setTodayDate()
   }
   
   @IBAction func sadCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 1
+    setTodayDate()
   }
   
   @IBAction func neutralCloudButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 2
+    setTodayDate()
   }
   
   @IBAction func sunButtonPressed(_ sender: Any) {
     generalButtonFunction()
     profile.happiness = 3
+    setTodayDate()
   }
   
   private func setTodayDate() {
-    if todayDate.getDay != dueDate.getDay || todayDate.getMonth != dueDate.getMonth {
-      DataModel.shared.todayDate = dueDate
-      DataModel.shared.todayTasks = profile.getTodayTasks()
-    }
+    DataModel.shared.lastDate = Date()
   }
   
-  private func updateTask(task: Task) {
-    let profile = DataModel.shared.profile
+  func checkAllTodayTasksDone() {
+    let todayTasks = DataModel.shared.todayTasks
     
-    if let i = DataModel.shared.todayTasks.index(where: {$0.id == task.id}) {
-      var tasks = DataModel.shared.todayTasks
-      tasks[i] = task
-      DataModel.shared.todayTasks = tasks
+    for task in todayTasks  {
+      if task.isDone == false {
+        return
+      }
     }
     
-    if let i = profile.tasks.index(where: {$0.id == task.id}) {
-      profile.tasks[i] = task
-    }
-  }
-  
-  func showBadge(_ class: CustomTableViewCell) {
-    tabBarController?.tabBar.items![2].badgeValue = "New"
-  }
-  
-  func showAlert(_ class: CustomTableViewCell) {
     let alert = UIAlertController(title: "Well Done", message: "Hey, looks like today you were too good! Come tomorrow for more fun.", preferredStyle: .alert)
     
     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -200,68 +234,40 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     present(alert, animated: true, completion: nil)
   }
   
+  func showBadge(isThereNewTrophy: Bool) {
+    isThereNewTrophy ? (tabBarController?.tabBar.items![2].badgeValue = "New") : (tabBarController?.tabBar.items![2].badgeValue = nil)
+  }
 }
 
-//MARK: - UIImagePickerControllerDelegate
-extension TaskViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  
-  func pickPhoto() {
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      showPhotoMenu()
-    } else {
-      choosePhotoFromLibrary()
+//MARK: - CustomTableViewCellDelegate
+extension TaskViewController: CustomTableViewCellDelegate {
+  func checkmarkTapped(_ cell: CustomTableViewCell) {
+    if let indexPath = taskTableView.indexPath(for: cell) {
+      let task = DataModel.shared.todayTasks[indexPath.row]
+      task.toogleChecked()
+      
+      cell.task = task
+      cell.configureChechmark()
+      
+      DataModel.shared.update(task: task)
+      
+      if DataModel.shared.counterReminderMemory < 3 {
+        if task.isDone {
+          addMemory()
+          DataModel.shared.counterReminderMemory += 1
+        }
+      } else {
+        if task.isDone {
+          addImage()
+        }
+      }
+      
+      task.isDone ? profile.update(score: 1, task: task) : profile.update(score: -1, task: task)
+      
+      if profile.isThereATrophy(isLocked: !task.isDone, task: task) {
+        showBadge(isThereNewTrophy: task.isDone)
+      }
+      
     }
-  }
-  
-  func showPhotoMenu() {
-    let alertController = UIAlertController(title: nil, message: nil,
-                                            preferredStyle: .actionSheet)
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    alertController.addAction(cancelAction)
-    
-    let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in self.takePhotoWithCamera() })
-    
-    alertController.addAction(takePhotoAction)
-    
-    let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library", style: .default, handler: { _ in self.choosePhotoFromLibrary() })
-    
-    alertController.addAction(chooseFromLibraryAction)
-    
-    present(alertController, animated: true, completion: nil)
-  }
-  
-  func takePhotoWithCamera() {
-    let imagePicker = UIImagePickerController()
-    imagePicker.sourceType = .camera
-    imagePicker.delegate = self
-    imagePicker.allowsEditing = true
-    present(imagePicker, animated: true, completion: nil)
-  }
-  
-  func choosePhotoFromLibrary() {
-    let imagePicker = UIImagePickerController()
-    imagePicker.sourceType = .photoLibrary
-    imagePicker.delegate = self
-    imagePicker.allowsEditing = true
-    present(imagePicker, animated: true, completion: nil)
-  }
-  
-  func imagePickerController(_ picker: UIImagePickerController,
-                             didFinishPickingMediaWithInfo info: [String : Any]) {
-    
-    memoryImage = info[UIImagePickerControllerEditedImage] as? UIImage
-    
-    if let image = memoryImage {
-      let photoMemory = Photo(photoID: DataModel.shared.nextPhotoID())
-      photoMemory.save(image: image)
-      DataModel.shared.profile.memories.append(photoMemory)
-    }
-    
-    dismiss(animated: true, completion: nil)
-  }
-  
-  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    dismiss(animated: true, completion: nil)
   }
 }

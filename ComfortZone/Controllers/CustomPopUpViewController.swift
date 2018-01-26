@@ -18,6 +18,12 @@ class CustomPopUpViewController: UIViewController {
   
   var task: Task!
   
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    modalPresentationStyle = .custom
+    transitioningDelegate = self
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -43,4 +49,15 @@ class CustomPopUpViewController: UIViewController {
     dismiss(animated: true)
   }
   
+}
+
+//MARK: - UIViewControllerTransitioningDelegate
+extension CustomPopUpViewController: UIViewControllerTransitioningDelegate {
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return PopupPresentAnimationController()
+  }
+  
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return PopupDismissAnimationController()
+  }
 }

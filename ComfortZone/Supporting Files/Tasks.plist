@@ -4,39 +4,252 @@
 <dict>
 	<key>Adrenaline</key>
 	<array>
-		<string>Make a fool of yourself on a dance floor in public</string>
-		<string>Give online dating a chance</string>
-		<string>Travel alone</string>
-		<string>Sing karoke in a bar</string>
-		<string>Eat a bug</string>
-		<string>Go zip lining</string>
-		<string>Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh</string>
-		<string>Jump into a lake or something with water with your clothes on</string>
-		<string>Go somewhere you shouldn’t be</string>
+		<dict>
+			<key>name</key>
+			<string>Take a new fitness class you’ve always wanted to try. Laugh at yourself when you suck</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Go spelunking. (Exploring caves)</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Two words: Naked Twister</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Ride a bucking bull</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Slow dance on a rooftop (or somewhere epic)</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Go somewhere you shouldn’t be</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Jump into a lake or something with water with your clothes on</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Drive around, crank your favorite songs and have a dance off at stoplights to make strangers laugh</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Go zip lining</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Eat a bug</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Sing karoke in a bar</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Travel alone</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Give online dating a chance</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Make a fool of yourself on a dance floor in public</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>Lifestyle</key>
 	<array>
-		<string>Go to a restaurant, order and eat dessert first</string>
-		<string>Send someone flowers for no reason</string>
-		<string>Take a new fitness class you’ve always wanted to try. Exclaim at yourself when you fail</string>
-		<string>Try a new coffee place in town or go somewhere new every time you go out to eat</string>
-		<string>Go to lunch by yourself</string>
-		<string>Give to a stranger an hug</string>
-		<string>Have a midnight picnic</string>
-		<string>Go to your favorite book store, and leave notes in your favorites books for future readers</string>
-		<string>Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because</string>
+		<dict>
+			<key>name</key>
+			<string>Ditch your head and follow your heart for a decision</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Crash a wedding</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Unplug from email, social media and your phone for 24 hrs</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Date someone totally outside of your comfort zone</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Ask someone on a date who you think is out of your league</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Wake up early. Go for a walk at sunrise and cook yourself a huge breakfast. Just because</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Go to your favorite book store, and leave notes in your favorites books for future readers</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Have a midnight picnic</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Give to a stranger an hug</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Go to lunch by yourself</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Try a new coffee place in town or go somewhere new every time you go out to eat</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Take a new fitness class you’ve always wanted to try. Exclaim at yourself when you fail</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Send someone flowers for no reason</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Go to a restaurant, order and eat dessert first</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>Business</key>
 	<array>
-		<string>Try to sell something</string>
-		<string>Invest 10€ and to gain 11€</string>
-		<string>Start to save 1€. Try to do this every day</string>
-		<string>Apply for jobs that intimidate you</string>
-		<string>Ask for constructive criticism at work</string>
-		<string>Invite a co-worker you don’t know well to lunch and get to know them better</string>
-		<string>Have a difficult conversation face to face instead of email/text/phone</string>
-		<string>Take a new way home from work</string>
-		<string>Create your cv</string>
+		<dict>
+			<key>name</key>
+			<string>Apply for jobs that intimidate you</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Eat somewhere out of your budget</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Approach some collegues who intimidates you and compliment them</string>
+			<key>priority</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Create your cv</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Take a new way home from work</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Have a difficult conversation face to face instead of email/text/phone</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Invite a co-worker you don’t know well to lunch and get to know them better</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Ask for constructive criticism at work</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Apply for jobs that intimidate you</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Start to save 1€. Try to do this every day</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Invest 10€ and to gain 11€</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Try to sell something</string>
+			<key>priority</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 </dict>
 </plist>

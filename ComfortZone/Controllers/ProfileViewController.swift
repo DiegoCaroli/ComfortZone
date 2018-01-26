@@ -19,38 +19,74 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var humorProgressImageView: UIImageView!
   @IBOutlet weak var photoCollectionView: UICollectionView!
 
+  @IBOutlet weak var imageProfileLayoutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var fullNameLayoutConstraint: NSLayoutConstraint!
+  @IBOutlet weak var progressLayoutContraint: NSLayoutConstraint!
+  @IBOutlet weak var humorLayoutConstaint: NSLayoutConstraint!
+  @IBOutlet weak var memoriesLayoutConstaint: NSLayoutConstraint!
+  @IBOutlet weak var collectionViewLayoutConstraints: NSLayoutConstraint!
+  @IBOutlet weak var memoryLabel: UILabel!
+  
   var profile: Profile!
-  
-  lazy var memories: [UIImage] = [] 
-  
+  var profileImage: UIImage? {
+    didSet {
+      profileImageView.image = profileImage
+    }
+  }
+  var memories: [UIImage]! {
+    didSet {
+      if memories.isEmpty {
+        memoryLabel.isHidden = true
+        scrollView.isScrollEnabled = false
+      } else {
+        memoryLabel.isHidden = false
+        scrollView.isScrollEnabled = true
+      }
+    }
+  }
+  var selectedIndexPath: IndexPath!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    memories = []
     
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     profile = DataModel.shared.profile
-    
     fullNameLabel.text = profile.fullName
     if let photoProfile = profile.photoProfile {
       profileImageView.image = UIImage(contentsOfFile: photoProfile.photoURL.path)
     }
     
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+    profileImageView.addGestureRecognizer(tapGesture)
+    profileImageView.isUserInteractionEnabled = true
     profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2
     profileImageView.clipsToBounds = true
     
     humorProgressImageView.image = setHappiness()
-    
     configureProgressBars()
+    
+    if UIScreen.main.bounds.height == 736 {
+      imageProfileLayoutConstraint.constant = 38
+      fullNameLayoutConstraint.constant = 12
+      progressLayoutContraint.constant = 27
+      humorLayoutConstaint.constant = 27
+      memoriesLayoutConstaint.constant = 28
+      collectionViewLayoutConstraints.constant = 38
+      let layout = photoCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+      layout.minimumLineSpacing = 20
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    memories = []
     
+     memories = []
     for i in DataModel.shared.profile.memories {
       if let memoryPhoto = UIImage(contentsOfFile: i.photoURL.path) {
         self.memories.append(memoryPhoto)
       }
     }
-    
     
     photoCollectionView.reloadData()
     humorProgressImageView.image = setHappiness()
@@ -60,7 +96,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     super.viewWillAppear(animated)
     
     navigationController?.isNavigationBarHidden = true
-    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+
     configureProgressBars()
   }
   
@@ -104,18 +140,44 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
-    print(memories[indexPath.row])
     cell.memoryIcon.image = memories[indexPath.row]
     
     return cell
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
     let mainStroboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
     let photoVC = mainStroboard.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
     photoVC.showPhoto = memories[indexPath.row]
-    self.navigationController?.pushViewController(photoVC, animated: true)
+    selectedIndexPath = indexPath
+    
+    navigationController?.pushViewController(photoVC, animated: true)
   }
+  
+  @objc func handleTap(sender: UITapGestureRecognizer) {
+    ImagePickerManager.shared.pickPhoto { image in
+      self.profileImage = image
+      self.profile.photoProfile?.remove()
+      self.profile.photoProfile = Photo(photoID: DataModel.shared.nextPhotoID())
+      if let theImage = self.profile.photoProfile {
+        theImage.save(image: image)
+      }
+    }
+  }
+}
 
+//MARK: - ZoomingViewController
+extension ProfileViewController : ZoomingViewController {
+  func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+    return nil
+  }
+  
+  func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+    if let indexPath = selectedIndexPath {
+      let cell = photoCollectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+      return cell.memoryIcon
+    } else {
+      return nil
+    }
+  }
 }

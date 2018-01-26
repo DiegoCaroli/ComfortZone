@@ -9,15 +9,13 @@
 import Foundation
 
 extension Date {
-  
-  var getDay: Int {
+  var day: Int {
     let calendar = Calendar.current
     return calendar.component(.day, from: self)
   }
   
-  var getMonth: Int {
+  var month: Int {
     let calendar = Calendar.current
     return calendar.component(.month, from: self)
   }
-  
 }

@@ -17,6 +17,11 @@ class PhotoViewController: UIViewController {
     super.viewDidLoad()
     
     navigationController?.isNavigationBarHidden = false
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.isTranslucent = true
+    navigationController?.view.backgroundColor = .clear
+    
     if let image = showPhoto {
        photo.image = image
     }
@@ -27,4 +32,15 @@ class PhotoViewController: UIViewController {
     present(activityVC, animated: true, completion: nil)
   }
   
+}
+
+//MARK: - ZoomingViewController
+extension PhotoViewController: ZoomingViewController {
+  func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+    return nil
+  }
+  
+  func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+    return photo
+  }
 }

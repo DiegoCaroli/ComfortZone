@@ -70,6 +70,7 @@ class SurveyViewController: UIViewController {
       let question = QuestionStore.questions[index]
       titleSurveyLabel.text = question.text
       backgroundSurveyImageView.image = question.backgroundImage
+      animate(question: titleSurveyLabel)
     } else {
       performSegue(withIdentifier: "ShowResult", sender: profile)
     }
@@ -85,6 +86,13 @@ class SurveyViewController: UIViewController {
       DataModel.shared.profile.lifestyleScore += points
     default:
       break
+    }
+  }
+  
+  private func animate(question: UILabel) {
+    question.alpha = 0.0
+    UIView.animate(withDuration: 0.8) {
+      question.alpha = 1.0
     }
   }
   

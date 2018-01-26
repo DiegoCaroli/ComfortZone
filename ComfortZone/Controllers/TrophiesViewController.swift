@@ -20,7 +20,6 @@ class TrophiesViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   override func viewWillAppear(_ animated: Bool) {
     trophyCollectionView.reloadData()
-    trophyCollectionView.contentOffset = CGPoint(x: 0, y: 0)
     
     tabBarController?.tabBar.items![2].badgeValue = nil
   }
