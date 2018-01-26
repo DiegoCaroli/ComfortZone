@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Item-->
         <scene sceneID="gOc-bw-bd9">
             <objects>
                 <viewController id="cyI-Lj-oYw" customClass="ProfileViewController" customModule="ComfortZone" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,18 +148,28 @@
                                     <constraint firstItem="BdH-x8-T2s" firstAttribute="top" secondItem="2wu-T9-tN2" secondAttribute="top" constant="3" id="oWX-ac-Q6E"/>
                                 </constraints>
                             </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Backgound_Trophies" translatesAutoresizingMaskIntoConstraints="NO" id="wEL-PQ-QMD">
+                                <rect key="frame" x="0.0" y="926" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="xJb-w1-2yy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="reA-Pq-qVD" firstAttribute="top" secondItem="i4F-n8-8Vy" secondAttribute="top" constant="-64" id="1lo-1a-7mo"/>
                             <constraint firstItem="reA-Pq-qVD" firstAttribute="trailing" secondItem="i4F-n8-8Vy" secondAttribute="trailing" id="3Lj-Ax-YFe"/>
+                            <constraint firstAttribute="bottom" secondItem="wEL-PQ-QMD" secondAttribute="bottom" id="GCW-c8-Tgb"/>
                             <constraint firstItem="2wu-T9-tN2" firstAttribute="trailing" secondItem="i4F-n8-8Vy" secondAttribute="trailing" id="fTh-Db-qZB"/>
                             <constraint firstItem="2wu-T9-tN2" firstAttribute="leading" secondItem="i4F-n8-8Vy" secondAttribute="leading" id="muR-lK-yM1"/>
                             <constraint firstAttribute="bottom" secondItem="2wu-T9-tN2" secondAttribute="bottom" constant="45" id="obd-HX-tNX"/>
+                            <constraint firstItem="wEL-PQ-QMD" firstAttribute="trailing" secondItem="i4F-n8-8Vy" secondAttribute="trailing" id="pvs-Qn-RNZ"/>
                             <constraint firstItem="2wu-T9-tN2" firstAttribute="top" secondItem="6ph-bI-HHF" secondAttribute="top" constant="16" id="rc9-pR-Xzy"/>
+                            <constraint firstItem="wEL-PQ-QMD" firstAttribute="leading" secondItem="i4F-n8-8Vy" secondAttribute="leading" id="vUw-BG-gSk"/>
                             <constraint firstItem="reA-Pq-qVD" firstAttribute="leading" secondItem="i4F-n8-8Vy" secondAttribute="leading" id="wSl-Dy-X1x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i4F-n8-8Vy"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cdP-R0-VZL"/>
                     <navigationItem key="navigationItem" id="YmF-S4-bTv"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -269,6 +279,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Backgound_Trophies" width="375" height="667"/>
         <image name="ProfileTabBar" width="32" height="32"/>
         <image name="ProfileViewBackground" width="375" height="667"/>
         <image name="cloudsEmotionNeutral" width="251" height="50"/>
