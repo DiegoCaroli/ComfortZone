@@ -167,6 +167,7 @@
                     <connections>
                         <outlet property="adrenalineProgressImageView" destination="70l-19-QJL" id="2T2-NB-CmW"/>
                         <outlet property="businessProgressImageView" destination="DIh-mq-iL9" id="Vh0-hi-rLx"/>
+                        <outlet property="collectionViewLayoutConstraints" destination="IM5-Wg-Udv" id="3IH-7W-C5j"/>
                         <outlet property="fullNameLabel" destination="8xZ-mL-EMF" id="joH-gK-t1Y"/>
                         <outlet property="fullNameLayoutConstraint" destination="NfR-kL-r08" id="PHK-Nj-beo"/>
                         <outlet property="humorLayoutConstaint" destination="rIP-Fh-asU" id="mfa-a8-MEU"/>

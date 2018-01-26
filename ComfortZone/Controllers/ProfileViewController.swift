@@ -24,8 +24,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
   @IBOutlet weak var progressLayoutContraint: NSLayoutConstraint!
   @IBOutlet weak var humorLayoutConstaint: NSLayoutConstraint!
   @IBOutlet weak var memoriesLayoutConstaint: NSLayoutConstraint!
-  
+  @IBOutlet weak var collectionViewLayoutConstraints: NSLayoutConstraint!
   @IBOutlet weak var memoryLabel: UILabel!
+  
   var profile: Profile!
   var profileImage: UIImage? {
     didSet {
@@ -71,6 +72,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
       progressLayoutContraint.constant = 27
       humorLayoutConstaint.constant = 27
       memoriesLayoutConstaint.constant = 28
+      collectionViewLayoutConstraints.constant = 38
+      let layout = photoCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+      layout.minimumLineSpacing = 20
     }
   }
   
