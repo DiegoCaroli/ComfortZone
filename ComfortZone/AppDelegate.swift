@@ -12,10 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     self.window = UIWindow(frame: UIScreen.main.bounds)
     var viewController: UIViewController!
+    
+    Thread.sleep(forTimeInterval: 1.0)
     
     if DataModel.shared.isFirstTime {
       viewController = UIStoryboard(name: "FirstTime", bundle: nil).instantiateInitialViewController()
@@ -25,8 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     self.window?.rootViewController = viewController
     self.window?.makeKeyAndVisible()
-
+    
     return true
+  }
+  
+  private func afterDelay(_ seconds: Double, closure: @escaping () -> ()) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: closure)
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
